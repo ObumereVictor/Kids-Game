@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Verified</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .email-verified-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid #8b8181;
+        height: 50%;
+        width: 50%;
+        border-radius: 10%;
+      }
+      .email-verified-div h2 {
+        font-size: 1rem;
+      }
+      .fa-check {
+        font-size: 2rem;
+        color: red;
+      }
+      .email-verified-div button {
+        width: 100%;
+        margin-top: 30px;
+        padding: 10px 15px;
+        background-color: green;
+        color: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-verified-div">
+      <h2>Email Verified</h2>
+      <i class="fa-solid fa-check"></i>
+      <a href="http://localhost:3000/sign-in"
+        ><button>Proceed to Login</button></a
+      >
+    </div>
+  </body>
+</html>
