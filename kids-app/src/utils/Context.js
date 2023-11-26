@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { TiTick } from "react-icons/ti";
 import { BiSolidErrorAlt } from "react-icons/bi";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import { useCookies, Cookies } from "react-cookie";
 
 const AppContext = React.createContext();
 const url = "https://kids-game.onrender.com/api/v1";
 // const url = "http://localhost:3001/api/v1";
 
-const cookie = Cookies.get("login_token");
+// const cookie = Cookies.get("login_token");
 
 const useGlobalContext = () => {
   return React.useContext(AppContext);
@@ -403,7 +403,7 @@ const AppProvider = ({ children }) => {
       );
       console.log(response);
       showAlert2(false, "", "");
-      const loginToken = Cookies.get("login_token");
+      // const loginToken = Cookies.get("login_token");
 
       setLoginToken(loginToken);
       setIsLoading(false);
@@ -631,7 +631,7 @@ const AppProvider = ({ children }) => {
 
   //  SIGN OUT
   const signOut = () => {
-    Cookies.remove("login_token");
+    // Cookies.remove("login_token");
     setLoginNav({
       gotocompleteprofile: false,
       gotoverifypage: false,
