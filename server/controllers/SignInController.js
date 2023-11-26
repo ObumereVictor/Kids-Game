@@ -43,7 +43,10 @@ const signIn = async (request, response, next) => {
     expiresIn: "30d",
   });
 
-  response.cookie("login_token", token);
+  response.cookie("login_token", token, {
+    secure: true,
+    sameSite: "none",
+  });
   // IS USER VERIFIED
   const isUserVerified = await TempUserSchema.findOne({ userId: _id });
   if (isUserVerified) {
