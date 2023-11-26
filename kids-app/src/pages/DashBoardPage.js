@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../utils/Context";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-const token = Cookies.get("login_token");
 
-console.log(token);
 const DashboardPage = () => {
   const { gameDetails, isAuthenticated, loginToken, getGame } =
     useGlobalContext();
@@ -30,6 +28,9 @@ const DashboardPage = () => {
   const handlePlayGame = async (event) => {
     event.preventDefault();
 
+    const token = Cookies.get("login_token");
+
+    console.log(token);
     getGame();
     if (isAuthenticated.cookie) {
       navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
