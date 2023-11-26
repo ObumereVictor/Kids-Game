@@ -399,6 +399,7 @@ const AppProvider = ({ children }) => {
       console.log(response);
       showAlert2(false, "", "");
       const loginToken = Cookies.get("login_token");
+
       setLoginToken(loginToken);
       setIsLoading(false);
       if (response.data.responseType === "verifyAccount") {

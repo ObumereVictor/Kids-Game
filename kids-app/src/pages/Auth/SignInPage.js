@@ -64,7 +64,6 @@ const SignInPage = () => {
   // USEEFFECT TO NAVIGATE TO DASHBOARD
   useEffect(() => {
     if (loginNav.gotodashboard) {
-      console.log(loginToken);
       navigate(`../dashboard/${loginToken}`);
     }
   }, [loginNav.gotodashboard]);
