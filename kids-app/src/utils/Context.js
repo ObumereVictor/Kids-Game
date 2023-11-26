@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCookies } from "react";
 import axios from "axios";
 import { TiTick } from "react-icons/ti";
 import { BiSolidErrorAlt } from "react-icons/bi";
@@ -99,7 +99,7 @@ const AppProvider = ({ children }) => {
 
   const [isTermsActive, setIsTermActive] = useState(false);
 
-  const [cookies, setCookies, removeCookies] = useState(["login_token"]);
+  const [cookies, setCookies, removeCookies] = useCookies(["login_token"]);
 
   console.log(cookies.get);
 
