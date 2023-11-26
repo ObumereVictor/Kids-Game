@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef, useCookies } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { TiTick } from "react-icons/ti";
 import { BiSolidErrorAlt } from "react-icons/bi";
 import Cookies from "js-cookie";
+import { useCookies } from "react-cookie";
 
 const AppContext = React.createContext();
 const url = "https://kids-game.onrender.com/api/v1";
