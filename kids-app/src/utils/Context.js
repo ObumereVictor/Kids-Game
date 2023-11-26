@@ -396,11 +396,11 @@ const AppProvider = ({ children }) => {
           },
         }
       );
-      setIsLoading(false);
       console.log(response);
       showAlert2(false, "", "");
       const loginToken = Cookies.get("login_token");
       setLoginToken(loginToken);
+      setIsLoading(false);
       if (response.data.responseType === "verifyAccount") {
         const { email, verified, userId } = response.data;
         setUserDetails((values) => {
