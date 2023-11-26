@@ -3,7 +3,7 @@ import axios from "axios";
 import { TiTick } from "react-icons/ti";
 import { BiSolidErrorAlt } from "react-icons/bi";
 import Cookies from "js-cookie";
-import { useCookies } from "react-cookie";
+import { useCookies, Cookies } from "react-cookie";
 
 const AppContext = React.createContext();
 const url = "https://kids-game.onrender.com/api/v1";
@@ -100,9 +100,9 @@ const AppProvider = ({ children }) => {
 
   const [isTermsActive, setIsTermActive] = useState(false);
 
-  const [cookies, setCookies, removeCookies] = useCookies(["login_token"]);
+  const [cookies, setCookies] = useCookies(["login_token"]);
 
-  console.log(cookies.get);
+  console.log({ cookies, Cookies });
 
   //*****************************USE EFFECTS ************************** */
   useEffect(() => {
