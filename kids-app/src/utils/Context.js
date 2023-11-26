@@ -99,6 +99,10 @@ const AppProvider = ({ children }) => {
 
   const [isTermsActive, setIsTermActive] = useState(false);
 
+  const [cookies, setCookies, removeCookies] = useState(["login_token"]);
+
+  console.log(cookies.get);
+
   //*****************************USE EFFECTS ************************** */
   useEffect(() => {
     isCookie();
