@@ -105,7 +105,7 @@ const AppProvider = ({ children }) => {
   const cookiess = Cookies.get("login_token", {
     // path: "/",
     // httpOnly: false,
-    domain: "https://kids-game.onrender.com",
+    domain: "http://kids-game.onrender.com",
   });
   // console.log({ cookies, cookiess });
   console.log(cookiess);
