@@ -104,6 +104,7 @@ const AppProvider = ({ children }) => {
 
   const cookiess = Cookies.get();
   console.log({ cookies, cookiess });
+  console.log(document.cookie);
 
   //*****************************USE EFFECTS ************************** */
   useEffect(() => {
