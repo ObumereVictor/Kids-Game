@@ -47,7 +47,7 @@ const signIn = async (request, response, next) => {
     // httpOnly: false,
     maxAge: 60 * 60 * 24,
     secure: true,
-    sameSite: "lax",
+    sameSite: "none",
   });
   // IS USER VERIFIED
   const isUserVerified = await TempUserSchema.findOne({ userId: _id });
