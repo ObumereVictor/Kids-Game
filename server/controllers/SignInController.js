@@ -44,7 +44,7 @@ const signIn = async (request, response, next) => {
   });
 
   response.cookie("login_token", token, {
-    httpOnly: false,
+    HttpOnly: false,
     maxAge: 60 * 60 * 24,
     secure: true,
     sameSite: "none",
