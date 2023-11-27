@@ -100,15 +100,11 @@ const AppProvider = ({ children }) => {
 
   const [isTermsActive, setIsTermActive] = useState(false);
 
-  // const [cookies, setCookies] = useCookies(["login_token"]);
+  const [cookies, setCookies] = useCookies(["login_token"]);
 
-  const cookiess = Cookies.get("login_token", {
-    // path: "/",
-    // httpOnly: false,
-    domain: "http://kids-game.onrender.com",
-  });
+  const cookiess = Cookies.get("login_token");
   // console.log({ cookies, cookiess });
-  console.log(cookiess);
+  console.log({ cookiess, cookiess });
 
   //*****************************USE EFFECTS ************************** */
   useEffect(() => {
