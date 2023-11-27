@@ -401,7 +401,7 @@ const AppProvider = ({ children }) => {
           withCredentials: true,
           headers: {
             "Access-Control-Allow-Origin":
-              "https://kids-spelling-app.netlify.app",
+              "https://kids-game-nus8.onrender.com/",
           },
         }
       );
