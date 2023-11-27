@@ -15,7 +15,7 @@ const {
   gameRouter,
 } = require("./routes");
 
-const originLink = "https://kids-game-nus8.onrender.com/";
+const originLink = "https://kids-game-nus8.onrender.com";
 // const originLink = "http://localhost:3000";
 
 // MIDDLEWARE
@@ -36,8 +36,8 @@ app.use(function (request, response, next) {
   response.header("Access-Control-Allow-Credentials", true);
   response.header(
     "Access-Control-Allow-Origin",
-    "https://kids-game-nus8.onrender.com/"
-    // "https://kids-game.onrender.com"
+    // "https://kids-spelling-app.netlify.app"
+    "https://kids-game.onrender.com"
   );
   response.header(
     "Access-Control-Allow-Headers",
