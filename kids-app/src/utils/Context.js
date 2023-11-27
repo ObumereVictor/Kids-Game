@@ -106,7 +106,7 @@ const AppProvider = ({ children }) => {
     sameSite: "none",
   });
   // console.log({ cookies, cookiess });
-  console.log({ cookiess, cookiess });
+  console.log({ cookiess, cookies });
 
   //*****************************USE EFFECTS ************************** */
   useEffect(() => {
