@@ -15,7 +15,7 @@ const {
   gameRouter,
 } = require("./routes");
 
-const originLink = "https://kids-game-nus8.onrender.com";
+const originLink = "https://kids-spelling-game.onrender.com";
 // const originLink = "http://localhost:3000";
 
 // MIDDLEWARE
