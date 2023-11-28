@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../utils/Context";
 import { useNavigate } from "react-router-dom";
-import { uCookies } from "react-cookie";
+import { Cookies } from "react-cookie";
 
 const DashboardPage = () => {
   const { gameDetails, isAuthenticated, loginToken, getGame } =
