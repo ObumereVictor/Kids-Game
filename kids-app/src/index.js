@@ -7,9 +7,9 @@ const rootDOM = document.querySelector("#root");
 const root = ReactDOM.createRoot(rootDOM);
 
 root.render(
-  <CookiesProvider>
-    <AppProvider>
+  <AppProvider>
+    <CookiesProvider>
       <App />
-    </AppProvider>
-  </CookiesProvider>
+    </CookiesProvider>
+  </AppProvider>
 );
