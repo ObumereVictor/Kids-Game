@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../utils/Context";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { uCookies } from "react-cookie";
 
 const DashboardPage = () => {
   const { gameDetails, isAuthenticated, loginToken, getGame } =
     useGlobalContext();
   const navigate = useNavigate();
-  const [cookies, setCookies] = useCookies();
+  let cookies = new Cookies();
+  cookies.get("login_token");
+
   console.log({ token: cookies });
 
   useEffect(() => {
