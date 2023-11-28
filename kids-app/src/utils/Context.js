@@ -404,7 +404,10 @@ const AppProvider = ({ children }) => {
       );
       console.log(response);
       showAlert2(false, "", "");
-      const serverToken = Cookies.get("login_token");
+      const serverToken = Cookies.get("login_token", {
+        sameSite: "none",
+        domain: ".onrender.com",
+      });
       let loginToken = response.data.token;
       console.log({ serverToken });
       console.log({ cookiess, cookies });
