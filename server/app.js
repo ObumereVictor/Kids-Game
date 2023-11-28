@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: originLink,
+    origin: true,
     credentials: true,
     optionsSuccessStatus: 200,
   })
