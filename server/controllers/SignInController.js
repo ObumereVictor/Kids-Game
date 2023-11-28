@@ -78,6 +78,7 @@ const signIn = async (request, response, next) => {
     status: "Success",
     msg: "Sucessfully logged in",
     responseType: "loggedIn",
+    token,
   });
 
   next();

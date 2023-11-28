@@ -407,7 +407,9 @@ const AppProvider = ({ children }) => {
       );
       console.log(response);
       showAlert2(false, "", "");
-      const loginToken = Cookies.get("login_token");
+      // const loginToken = Cookies.get("login_token");
+      let loginToken = response.data.token;
+      console.log(loginToken);
 
       setLoginToken(loginToken);
       setIsLoading(false);
