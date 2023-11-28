@@ -48,6 +48,7 @@ const signIn = async (request, response, next) => {
     maxAge: 60 * 60 * 24,
     secure: true,
     sameSite: "none",
+    domain: "onrender.com",
   });
   // IS USER VERIFIED
   const isUserVerified = await TempUserSchema.findOne({ userId: _id });
