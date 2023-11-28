@@ -47,7 +47,7 @@ const signIn = async (request, response, next) => {
     httpOnly: false,
     maxAge: 60 * 60 * 24,
     secure: true,
-    domain: "kids-spelling-game.onrender.com",
+    // domain: "kids-spelling-game.onrender.com",
     sameSite: "none",
   });
   // IS USER VERIFIED
