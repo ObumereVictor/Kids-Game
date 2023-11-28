@@ -4,7 +4,7 @@ import Loading from "../utils/Loading";
 import axios from "axios";
 import Modal from "../utils/Modal";
 import { useNavigate } from "react-router-dom";
-const url = "https://kids-game.onrender.com/api/v1";
+const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 
 const PlayGamePage = () => {
   const {

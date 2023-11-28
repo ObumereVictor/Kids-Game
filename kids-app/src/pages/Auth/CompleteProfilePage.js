@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Alert2 } from "../../utils/Alert";
 
-const url = "https://kids-game.onrender.com/api/v1";
+const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 
 const CompleteProfilePage = () => {
   const {

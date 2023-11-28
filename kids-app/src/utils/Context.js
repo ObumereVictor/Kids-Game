@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import { useCookies } from "react-cookie";
 
 const AppContext = React.createContext();
-const url = "https://kids-game.onrender.com/api/v1";
+const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 // const url = "http://localhost:3001/api/v1";
 
 const cookie = Cookies.get("login_token");
@@ -398,7 +398,7 @@ const AppProvider = ({ children }) => {
           withCredentials: true,
           headers: {
             "Access-Control-Allow-Origin":
-              "https://kids-game-nus8.onrender.com/",
+              "https://kids-spelling-game.onrender.com/",
           },
         }
       );

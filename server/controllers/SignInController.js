@@ -45,10 +45,10 @@ const signIn = async (request, response, next) => {
 
   response.cookie("login_token", token, {
     // httpOnly: false,
-    path: "https://kids-game.onrender.com/",
+    // path: "https://kids-game.onrender.com/",
     maxAge: 60 * 60 * 24,
     secure: true,
-    domain: "onrender.com",
+    domain: "kids-spelling-game.onrender.com",
     sameSite: "none",
   });
   // IS USER VERIFIED
