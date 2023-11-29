@@ -406,7 +406,10 @@ const AppProvider = ({ children }) => {
       showAlert2(false, "", "");
 
       let loginToken = response.data.token;
-      setCookies("login_token", loginToken, { path: "/" });
+      setCookies("login_token", loginToken, {
+        path: "/",
+        maxAge: 60 * 60 * 24 * 1000,
+      });
       console.log(cookies);
 
       setLoginToken(loginToken);
