@@ -128,6 +128,7 @@ const AppProvider = ({ children }) => {
   // CHECKING IF USER IS LOGGED IN
   const isCookie = async () => {
     if (cookie) {
+      console.log(cookie);
       try {
         const response = await axios(url + `/dashboard/${cookie}`, {
           withCredentials: true,
@@ -406,6 +407,7 @@ const AppProvider = ({ children }) => {
 
       let loginToken = response.data.token;
       setCookies("login_token", loginToken, { path: "/" });
+      console.log(cookies);
 
       setLoginToken(loginToken);
       setIsLoading(false);
