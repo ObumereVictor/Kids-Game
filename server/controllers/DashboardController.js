@@ -91,7 +91,7 @@ const completeProfile = async (request, response) => {
 };
 
 const dashboard = async (request, response) => {
-  console.log(request.headers.cookie);
+  console.log(request.headers);
   if (!request.headers.cookie) {
     return;
   }
