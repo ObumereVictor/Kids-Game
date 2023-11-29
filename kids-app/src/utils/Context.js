@@ -132,6 +132,10 @@ const AppProvider = ({ children }) => {
       try {
         const response = await axios(url + `/dashboard/${cookie}`, {
           withCredentials: true,
+          headers: {
+            "Access-Control-Allow-Origin":
+              "https://kids-spelling-game.onrender.com/",
+          },
         });
         console.log(response);
 
