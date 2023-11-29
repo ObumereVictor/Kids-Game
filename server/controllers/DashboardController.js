@@ -91,10 +91,12 @@ const completeProfile = async (request, response) => {
 };
 
 const dashboard = async (request, response) => {
+  console.log(request.headers.cookie);
   if (!request.headers.cookie) {
     return;
   }
   const token = request.headers.cookie.split("=")[1];
+  console.log(token);
 
   if (!token) {
     return response.status(StatusCodes.BAD_REQUEST).json({
