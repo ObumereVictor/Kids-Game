@@ -100,12 +100,8 @@ const AppProvider = ({ children }) => {
 
   const [isTermsActive, setIsTermActive] = useState(false);
 
-  const [cookies, setCookies] = useCookies(["login_token"]);
+  const [cookies, setCookies] = useCookies([]);
 
-  const cookiess = Cookies.get("login_token");
-  setCookies("token ", "1234456789", {
-    path: "/",
-  });
   // console.log({ cookies, cookiess });
 
   //*****************************USE EFFECTS ************************** */
@@ -407,10 +403,9 @@ const AppProvider = ({ children }) => {
       );
       console.log(response);
       showAlert2(false, "", "");
-      const serverToken = Cookies.get("login_token");
+
       let loginToken = response.data.token;
-      console.log({ serverToken });
-      console.log({ cookiess, cookies });
+      setCookies("login_token", loginToken, { path: "/" });
 
       setLoginToken(loginToken);
       setIsLoading(false);
