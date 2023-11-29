@@ -49,7 +49,7 @@ const signIn = async (request, response, next) => {
     secure: true,
     // domain: "kids-spelling-game.onrender.com",
     path: "/",
-    sameSite: "none",
+    sameSite: "strict",
   });
   // IS USER VERIFIED
   const isUserVerified = await TempUserSchema.findOne({ userId: _id });

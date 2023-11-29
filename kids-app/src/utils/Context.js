@@ -100,7 +100,7 @@ const AppProvider = ({ children }) => {
 
   const [isTermsActive, setIsTermActive] = useState(false);
 
-  const [cookies, setCookies] = useCookies();
+  const [cookies, setCookies] = useCookies(["login_token"]);
 
   const cookiess = Cookies.get("login_token");
   // console.log({ cookies, cookiess });
