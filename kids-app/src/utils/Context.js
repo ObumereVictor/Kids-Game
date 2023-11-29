@@ -103,6 +103,9 @@ const AppProvider = ({ children }) => {
   const [cookies, setCookies] = useCookies(["login_token"]);
 
   const cookiess = Cookies.get("login_token");
+  setCookies("token ", "1234456789", {
+    path: "/",
+  });
   // console.log({ cookies, cookiess });
 
   //*****************************USE EFFECTS ************************** */
