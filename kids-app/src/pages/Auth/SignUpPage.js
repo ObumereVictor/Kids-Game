@@ -62,11 +62,11 @@ const SignUpPage = () => {
     window.addEventListener("load", handleLoading);
     return () => window.removeEventListener("load", handleLoading);
   }, []);
-  if (loading) {
-    return <h2>Loadiinnngggg.....</h2>;
-  }
+  // if (loading) {
+  //   return <h2>Loadiinnngggg.....</h2>;
+  // }
 
-  return (
+  return loading ? (
     <main className="sign-up">
       <form onSubmit={handleSignUpSubmit}>
         <h2>Welcome</h2>
@@ -235,6 +235,8 @@ const SignUpPage = () => {
         </button>
       </div>
     </main>
+  ) : (
+    <h2>Loadinggggg component....</h2>
   );
 };
 
