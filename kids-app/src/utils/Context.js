@@ -135,7 +135,8 @@ const AppProvider = ({ children }) => {
           headers: {
             "Access-Control-Allow-Origin":
               "https://kids-spelling-game.onrender.com/",
-            cookie: `login_token=${cookie}`,
+            // cookie: `login_token=${cookie}`,
+            // Authorization: `Bearer ${cookie}`,
           },
         });
         console.log(response);
@@ -404,6 +405,7 @@ const AppProvider = ({ children }) => {
           headers: {
             "Access-Control-Allow-Origin":
               "https://kids-spelling-game.onrender.com/",
+            // Authorization: `Bearer ${cookie}`
           },
         }
       );
