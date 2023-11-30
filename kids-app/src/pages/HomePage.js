@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../utils/Context";
 const HomePage = () => {
   const navigate = useNavigate();
-  const { setVerifyPage } = useGlobalContext();
+  const { setVerifyPage, setIsLoading } = useGlobalContext();
 
+  setIsLoading(false);
   useEffect(() => {
     setVerifyPage(false);
   }, []);
+
   return (
     <main className="homepage">
       <p>

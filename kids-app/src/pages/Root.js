@@ -6,12 +6,17 @@ import { useGlobalContext } from "../utils/Context";
 import SideBarPage from "./SideBar";
 
 const Root = () => {
-  const { showSideBar, toggle, setDashboardActive } = useGlobalContext();
+  const { showSideBar, toggle, setDashboardActive, isLoading, setIsLoading } =
+    useGlobalContext();
 
   // USE EFFECT FOR SIDEBAR
   useEffect(() => {
     setDashboardActive(false);
   });
+
+  if (isLoading) {
+    return <h2>Loading.....</h2>;
+  }
 
   return (
     <main className="root">
