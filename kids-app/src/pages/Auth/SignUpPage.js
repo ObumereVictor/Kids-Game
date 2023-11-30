@@ -33,9 +33,24 @@ const SignUpPage = () => {
     checkboxRef,
     isTermsActive,
   } = useGlobalContext();
+  const [loading, setLoading] = useState(true);
 
   //  FIRST NAME REF
   const firstNameRef = useRef(null);
+
+  const handleLoading = () => {
+    setLoading(false);
+  };
+
+  // USE EFFECT TO LOAD ALL COMPONENT
+  useEffect(() => {
+    window.addEventListener("load", handleLoading);
+    return () => window.removeEventListener("load", handleLoading);
+  }, []);
+
+  if (loading) {
+    return <h2>Loadiinnngggg.....</h2>;
+  }
 
   // USE EFFECT TO FOCUS ON FIRSTNAME
   useEffect(() => {
