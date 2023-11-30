@@ -38,10 +38,6 @@ const SignUpPage = () => {
   //  FIRST NAME REF
   const firstNameRef = useRef(null);
 
-  const handleLoading = () => {
-    setLoading(false);
-  };
-
   // USE EFFECT TO LOAD ALL COMPONENT
   useEffect(() => {
     window.addEventListener("load", handleLoading);
@@ -64,6 +60,9 @@ const SignUpPage = () => {
     }
   }, [verifyPage]);
 
+  const handleLoading = () => {
+    setLoading(false);
+  };
   if (loading) {
     return <h2>Loadiinnngggg.....</h2>;
   }
