@@ -7,11 +7,8 @@ const DashboardPage = () => {
   const { gameDetails, isAuthenticated, loginToken, getGame } =
     useGlobalContext();
   const navigate = useNavigate();
-  let cookies = new Cookies();
-  cookies.get("login_token");
 
-  console.log({ token: cookies });
-
+  console.log(gameDetails);
   useEffect(() => {
     getGame();
     // gettingUser();

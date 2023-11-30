@@ -67,7 +67,8 @@ const gettingGame = async (request, response) => {
     });
     console.log({ currentGames });
 
-    let currentGame = await currentGames.at(0);
+    let currentGame = await currentGames[0];
+    // let currentGame = await currentGames.at(0);
 
     if (!currentGame) {
       response.status(StatusCodes.NOT_FOUND).json({
