@@ -712,6 +712,10 @@ const AppProvider = ({ children }) => {
         url + `/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`,
         {
           withCredentials: true,
+          headers: {
+            "Allow-Control-Allow-Origin":
+              "https://kids-spelling-game.onrender.com/",
+          },
         }
       );
       console.log(response);
