@@ -47,48 +47,52 @@ const createGame = async (request, response) => {
 
 // GETTING GAME
 const gettingGame = async (request, response) => {
-  const user = request.user;
-  console.log(user);
-  const currentUser = await SignUpSchema.findOne({ _id: user });
+  try {
+    const user = request.user;
+    console.log(user);
+    const currentUser = await SignUpSchema.findOne({ _id: user });
 
-  const userGames = await GameSchema.find({
-    difficulty: currentUser.difficulty,
-  }).select("game");
-  // console.log(user.gamesPlayed);
-  let avaliableGames = userGames.map((games) => {
-    return games.game;
-  });
-  let currentGames = avaliableGames.filter((game, index) => {
-    if (currentUser.gamesPlayed.includes(game)) {
-      return game !== game;
-    }
-    return game;
-  });
-  console.log({ currentGames });
-  let currentGame = currentGames.at(0);
-
-  if (!currentGame) {
-    response.status(StatusCodes.NOT_FOUND).json({
-      status: "Failed",
-      msg: "You don't have any game available, change the difficulty level on your profile or try again later",
-      errorType: "nogameerror",
+    const userGames = await GameSchema.find({
+      difficulty: currentUser.difficulty,
+    }).select("game");
+    // console.log(user.gamesPlayed);
+    let avaliableGames = userGames.map((games) => {
+      return games.game;
     });
-    return;
+    let currentGames = avaliableGames.filter((game, index) => {
+      if (currentUser.gamesPlayed.includes(game)) {
+        return game !== game;
+      }
+      return game;
+    });
+    console.log({ currentGames });
+
+    let currentGame = await currentGames.at(0);
+
+    if (!currentGame) {
+      response.status(StatusCodes.NOT_FOUND).json({
+        status: "Failed",
+        msg: "You don't have any game available, change the difficulty level on your profile or try again later",
+        errorType: "nogameerror",
+      });
+      return;
+    }
+
+    let { _id } = await GameSchema.findOne({ game: currentGame });
+    const game = shuffleArray([...currentGame]);
+    // console.log(currentGame);
+    const answer = [...currentGame];
+
+    return response.status(200).json({
+      status: "Success",
+      msg: "You have a game to play",
+      gameId: _id,
+      game,
+      answer,
+    });
+  } catch (error) {
+    console.log(error);
   }
-
-  let { _id } = await GameSchema.findOne({ game: currentGame });
-  const game = shuffleArray([...currentGame]);
-  // console.log(currentGame);
-  const answer = [...currentGame];
-
-  response.status(200).json({
-    status: "Success",
-    msg: "You have a game to play",
-    gameId: _id,
-    game,
-    answer,
-  });
-  response.end();
 };
 
 // CHECK GAME
