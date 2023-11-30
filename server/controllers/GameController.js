@@ -48,6 +48,7 @@ const createGame = async (request, response) => {
 // GETTING GAME
 const gettingGame = async (request, response) => {
   const user = request.user;
+  console.log(user);
   const currentUser = await SignUpSchema.findOne({ _id: user });
 
   const userGames = await GameSchema.find({
