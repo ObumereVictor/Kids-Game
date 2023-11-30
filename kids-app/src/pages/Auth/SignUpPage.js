@@ -38,12 +38,6 @@ const SignUpPage = () => {
   //  FIRST NAME REF
   const firstNameRef = useRef(null);
 
-  // USE EFFECT TO LOAD ALL COMPONENT
-  useEffect(() => {
-    window.addEventListener("load", handleLoading);
-    return () => window.removeEventListener("load", handleLoading);
-  }, []);
-
   // USE EFFECT TO FOCUS ON FIRSTNAME
   useEffect(() => {
     // firstNameRef.current.focus();
@@ -63,6 +57,11 @@ const SignUpPage = () => {
   const handleLoading = () => {
     setLoading(false);
   };
+  // USE EFFECT TO LOAD ALL COMPONENT
+  useEffect(() => {
+    window.addEventListener("load", handleLoading);
+    return () => window.removeEventListener("load", handleLoading);
+  }, []);
   if (loading) {
     return <h2>Loadiinnngggg.....</h2>;
   }
