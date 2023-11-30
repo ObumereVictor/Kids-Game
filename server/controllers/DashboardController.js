@@ -93,7 +93,10 @@ const completeProfile = async (request, response) => {
 const dashboard = async (request, response) => {
   console.log(request.headers);
   if (!request.headers.cookie) {
-    return;
+    return response.status(StatusCodes.BAD_REQUEST).json({
+      status: "Failed",
+      msg: "Cannot Perform this account",
+    });
   }
   const token = request.headers.cookie.split("=")[1];
   console.log(token);
