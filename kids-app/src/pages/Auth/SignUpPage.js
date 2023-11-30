@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import img from "../../utils/img/sign-side.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useGlobalContext } from "../../utils/Context";
@@ -48,10 +48,6 @@ const SignUpPage = () => {
     return () => window.removeEventListener("load", handleLoading);
   }, []);
 
-  if (loading) {
-    return <h2>Loadiinnngggg.....</h2>;
-  }
-
   // USE EFFECT TO FOCUS ON FIRSTNAME
   useEffect(() => {
     firstNameRef.current.focus();
@@ -67,6 +63,10 @@ const SignUpPage = () => {
       return () => clearInterval(interval);
     }
   }, [verifyPage]);
+
+  if (loading) {
+    return <h2>Loadiinnngggg.....</h2>;
+  }
 
   return (
     <main className="sign-up">
