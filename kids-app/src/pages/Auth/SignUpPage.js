@@ -46,7 +46,7 @@ const SignUpPage = () => {
 
   // USE EFFECT TO FOCUS ON FIRSTNAME
   useEffect(() => {
-    firstNameRef.current.focus();
+    // firstNameRef.current.focus();
     Cookies.remove("login_token");
   }, []);
 
