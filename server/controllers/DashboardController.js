@@ -92,6 +92,7 @@ const completeProfile = async (request, response) => {
 
 const dashboard = async (request, response) => {
   console.log(request.headers);
+  console.log(request.cookies);
   if (!request.headers.cookie) {
     return response.status(StatusCodes.BAD_REQUEST).json({
       status: "Failed",
