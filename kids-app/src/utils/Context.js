@@ -103,7 +103,6 @@ const AppProvider = ({ children }) => {
   const [cookies, setCookies] = useCookies([]);
 
   // console.log({ cookies, cookiess });
-  setIsLoading(true);
   //*****************************USE EFFECTS ************************** */
   useEffect(() => {
     isCookie();
