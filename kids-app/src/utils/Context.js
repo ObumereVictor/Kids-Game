@@ -139,6 +139,7 @@ const AppProvider = ({ children }) => {
           },
         });
         console.log(response);
+        document.cookie = `login_token=${cookie}`;
 
         if (response.status === 200) {
           setAuthenticated({
