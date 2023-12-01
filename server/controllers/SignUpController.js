@@ -173,7 +173,7 @@ const sendVerificationMail = async function (
   uniqueString,
   response
 ) {
-  const currentURL = "http://localhost:3001";
+  const currentURL = "https://api-kids-spelling-game.onrender.com";
   //  HOTMAIL TRANSPORT
   // const transporter = nodemailer.createTransport({
   //   service: "gmail",
@@ -185,12 +185,12 @@ const sendVerificationMail = async function (
 
   // ETHEREAL TRANSPORT
   const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
+    host: "gmail",
+    // port: 587,
+    secure: true,
     auth: {
-      user: process.env.EEMAIL,
-      pass: process.env.EPASSWORD,
+      user: "kidsspellinggame@gmail.com",
+      pass: "Vikeepwesh@25",
     },
     tls: {
       ciphers: "SSLv3",
@@ -199,7 +199,7 @@ const sendVerificationMail = async function (
   });
 
   const mailOptions = {
-    from: process.env.EEMAIL,
+    from: "kidsspellinggame@gmail.com",
     to: email,
     subject: "Please Verify your Account",
     text: "Please Verify your account",
