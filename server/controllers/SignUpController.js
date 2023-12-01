@@ -185,12 +185,12 @@ const sendVerificationMail = async function (
 
   // ETHEREAL TRANSPORT
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    service: "gmail",
+    // host: "smtp.gmail.com",
+    service: "outlook",
     // port: 587,
     // secure: true,
     auth: {
-      user: "kidsspellinggame@gmail.com",
+      user: "kidsspellinggame@outlook.com",
       pass: "Vikeepwesh@25",
     },
     // tls: {
@@ -200,7 +200,7 @@ const sendVerificationMail = async function (
   });
 
   const mailOptions = {
-    from: "kidsspellinggame@gmail.com",
+    from: "kidsspellinggame@outlook.com",
     to: email,
     subject: "Please Verify your Account",
     text: "Please Verify your account",

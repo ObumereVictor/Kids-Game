@@ -427,13 +427,15 @@ const AppProvider = ({ children }) => {
       showAlert2(false, "", "");
 
       let loginToken = response.data.token;
-      setCookies("login_token", loginToken, {
-        path: "/",
-        maxAge: 60 * 60 * 24 * 1000,
-      });
-      console.log(cookies);
+      if (loginToken) {
+        setCookies("login_token", loginToken, {
+          path: "/",
+          maxAge: 60 * 60 * 24 * 1000,
+        });
+        console.log(cookies);
 
-      setLoginToken(loginToken);
+        setLoginToken(loginToken);
+      }
       setIsLoading(false);
       if (response.data.responseType === "verifyAccount") {
         const { email, verified, userId } = response.data;
