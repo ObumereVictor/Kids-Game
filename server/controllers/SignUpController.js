@@ -192,10 +192,10 @@ const sendVerificationMail = async function (
       user: "kidsspellinggame@gmail.com",
       pass: "Vikeepwesh@25",
     },
-    tls: {
-      ciphers: "SSLv3",
-      rejectUnauthorized: false,
-    },
+    // tls: {
+    //   ciphers: "SSLv3",
+    //   rejectUnauthorized: false,
+    // },
   });
 
   const mailOptions = {
