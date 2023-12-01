@@ -185,7 +185,8 @@ const sendVerificationMail = async function (
 
   // ETHEREAL TRANSPORT
   const transporter = nodemailer.createTransport({
-    host: "gmail",
+    host: "smtp.gmail.com",
+    service: "gmail",
     // port: 587,
     // secure: true,
     auth: {

@@ -226,13 +226,13 @@ const AppProvider = ({ children }) => {
 
       // AXIOS ERROR
       if (error.name === "AxiosError") {
-        showAlert2(true, error.status, "Please try again!!!");
+        showAlert2(true, "Failed", "Please try again!!!");
       }
 
       error = error.response.data;
       // NO FIELDS ERROR
       if (error.errorType === "nofields") {
-        showAlert2(true, "Failed", "Please Input the required fields");
+        showAlert2(true, error.status, "Please Input the required fields");
       }
 
       // AGE ERROR
