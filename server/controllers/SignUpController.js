@@ -175,17 +175,9 @@ const sendVerificationMail = async function (
 ) {
   const currentURL = "https://api-kids-spelling-game.onrender.com";
   //  HOTMAIL TRANSPORT
-  // const transporter = nodemailer.createTransport({
-  //   service: "gmail",
-  //   auth: {
-  //     user: process.env.EMAIL,
-  //     pass: process.env.PASSWORD,
-  //   },
-  // });
 
   // ETHEREAL TRANSPORT
   const transporter = nodemailer.createTransport({
-    // host: "smtp.gmail.com",
     service: "outlook",
     // port: 587,
     // secure: true,
