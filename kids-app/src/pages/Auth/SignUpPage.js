@@ -66,7 +66,7 @@ const SignUpPage = () => {
   //   return <h2>Loadiinnngggg.....</h2>;
   // }
 
-  return loading ? (
+  return !loading ? (
     <main className="sign-up">
       <form onSubmit={handleSignUpSubmit}>
         <h2>Welcome</h2>
