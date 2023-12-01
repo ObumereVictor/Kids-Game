@@ -100,6 +100,8 @@ const AppProvider = ({ children }) => {
 
   const [isTermsActive, setIsTermActive] = useState(false);
 
+  const [cookies, setCookies] = useCookies([]);
+
   // console.log({ cookies, cookiess });
   //*****************************USE EFFECTS ************************** */
 
