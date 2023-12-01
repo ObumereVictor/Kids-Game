@@ -7,27 +7,11 @@ import SideBarPage from "./SideBar";
 
 const Root = () => {
   const { showSideBar, toggle, setDashboardActive } = useGlobalContext();
-  const [loading, setLoading] = useState(true);
 
   // USE EFFECT FOR SIDEBAR
   useEffect(() => {
     setDashboardActive(false);
   });
-
-  const handleLoading = () => {
-    console.log("hello");
-    setLoading(false);
-  };
-
-  // // USE EFFECT TO LOAD ALL COMPONENT
-  // useEffect(() => {
-  //   window.addEventListener("load", handleLoading);
-  //   return () => window.removeEventListener("load", handleLoading);
-  // }, []);
-
-  // if (loading) {
-  //   return <h2>Loadiinnngggg.....</h2>;
-  // }
 
   return (
     <main className="root">

@@ -62,6 +62,7 @@ const signIn = async (request, response, next) => {
       userId: _id,
       email: user.email,
       verified,
+      token,
     });
   }
 

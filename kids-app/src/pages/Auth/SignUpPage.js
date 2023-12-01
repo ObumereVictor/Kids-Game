@@ -54,19 +54,6 @@ const SignUpPage = () => {
     }
   }, [verifyPage]);
 
-  const handleLoading = () => {
-    setLoading(false);
-  };
-  // // USE EFFECT TO LOAD ALL COMPONENT
-  // useEffect(() => {
-  //   window.addEventListener("load", handleLoading);
-  //   return () => window.removeEventListener("load", handleLoading);
-  // }, []);
-
-  // if (loading) {
-  //   return <h2>Loadiinnngggg.....</h2>;
-  // }
-
   return (
     <main className="sign-up">
       <form onSubmit={handleSignUpSubmit}>
