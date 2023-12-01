@@ -57,16 +57,17 @@ const SignUpPage = () => {
   const handleLoading = () => {
     setLoading(false);
   };
-  // USE EFFECT TO LOAD ALL COMPONENT
-  useEffect(() => {
-    window.addEventListener("load", handleLoading);
-    return () => window.removeEventListener("load", handleLoading);
-  }, []);
+  // // USE EFFECT TO LOAD ALL COMPONENT
+  // useEffect(() => {
+  //   window.addEventListener("load", handleLoading);
+  //   return () => window.removeEventListener("load", handleLoading);
+  // }, []);
+
   // if (loading) {
   //   return <h2>Loadiinnngggg.....</h2>;
   // }
 
-  return !loading ? (
+  return (
     <main className="sign-up">
       <form onSubmit={handleSignUpSubmit}>
         <h2>Welcome</h2>
@@ -235,8 +236,6 @@ const SignUpPage = () => {
         </button>
       </div>
     </main>
-  ) : (
-    <h2>Loadinggggg component....</h2>
   );
 };
 
