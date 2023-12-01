@@ -210,7 +210,7 @@ const sendVerificationMail = async function (
           alt="child logo"
         />
         <p>Please Verify your account by clicking the link <a href=${
-          currentURL + "/register/verify/" + _id + "/" + uniqueString
+          currentURL + "/api/v1/register/verify/" + _id + "/" + uniqueString
         } >Link</a></p>
       </div>`,
   };
