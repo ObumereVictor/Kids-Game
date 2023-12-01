@@ -130,6 +130,7 @@ const dashboard = async (request, response) => {
   }
 
   if (!user.completedProfile) {
+    // console.log(response.cookie);
     return response.status(StatusCodes.UNAUTHORIZED).json({
       status: "Failed",
       msg: "Please Complete your profile",
