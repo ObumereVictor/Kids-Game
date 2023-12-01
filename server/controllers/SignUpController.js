@@ -182,8 +182,8 @@ const sendVerificationMail = async function (
     // port: 587,
     // secure: true,
     auth: {
-      user: "kidsspellinggame@outlook.com",
-      pass: "Vikeepwesh@25",
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
     },
     // tls: {
     //   ciphers: "SSLv3",
@@ -192,7 +192,7 @@ const sendVerificationMail = async function (
   });
 
   const mailOptions = {
-    from: "kidsspellinggame@outlook.com",
+    from: process.env.EMAIL,
     to: email,
     subject: "Please Verify your Account",
     text: "Please Verify your account",
