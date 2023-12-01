@@ -187,7 +187,7 @@ const sendVerificationMail = async function (
   const transporter = nodemailer.createTransport({
     host: "gmail",
     // port: 587,
-    secure: true,
+    // secure: true,
     auth: {
       user: "kidsspellinggame@gmail.com",
       pass: "Vikeepwesh@25",
