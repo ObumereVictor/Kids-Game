@@ -197,10 +197,17 @@ const AppProvider = ({ children }) => {
   const registerUser = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.post(url + "/register", {
-        ...userInputs,
-        location,
-      });
+      const response = await axios.post(
+        url + "/register",
+        {
+          ...userInputs,
+          location,
+        },
+        {
+          "Access-Control-Allow-Origin":
+            "https://kids-spelling-game.onrender.com/",
+        }
+      );
       console.log(response);
       // const {email, userId, verified} = response.data
       setUserDetails((oldDetails) => {
