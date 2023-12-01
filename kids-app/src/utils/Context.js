@@ -221,13 +221,18 @@ const AppProvider = ({ children }) => {
       }
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
-      error = error.response.data;
       setIsLoading(false);
+      console.log(error);
 
+      // AXIOS ERROR
+      if (error.name === "AxiosError") {
+        showAlert2(true, error.status, "Please try again!!!");
+      }
+
+      error = error.response.data;
       // NO FIELDS ERROR
       if (error.errorType === "nofields") {
-        showAlert2(true, error.status, "Please Input the required fields");
+        showAlert2(true, "Failed", "Please Input the required fields");
       }
 
       // AGE ERROR
