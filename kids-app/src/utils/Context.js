@@ -503,6 +503,8 @@ const AppProvider = ({ children }) => {
         },
       });
       console.log(response.data);
+      setGameDetails({ ...response.data });
+
       setIsLoading(false);
     } catch (error) {
       console.log(error);
