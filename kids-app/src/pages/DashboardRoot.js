@@ -15,7 +15,7 @@ const DashboardRoot = () => {
   useEffect(() => {
     gettingUser();
     // console.log(gameDetails);
-  }, [gameDetails]);
+  }, []);
 
   const handleDropDown = (event) => {
     event.preventDefault();

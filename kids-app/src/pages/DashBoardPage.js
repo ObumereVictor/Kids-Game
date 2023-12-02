@@ -30,15 +30,14 @@ const DashboardPage = () => {
     event.preventDefault();
 
     console.log({ isAuthenticated, loginToken });
-    navigate(`/playgame/isAuthenticated.cookie/gameDetails.gameId`);
 
-    // if (isAuthenticated.cookie) {
-    //   navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
-    // }
-    // if (loginToken) {
-    //   navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
-    // }
-    // getGame();
+    if (isAuthenticated.cookie) {
+      navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
+    }
+    if (loginToken) {
+      navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
+    }
+    getGame();
   };
   return (
     <main className="dashboard-page">
