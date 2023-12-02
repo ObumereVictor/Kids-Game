@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require("uuid");
 require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 const nodemailer = require("nodemailer");
+const { nodemailerConfig } = require("../utils/config");
 
 const register = async (request, response) => {
   let {
@@ -177,19 +178,7 @@ const sendVerificationMail = async function (
   //  HOTMAIL TRANSPORT
 
   // ETHEREAL TRANSPORT
-  const transporter = nodemailer.createTransport({
-    service: "outlook",
-    // port: 587,
-    // secure: true,
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.PASSWORD,
-    },
-    // tls: {
-    //   ciphers: "SSLv3",
-    //   rejectUnauthorized: false,
-    // },
-  });
+  const transporter = nodemailer.createTransport(nodemailerConfig);
 
   const mailOptions = {
     from: process.env.EMAIL,

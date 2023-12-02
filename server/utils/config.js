@@ -7,4 +7,12 @@ const cloudinaryConfig = cloudinary.config({
   cloud_name: "dcuy6upus",
 });
 
-module.exports = { cloudinaryConfig };
+const nodemailerConfig = {
+  service: "outlook",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+};
+
+module.exports = { cloudinaryConfig, nodemailerConfig };

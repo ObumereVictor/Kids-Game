@@ -5,6 +5,7 @@ const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const { nodemailerConfig } = require("../utils/config");
 const saltRounds = Number(process.env.SALT_ROUNDS);
 const url = "https://kids-spelling-game.onrender.com";
 
@@ -39,19 +40,7 @@ const sendResetPasswordLink = async ({ _id, email }, response) => {
   // const currentURL = "https://kids-spelling-game.onrender.com";
   let data = { email, _id };
   let token = jwt.sign(data, process.env.JWT_KEY, { expiresIn: 60 * 10 });
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EEMAIL,
-      pass: process.env.EPASSWORD,
-    },
-    tls: {
-      ciphers: "SSLv3",
-      rejectUnauthorized: false,
-    },
-  });
+  const transporter = nodemailer.createTransport(nodemailerConfig);
 
   const mailOptions = {
     from: process.env.EMAIL,
