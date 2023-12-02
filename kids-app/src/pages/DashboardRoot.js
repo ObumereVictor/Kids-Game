@@ -15,6 +15,7 @@ const DashboardRoot = () => {
   useEffect(() => {
     gettingUser();
     // console.log(gameDetails);
+    getGame();
   }, []);
 
   const handleDropDown = (event) => {

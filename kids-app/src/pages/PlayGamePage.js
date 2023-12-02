@@ -127,6 +127,7 @@ const PlayGamePage = () => {
   // QUIT GAME
   const quitGame = (event) => {
     event.preventDefault();
+    showModal(false, "", "", "");
     if (loginToken) {
       console.log(loginToken);
       navigate(`../dashboard/${loginToken}`);

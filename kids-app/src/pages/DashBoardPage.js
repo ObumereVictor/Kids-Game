@@ -9,10 +9,10 @@ const DashboardPage = () => {
   const navigate = useNavigate();
 
   // console.log(gameDetails);
-  useEffect(() => {
-    getGame();
-    // gettingUser();
-  }, [gameDetails]);
+  // useEffect(() => {
+  //   getGame();
+  //   // gettingUser();
+  // }, [gameDetails]);
 
   // CREATE GAME NAV
   const handleCreateGameNav = async (event) => {
