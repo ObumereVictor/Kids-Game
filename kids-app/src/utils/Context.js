@@ -681,6 +681,7 @@ const AppProvider = ({ children }) => {
   //  SIGN OUT
   const signOut = () => {
     Cookies.remove("login_token");
+
     setLoginNav({
       gotocompleteprofile: false,
       gotoverifypage: false,
@@ -691,6 +692,9 @@ const AppProvider = ({ children }) => {
       cookie: cookie,
     });
     setLoginToken(null);
+    Cookies.remove("login_token", {
+      path: "/dashboard",
+    });
   };
 
   //********************** COMPLETE PROFILE *************************/
@@ -760,9 +764,10 @@ const AppProvider = ({ children }) => {
           answer: response.data.answer,
           gameId: response.data.gameId,
         };
-        console.log(details);
+        // console.log(details);
         return details;
       });
+      console.log({ loginToken, gameDetails });
 
       setIsLoading(false);
       // console.log(gameDetails);
