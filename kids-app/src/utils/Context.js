@@ -495,16 +495,16 @@ const AppProvider = ({ children }) => {
 
   const gettingUser = async () => {
     console.log("Hello");
-    // setIsLoading(true);
-    // try {
-    //   const response = await axios(url + `/dashboard/${loginToken}`, {
-    //     withCredentials: true,
-    //   });
-    //   console.log(response);
-    //   setIsLoading(false);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    setIsLoading(true);
+    try {
+      const response = await axios(url + `/api/v1/dashboard/${loginToken}`, {
+        withCredentials: true,
+      });
+      console.log(response);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // **************************** FORGOT PASSWORD **************************//

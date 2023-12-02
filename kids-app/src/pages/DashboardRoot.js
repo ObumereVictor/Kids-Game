@@ -12,7 +12,7 @@ const DashboardRoot = () => {
 
   useEffect(() => {
     gettingUser();
-  });
+  }, [gameDetails]);
 
   const handleDropDown = (event) => {
     event.preventDefault();

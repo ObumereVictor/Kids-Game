@@ -8,6 +8,7 @@ const streamifier = require("streamifier");
 const { cloudinaryConfig } = require("../utils/config");
 const GameSchema = require("../models/GameModel");
 
+// UPLOAD IMAGE
 const uploadImage = async (request, response) => {
   let image = request.file;
 
@@ -50,6 +51,7 @@ const uploadImage = async (request, response) => {
   // response.end();
 };
 
+// GET USER TO COMPLETE PROFILE
 const getUser = async (request, response) => {
   const { userId, token } = request.params;
 
@@ -71,6 +73,7 @@ const getUser = async (request, response) => {
   });
 };
 
+// COMPLETE PROFILE
 const completeProfile = async (request, response) => {
   const { userId, token } = request.params;
   const { difficulty, imageUrl } = request.body;
@@ -90,6 +93,7 @@ const completeProfile = async (request, response) => {
   response.end();
 };
 
+//  HANDLE DASHBOARD
 const dashboard = async (request, response) => {
   if (!request.headers.authorization) {
     return response.status(StatusCodes.BAD_REQUEST).json({
@@ -148,5 +152,7 @@ const dashboard = async (request, response) => {
   });
   // response.end();
 };
+
+//  GETTTING USER
 
 module.exports = { dashboard, uploadImage, completeProfile, getUser };
