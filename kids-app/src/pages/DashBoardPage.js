@@ -29,6 +29,7 @@ const DashboardPage = () => {
   const handlePlayGame = async (event) => {
     event.preventDefault();
 
+    console.log({ isAuthenticated, loginToken });
     if (isAuthenticated.cookie) {
       navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
     }
