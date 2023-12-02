@@ -752,7 +752,7 @@ const AppProvider = ({ children }) => {
           headers: {
             "Allow-Control-Allow-Origin":
               "https://kids-spelling-game.onrender.com/",
-            Authorization: `Bearer ${loginToken}`,
+            // Authorization: `Bearer ${loginToken}`,
           },
         }
       );
