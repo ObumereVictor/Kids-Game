@@ -7,11 +7,11 @@ import SideBarPage from "./SideBar";
 import DropDown from "../utils/DropDown";
 
 const DashboardRoot = () => {
-  const { toggle, showSideBar, gameDetails, getUser } = useGlobalContext();
+  const { toggle, showSideBar, gameDetails, gettingUser } = useGlobalContext();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
   useEffect(() => {
-    getUser();
+    gettingUser();
   });
 
   const handleDropDown = (event) => {

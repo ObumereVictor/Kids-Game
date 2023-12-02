@@ -494,16 +494,17 @@ const AppProvider = ({ children }) => {
   };
 
   const gettingUser = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios(url + `/dashboard/${loginToken}`, {
-        withCredentials: true,
-      });
-      console.log(response);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
+    console.log("Hello");
+    // setIsLoading(true);
+    // try {
+    //   const response = await axios(url + `/dashboard/${loginToken}`, {
+    //     withCredentials: true,
+    //   });
+    //   console.log(response);
+    //   setIsLoading(false);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   // **************************** FORGOT PASSWORD **************************//
