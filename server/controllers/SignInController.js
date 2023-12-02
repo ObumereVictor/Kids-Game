@@ -66,6 +66,7 @@ const signIn = async (request, response, next) => {
   }
 
   if (!completedProfile) {
+    console.log(token);
     return response.status(StatusCodes.OK).json({
       status: "Success",
       msg: "Please complete your profile",
@@ -74,6 +75,7 @@ const signIn = async (request, response, next) => {
       email: user.email,
       verified,
       token,
+      msg: "Hello",
     });
   }
 
