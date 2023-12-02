@@ -13,8 +13,8 @@ const DashboardRoot = () => {
 
   useEffect(() => {
     gettingUser();
-    console.log(gameDetails);
-  }, []);
+    // console.log(gameDetails);
+  });
 
   const handleDropDown = (event) => {
     event.preventDefault();
@@ -24,6 +24,9 @@ const DashboardRoot = () => {
       setIsDropDownActive(false);
     }
   };
+  if (!gameDetails.profilePic) {
+    return <h2>Loading.....</h2>;
+  }
 
   return (
     <main className="dashboard-root">
