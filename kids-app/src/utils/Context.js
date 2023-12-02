@@ -367,6 +367,7 @@ const AppProvider = ({ children }) => {
   const getUser = async () => {
     try {
       const response = await axios(url + `/register/${userDetails.userId}`);
+      console.log(response);
 
       setUserDetails((oldDetails) => {
         const newDetails = { ...oldDetails, verified: response.data.verified };
