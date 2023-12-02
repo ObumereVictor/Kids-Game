@@ -13,7 +13,7 @@ const DashboardRoot = () => {
 
   useEffect(() => {
     gettingUser();
-  });
+  }, []);
 
   const handleDropDown = (event) => {
     event.preventDefault();
