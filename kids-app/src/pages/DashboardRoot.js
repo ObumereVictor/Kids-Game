@@ -7,7 +7,8 @@ import SideBarPage from "./SideBar";
 import DropDown from "../utils/DropDown";
 
 const DashboardRoot = () => {
-  const { toggle, showSideBar, gameDetails, gettingUser } = useGlobalContext();
+  const { toggle, showSideBar, gameDetails, gettingUser, isLoading } =
+    useGlobalContext();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
   useEffect(() => {
@@ -22,6 +23,9 @@ const DashboardRoot = () => {
       setIsDropDownActive(false);
     }
   };
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <main className="dashboard-root">

@@ -502,8 +502,7 @@ const AppProvider = ({ children }) => {
           Authorization: `Bearer ${loginToken}`,
         },
       });
-      console.log("Hello");
-      console.log(response);
+      console.log(response.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
