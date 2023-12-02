@@ -492,6 +492,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // GETTING USER DETAILS
   const gettingUser = async () => {
     setIsLoading(true);
     try {
@@ -744,28 +745,55 @@ const AppProvider = ({ children }) => {
   const getGame = async () => {
     setIsLoading(true);
     try {
-      const response = await axios(
-        url + `/playgame/${loginToken}/${gameDetails.gameId}`,
-        {
-          withCredentials: true,
-          headers: {
-            "Allow-Control-Allow-Origin":
-              "https://kids-spelling-game.onrender.com/",
-            // Authorization: `Bearer ${loginToken}`,
-          },
-        }
-      );
-      console.log(response);
-      setGameDetails((details) => {
-        details = {
-          ...details,
-          game: response.data.game,
-          answer: response.data.answer,
-          gameId: response.data.gameId,
-        };
-        // console.log(details);
-        return details;
-      });
+      if (loginToken) {
+        const response = await axios(
+          url + `/playgame/${loginToken}/${gameDetails.gameId}`,
+          {
+            withCredentials: true,
+            headers: {
+              "Allow-Control-Allow-Origin":
+                "https://kids-spelling-game.onrender.com/",
+              // Authorization: `Bearer ${loginToken}`,
+            },
+          }
+        );
+        console.log(response);
+        setGameDetails((details) => {
+          details = {
+            ...details,
+            game: response.data.game,
+            answer: response.data.answer,
+            gameId: response.data.gameId,
+          };
+          // console.log(details);
+          return details;
+        });
+      }
+      if (isAuthenticated.user) {
+        const response = await axios(
+          url + `/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`,
+          {
+            withCredentials: true,
+            headers: {
+              "Allow-Control-Allow-Origin":
+                "https://kids-spelling-game.onrender.com/",
+              // Authorization: `Bearer ${loginToken}`,
+            },
+          }
+        );
+        console.log(response);
+        setGameDetails((details) => {
+          details = {
+            ...details,
+            game: response.data.game,
+            answer: response.data.answer,
+            gameId: response.data.gameId,
+          };
+          // console.log(details);
+          return details;
+        });
+      }
+
       // console.log({ loginToken, gameDetails });
 
       setIsLoading(false);

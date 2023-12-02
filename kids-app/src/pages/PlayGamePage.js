@@ -127,7 +127,12 @@ const PlayGamePage = () => {
   // QUIT GAME
   const quitGame = (event) => {
     event.preventDefault();
-    navigate(`../dashboard/${isAuthenticated.cookie}`);
+    if (loginToken) {
+      navigate(`../dashboard/${loginToken}`);
+    }
+    if (isAuthenticated.user) {
+      navigate(`../dashboard/${isAuthenticated.cookie}`);
+    }
   };
 
   return (
