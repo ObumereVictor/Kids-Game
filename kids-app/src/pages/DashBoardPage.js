@@ -29,13 +29,13 @@ const DashboardPage = () => {
   const handlePlayGame = async (event) => {
     event.preventDefault();
 
-    getGame();
     if (isAuthenticated.cookie) {
       navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
     }
     if (loginToken) {
       navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
     }
+    getGame();
   };
   return (
     <main className="dashboard-page">

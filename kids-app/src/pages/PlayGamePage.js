@@ -130,18 +130,6 @@ const PlayGamePage = () => {
     navigate(`../dashboard/${isAuthenticated.cookie}`);
   };
 
-  const fetchNextGame = async (token, gameId) => {
-    try {
-      const response = await axios.patch(url + `/playgame/${token}/${gameId}`, {
-        withCredentials: true,
-      });
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
-    }
-  };
-
   return (
     <main className="playgame-page">
       <h2>Game</h2>
