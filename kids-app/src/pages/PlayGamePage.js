@@ -127,7 +127,6 @@ const PlayGamePage = () => {
   // QUIT GAME
   const quitGame = (event) => {
     event.preventDefault();
-    showModal(false, "", "", "");
     if (loginToken) {
       console.log(loginToken);
       navigate(`../dashboard/${loginToken}`);
@@ -135,6 +134,7 @@ const PlayGamePage = () => {
     if (isAuthenticated.user) {
       navigate(`../dashboard/${isAuthenticated.cookie}`);
     }
+    showModal(false, "", "", "");
   };
 
   return !gameDetails.gameId ? (
