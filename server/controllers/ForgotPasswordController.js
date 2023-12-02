@@ -6,6 +6,7 @@ require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const saltRounds = Number(process.env.SALT_ROUNDS);
+const url = "https://kids-spelling-game.onrender.com";
 
 const sendResetPasswordEmail = async (request, response) => {
   const { email } = request.body;
@@ -35,7 +36,7 @@ const sendResetPasswordEmail = async (request, response) => {
 };
 // SENDING RESET PASSWORD LINK
 const sendResetPasswordLink = async ({ _id, email }, response) => {
-  const currentURL = "http://localhost:3000";
+  // const currentURL = "https://kids-spelling-game.onrender.com";
   let data = { email, _id };
   let token = jwt.sign(data, process.env.JWT_KEY, { expiresIn: 60 * 10 });
   const transporter = nodemailer.createTransport({
@@ -53,13 +54,13 @@ const sendResetPasswordLink = async ({ _id, email }, response) => {
   });
 
   const mailOptions = {
-    from: process.envEEMAIL,
+    from: process.env.EMAIL,
     to: email,
     subject: "Reset your password for your account",
     html: `<div> <h2>Password Reset</h2>
 
     <p>Click the link to reset your password 
-    <a href=${currentURL + "/reset-password/" + token} target= _blank>Link</a>
+    <a href=${url + "/reset-password/" + token} target= _blank>Link</a>
     <p>Link expires in 10 minutes</p>
     If you didn't initiate password reset for your account. </p>
     </div>`,
@@ -69,7 +70,7 @@ const sendResetPasswordLink = async ({ _id, email }, response) => {
 
 //    VERIFY PASSWORD LINK
 const verifyResetPasswordLink = async (request, response) => {
-  response.redirect("http://localhost:3000/reset-password/:token");
+  response.redirect(url + `/reset-password/:token`);
 };
 
 //     UPDATE PASSWORD

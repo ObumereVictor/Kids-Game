@@ -75,7 +75,6 @@ const signIn = async (request, response, next) => {
       email: user.email,
       verified,
       token,
-      msg: "Hello",
     });
   }
 
