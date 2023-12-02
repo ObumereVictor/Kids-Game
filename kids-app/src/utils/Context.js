@@ -729,7 +729,7 @@ const AppProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const response = await axios(
-        url + `/playgame/${isAuthenticated.cookie}`,
+        url + `/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`,
         {
           withCredentials: true,
           headers: {
