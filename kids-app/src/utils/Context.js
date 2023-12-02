@@ -494,12 +494,12 @@ const AppProvider = ({ children }) => {
   };
 
   const gettingUser = async () => {
-    console.log("Hello");
     setIsLoading(true);
     try {
       const response = await axios(url + `/api/v1/dashboard/${loginToken}`, {
         withCredentials: true,
       });
+      console.log("Hello");
       console.log(response);
       setIsLoading(false);
     } catch (error) {
