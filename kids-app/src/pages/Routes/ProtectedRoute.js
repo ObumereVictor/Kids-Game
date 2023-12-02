@@ -51,6 +51,7 @@ const EditProfileProtectRoute = ({ token, cookie, children }) => {
 };
 
 const GameProtectedRoute = ({ token, gameId, cookie, children }) => {
+  console.log({ token, cookie, gameId });
   if ((token || cookie) && gameId) return children;
   return <Navigate to="../../sign-in" replace="true" />;
 };

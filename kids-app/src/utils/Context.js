@@ -424,7 +424,7 @@ const AppProvider = ({ children }) => {
           },
         }
       );
-      console.log(response);
+      // console.log(response);
       showAlert2(false, "", "");
 
       let loginToken = response.data.token;
@@ -433,7 +433,6 @@ const AppProvider = ({ children }) => {
           path: "/",
           maxAge: 60 * 60 * 24 * 1000,
         });
-        console.log(cookies);
 
         setLoginToken(loginToken);
       }
@@ -767,7 +766,7 @@ const AppProvider = ({ children }) => {
         // console.log(details);
         return details;
       });
-      console.log({ loginToken, gameDetails });
+      // console.log({ loginToken, gameDetails });
 
       setIsLoading(false);
       // console.log(gameDetails);
