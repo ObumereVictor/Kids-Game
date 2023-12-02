@@ -24,11 +24,10 @@ const DashboardRoot = () => {
       setIsDropDownActive(false);
     }
   };
-  if (!gameDetails.profilePic) {
-    return <h2>Loading.....</h2>;
-  }
 
-  return (
+  return !gameDetails.profilePic ? (
+    <h2>Loaddding.....</h2>
+  ) : (
     <main className="dashboard-root">
       <header className="dashboard-header">
         <h2>KIDS APP</h2>
