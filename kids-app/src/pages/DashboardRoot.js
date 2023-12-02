@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import { useGlobalContext } from "../utils/Context";
 import SideBarPage from "./SideBar";
 import DropDown from "../utils/DropDown";
+import Loading from "../utils/Loading";
 
 const DashboardRoot = () => {
   const { toggle, showSideBar, gameDetails, gettingUser, isLoading } =
@@ -26,7 +27,9 @@ const DashboardRoot = () => {
   };
 
   return !gameDetails.profilePic ? (
-    <h2>Loaddding.....</h2>
+    <main className="fetch-loading">
+      <Loading height={"100px"} width={"100px"} type={"spin"} color={"green"} />
+    </main>
   ) : (
     <main className="dashboard-root">
       <header className="dashboard-header">
