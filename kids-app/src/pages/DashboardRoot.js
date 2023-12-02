@@ -13,6 +13,7 @@ const DashboardRoot = () => {
 
   useEffect(() => {
     gettingUser();
+    console.log(gameDetails);
   }, []);
 
   const handleDropDown = (event) => {
@@ -23,9 +24,6 @@ const DashboardRoot = () => {
       setIsDropDownActive(false);
     }
   };
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
 
   return (
     <main className="dashboard-root">
