@@ -7,8 +7,9 @@ const streamifier = require("streamifier");
 const SignUpSchema = require("../models/SignUpModel");
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
 
+// EDIT PROFILE
 const editProfile = async (request, response) => {
-  const { difficulty, username } = request.body;
+  const { difficulty } = request.body;
   const image = request.file;
   const { token } = request.params;
   const user = request.user;
@@ -19,12 +20,12 @@ const editProfile = async (request, response) => {
       .status(StatusCodes.BAD_REQUEST)
       .json({ status: "Failed", msg: "Cannot update this profile" });
   }
-  // NO USERNAME INPUT
-  if (!username) {
-    return response
-      .status(StatusCodes.BAD_REQUEST)
-      .json({ status: "Failed", msg: "Enter username" });
-  }
+  // // NO USERNAME INPUT
+  // if (!username) {
+  //   return response
+  //     .status(StatusCodes.BAD_REQUEST)
+  //     .json({ status: "Failed", msg: "Enter username" });
+  // }
   //  CHECK FILE TYPE
   if (image && !image.mimetype.startsWith("image/")) {
     return response.status(StatusCodes.FORBIDDEN).json({
@@ -44,11 +45,16 @@ const editProfile = async (request, response) => {
     });
   }
 
-  const isUsernameAvailable = await SignUpSchema.findOne({ username });
-  if (isUsernameAvailable) {
+  const { _id } = await SignUpSchema.findOne({ _id: user });
+  // if (isUsernameAvailable) {
+  //   return response
+  //     .status(StatusCodes.BAD_REQUEST)
+  //     .json({ status: "Failed", msg: "Username already exists" });
+  // }
+  if (!_id) {
     return response
       .status(StatusCodes.BAD_REQUEST)
-      .json({ status: "Failed", msg: "Username already exists" });
+      .json({ status: "Failed", msg: "Cannot Perform this action" });
   }
   cloudinaryConfig;
 
@@ -56,21 +62,18 @@ const editProfile = async (request, response) => {
     if (error) {
       return error;
     }
-    await SignUpSchema.updateMany(
-      { _id: user },
-      { profilePic: result.secure_url }
-    );
+    await SignUpSchema.updateMany({ _id }, { profilePic: result.secure_url });
   });
 
   if (image) {
     streamifier.createReadStream(image.buffer).pipe(imageUrl);
   }
 
-  if (username) {
-    await SignUpSchema.updateMany({ _id: user }, { username });
-  }
+  // if (username) {
+  //   await SignUpSchema.updateMany({ _id: user }, { username });
+  // }
   if (difficulty) {
-    await SignUpSchema.updateMany({ _id: user }, { difficulty });
+    await SignUpSchema.updateMany({ _id }, { difficulty });
   }
 
   return response

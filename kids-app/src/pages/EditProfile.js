@@ -35,12 +35,12 @@ const EditProfile = () => {
 
     const difficulty = event.target.elements.difficulty.value;
     const image = event.target.elements.profilePic.files[0];
-    const username = event.target.elements.username.value;
+    // const username = event.target.elements.username.value;
 
     formData.append("profilepic", image);
     formData.append("difficulty", difficulty);
-    formData.append("username", username);
-    console.log({ image, difficulty, username });
+    // formData.append("username", username);
+    // console.log({ image, difficulty, username });
     setIsLoading(true);
     if (isAuthenticated.user) {
       postEditProfile(isAuthenticated.cookie, formData);
@@ -106,10 +106,10 @@ const EditProfile = () => {
         )}
       </div>
       <form onSubmit={handleEditProfileSubmit}>
-        <div className="editprofile-input-div">
+        {/* <div className="editprofile-input-div">
           <label htmlFor="username">Username: </label>
           <input type="text" id="username" name="username" />
-        </div>
+        </div> */}
         <div className="editprofile-input-div">
           <label htmlFor="difficulty">Difficulty:</label>
           <select name="difficulty" id="difficulty">

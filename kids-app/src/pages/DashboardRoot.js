@@ -8,7 +8,7 @@ import DropDown from "../utils/DropDown";
 import Loading from "../utils/Loading";
 
 const DashboardRoot = () => {
-  const { toggle, showSideBar, gameDetails, gettingUser, isLoading } =
+  const { toggle, showSideBar, gameDetails, gettingUser, getGame } =
     useGlobalContext();
   const [isDropDownActive, setIsDropDownActive] = useState(false);
 
