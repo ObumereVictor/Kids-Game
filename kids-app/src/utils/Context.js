@@ -498,6 +498,9 @@ const AppProvider = ({ children }) => {
     try {
       const response = await axios(url + `/api/v1/dashboard/${loginToken}`, {
         withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${loginToken}`,
+        },
       });
       console.log("Hello");
       console.log(response);

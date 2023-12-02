@@ -8,7 +8,7 @@ const DashboardPage = () => {
     useGlobalContext();
   const navigate = useNavigate();
 
-  console.log(gameDetails);
+  // console.log(gameDetails);
   useEffect(() => {
     getGame();
     // gettingUser();
