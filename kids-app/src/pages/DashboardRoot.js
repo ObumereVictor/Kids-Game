@@ -26,7 +26,7 @@ const DashboardRoot = () => {
     }
   };
 
-  return !gameDetails.profilePic ? (
+  return !gameDetails.profilePic && !gameDetails.gameId ? (
     <main className="fetch-loading">
       <Loading height={"100px"} width={"100px"} type={"spin"} color={"green"} />
     </main>
