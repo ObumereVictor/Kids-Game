@@ -102,7 +102,7 @@ const dashboard = async (request, response) => {
     });
   }
   const token = request.headers.authorization.split("Bearer ")[1];
-  console.log(token);
+  // console.log(token);
 
   if (!token) {
     return response.status(StatusCodes.BAD_REQUEST).json({
