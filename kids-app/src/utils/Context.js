@@ -735,6 +735,7 @@ const AppProvider = ({ children }) => {
           headers: {
             "Allow-Control-Allow-Origin":
               "https://kids-spelling-game.onrender.com/",
+            Authorization: `Bearer ${loginToken}`,
           },
         }
       );
@@ -752,10 +753,10 @@ const AppProvider = ({ children }) => {
       setIsLoading(false);
       // console.log(gameDetails);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
       error = error.response.data;
       showModal(true, error.msg, error.status, error.erroyType);
-      setIsLoading(false);
     }
   };
   return (
