@@ -136,7 +136,9 @@ const PlayGamePage = () => {
     }
   };
 
-  return (
+  return !gameDetails.gameId ? (
+    <h2>Loading.....</h2>
+  ) : (
     <main className="playgame-page">
       <h2>Game</h2>
       <i>{gameDetails.username} is currently Playing</i>

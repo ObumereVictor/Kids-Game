@@ -12,7 +12,7 @@ const DashboardPage = () => {
   useEffect(() => {
     getGame();
     // gettingUser();
-  }, []);
+  }, [gameDetails]);
 
   // CREATE GAME NAV
   const handleCreateGameNav = async (event) => {
