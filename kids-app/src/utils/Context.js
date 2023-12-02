@@ -502,7 +502,6 @@ const AppProvider = ({ children }) => {
           Authorization: `Bearer ${loginToken}`,
         },
       });
-      console.log(response.data);
       setGameDetails({ ...response.data });
 
       setIsLoading(false);
