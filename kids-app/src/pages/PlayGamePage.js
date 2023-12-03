@@ -134,7 +134,6 @@ const PlayGamePage = () => {
     if (isAuthenticated.user) {
       navigate(`../dashboard/${isAuthenticated.cookie}`);
     }
-    showModal(false, "", "");
   };
 
   return !gameDetails.gameId ? (

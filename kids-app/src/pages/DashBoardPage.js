@@ -30,6 +30,7 @@ const DashboardPage = () => {
     event.preventDefault();
 
     console.log({ isAuthenticated, loginToken });
+    showModal(false, "", "");
 
     if (isAuthenticated.cookie) {
       navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
