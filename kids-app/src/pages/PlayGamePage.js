@@ -130,6 +130,7 @@ const PlayGamePage = () => {
     console.log("Quitting");
     if (loginToken) {
       console.log("Hello token");
+      console.log(loginToken);
       navigate(`../dashboard/${loginToken}`);
     }
     if (isAuthenticated.user) {
