@@ -131,17 +131,15 @@ const PlayGamePage = () => {
     if (loginToken) {
       console.log("Hello token");
       console.log(loginToken);
-      return navigate(`../dashboard/${loginToken}`);
+      // navigate(`../dashboard/${loginToken}`);
     }
     if (isAuthenticated.user) {
       console.log("Hello cookie");
-      return navigate(`../dashboard/${isAuthenticated.cookie}`);
+      navigate(`../dashboard/${isAuthenticated.cookie}`);
     }
   };
 
-  return !gameDetails.gameId ? (
-    <h2>Loading.....</h2>
-  ) : (
+  return (
     <main className="playgame-page">
       <h2>Game</h2>
       <i>{gameDetails.username} is currently Playing</i>
