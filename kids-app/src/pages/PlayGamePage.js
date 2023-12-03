@@ -127,15 +127,15 @@ const PlayGamePage = () => {
   // QUIT GAME
   const quitGame = (event) => {
     event.preventDefault();
+    console.log("Quitting");
     if (loginToken) {
-      console.log(loginToken);
+      console.log("Hello token");
       navigate(`../dashboard/${loginToken}`);
     }
     if (isAuthenticated.user) {
-      console.log("Hello");
+      console.log("Hello cookie");
       navigate(`../dashboard/${isAuthenticated.cookie}`);
     }
-    console.log("Quitting");
   };
 
   return !gameDetails.gameId ? (
