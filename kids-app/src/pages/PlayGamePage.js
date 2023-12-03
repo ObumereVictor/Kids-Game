@@ -117,7 +117,7 @@ const PlayGamePage = () => {
       }
     } catch (error) {
       console.log({ error });
-      console.log("Hello");
+      // console.log("Hello");
       error = error.response.data;
       showModal(true, error.msg, error.status);
       setIsLoading(false);
@@ -132,8 +132,10 @@ const PlayGamePage = () => {
       navigate(`../dashboard/${loginToken}`);
     }
     if (isAuthenticated.user) {
+      console.log("Hello");
       navigate(`../dashboard/${isAuthenticated.cookie}`);
     }
+    console.log("Quitting");
   };
 
   return !gameDetails.gameId ? (
