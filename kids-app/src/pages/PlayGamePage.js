@@ -131,11 +131,11 @@ const PlayGamePage = () => {
     if (loginToken) {
       console.log("Hello token");
       console.log(loginToken);
-      navigate(`../dashboard/${loginToken}`);
+      return navigate(`../dashboard/${loginToken}`);
     }
     if (isAuthenticated.user) {
       console.log("Hello cookie");
-      navigate(`../dashboard/${isAuthenticated.cookie}`);
+      return navigate(`../dashboard/${isAuthenticated.cookie}`);
     }
   };
 
