@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
 
 const DashboardPage = () => {
-  const { gameDetails, isAuthenticated, loginToken, getGame } =
+  const { gameDetails, isAuthenticated, loginToken, getGame, showModal } =
     useGlobalContext();
   const navigate = useNavigate();
 
