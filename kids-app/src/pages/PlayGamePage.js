@@ -132,6 +132,7 @@ const PlayGamePage = () => {
     // }
     // if (isAuthenticated.user) {
     console.log("Hello000");
+    showModal(false, "", "", "");
     navigate(`../dashboard/${isAuthenticated.cookie || loginToken}`);
     // }
   };
