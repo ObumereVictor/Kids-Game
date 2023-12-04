@@ -805,7 +805,6 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      console.log("Context");
       error = error.response.data;
       // if (gameError) {
       //   showModal(true, error.msg, error.status, error.erroyType);

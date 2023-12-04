@@ -29,7 +29,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     // getGame();
 
     if (gameError) {
-      console.log({ gameError });
+      console.log({ gameError, status, errorType });
       navigate(
         `../dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
       );
@@ -62,7 +62,9 @@ const Modal = ({ message, status, errorType, quitGame }) => {
           </button>
         ) : (
           <button onClick={proceedEvent}>
-            {gameError ? "Proceed to Edit Profile" : "Proceed to the next game"}
+            {gameError
+              ? "Proceed to change difficulty Profile"
+              : "Proceed to the next game"}
           </button>
         )}
       </section>
