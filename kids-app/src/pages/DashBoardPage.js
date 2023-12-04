@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../utils/Context";
 import { useNavigate } from "react-router-dom";
+import Modal from "../utils/Modal";
 import { Cookies } from "react-cookie";
 
 const DashboardPage = () => {
-  const { gameDetails, isAuthenticated, loginToken, getGame, showModal } =
-    useGlobalContext();
+  const {
+    gameDetails,
+    isAuthenticated,
+    loginToken,
+    getGame,
+    showModal,
+    modal,
+  } = useGlobalContext();
   const navigate = useNavigate();
 
   // console.log(gameDetails);
@@ -31,7 +38,7 @@ const DashboardPage = () => {
 
     console.log({ isAuthenticated, loginToken });
     if (!gameDetails.gameId) {
-      return showModal(true, "No game", "Failec", "nogameerror");
+      showModal(true, "No game", "Failec", "nogameerror");
     }
 
     // if (isAuthenticated.cookie) {
@@ -64,6 +71,7 @@ const DashboardPage = () => {
           <button onClick={handlePlayGame}>Play Game</button>
         </main>
       )}
+      {modal.show && <Modal {...modal} />}
     </main>
   );
 };
