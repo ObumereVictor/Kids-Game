@@ -43,7 +43,12 @@ const DashboardPage = () => {
 
     if (!gameDetails.gameId) {
       setGameError(true);
-      showModal(true, "No game", "error.status", "error.erroyType");
+      showModal(
+        true,
+        "You don't have any game available, change the difficulty level on your profile or try again later",
+        "Failed",
+        "nogameerror"
+      );
       // return;
     }
     if (gameDetails.gameId) {
