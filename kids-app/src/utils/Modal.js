@@ -7,15 +7,29 @@ const Modal = ({ message, status, errorType, quitGame }) => {
   const navigate = useNavigate();
   const proceedEvent = (event) => {
     event.preventDefault();
-    if (status === "Failed") {
-      console.log(status);
-      navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
+    getGame();
+    if (loginToken) {
+      if (status === "Failed") {
+        console.log(status);
+        navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
+        showModal(false, "", "");
+      }
+      // getGame();
+      navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
+      console.log(gameDetails);
       showModal(false, "", "");
     }
-    getGame();
-    navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
-    console.log(gameDetails);
-    showModal(false, "", "");
+    if (isAuthenticated.user) {
+      if (status === "Failed") {
+        console.log(status);
+        navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
+        showModal(false, "", "");
+      }
+      // getGame();
+      navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
+      console.log(gameDetails);
+      showModal(false, "", "");
+    }
   };
 
   return (
