@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 
 const Modal = ({ message, status, errorType, quitGame }) => {
-  const { gameDetails, isAuthenticated, showModal, getGame } =
+  const { gameDetails, isAuthenticated, showModal, getGame, loginToken } =
     useGlobalContext();
   const navigate = useNavigate();
   const proceedEvent = (event) => {
