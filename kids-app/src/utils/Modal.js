@@ -43,8 +43,8 @@ const Modal = ({ message, status, errorType, quitGame }) => {
       </h2>
 
       <section className="modal-btns">
-        <button onClick={quitGame}>Quit game</button>
-        <button onClick={remove}>Remove</button>
+        <button onClick={quitGame || remove}>Quit game</button>
+        {/* <button onClick={remove}>Remove</button> */}
         {status === "Failed" ? (
           <button onClick={proceedEvent}>
             {errorType === "nogameerror"
