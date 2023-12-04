@@ -807,9 +807,9 @@ const AppProvider = ({ children }) => {
       console.log(error);
       console.log("Context");
       error = error.response.data;
-      if (error.errorType === "nogameerror" && gameError) {
-        showModal(true, error.msg, error.status, error.erroyType);
-      }
+      // if (error.errorType === "nogameerror" && gameError) {
+      //   showModal(true, error.msg, error.status, error.erroyType);
+      // }
     }
   };
   return (
