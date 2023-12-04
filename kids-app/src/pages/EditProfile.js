@@ -23,8 +23,11 @@ const EditProfile = () => {
     showAlert(false, "", "");
     showAlert2(false, "", "");
     setIsLoading(false);
-    if (updateCompleted) {
+    if (updateCompleted && isAuthenticated.user) {
       navigate(`/dashboard/${isAuthenticated.cookie}`);
+    }
+    if (updateCompleted && loginToken) {
+      navigate(`/dashboard/${loginToken}`);
     }
   }, [updateCompleted]);
   const navigate = useNavigate();
