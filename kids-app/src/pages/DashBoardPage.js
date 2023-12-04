@@ -41,14 +41,17 @@ const DashboardPage = () => {
     console.log({ isAuthenticated, loginToken });
 
     // if (isAuthenticated.cookie) {
-    if (!gameError) {
-      setGameError(true);
-      return;
-    }
 
-    navigate(
-      `/playgame/${isAuthenticated.cookie || loginToken}/${gameDetails.gameId}`
-    );
+    if (!gameDetails.gameId) {
+      setGameError(true);
+    }
+    if (gameDetails.gameId) {
+      navigate(
+        `/playgame/${isAuthenticated.cookie || loginToken}/${
+          gameDetails.gameId
+        }`
+      );
+    }
     // }
     // if (loginToken) {
     //   navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
