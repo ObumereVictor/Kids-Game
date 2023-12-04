@@ -71,12 +71,11 @@ const gettingGame = async (request, response) => {
     // let currentGame = await currentGames.at(0);
 
     if (!currentGame) {
-      response.status(StatusCodes.NOT_FOUND).json({
+      return response.status(StatusCodes.NOT_FOUND).json({
         status: "Failed",
         msg: "You don't have any game available, change the difficulty level on your profile or try again later",
         errorType: "nogameerror",
       });
-      return;
     }
 
     let { _id } = await GameSchema.findOne({ game: currentGame });
