@@ -741,6 +741,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const [gameError, setGameError] = useState(false);
   // GET GAME
   const getGame = async () => {
     setIsLoading(true);
@@ -806,12 +807,15 @@ const AppProvider = ({ children }) => {
       console.log(error);
       console.log("Context");
       error = error.response.data;
-      // showModal(true, error.msg, error.status, error.erroyType);
+      if (error.errorType === "nogamerror" && gameError) {
+        return showModal(true, error.msg, error.status, error.erroyType);
+      }
     }
   };
   return (
     <AppContext.Provider
       value={{
+        setGameError,
         toggle,
         setToggle,
         showSideBar,

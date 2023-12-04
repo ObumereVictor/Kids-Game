@@ -12,6 +12,7 @@ const DashboardPage = () => {
     getGame,
     showModal,
     modal,
+    setGameError,
   } = useGlobalContext();
   const navigate = useNavigate();
 
@@ -37,12 +38,9 @@ const DashboardPage = () => {
     event.preventDefault();
 
     console.log({ isAuthenticated, loginToken });
-    if (!gameDetails.gameId) {
-      console.log("Dashboard");
-      showModal(true, "No game", "Failec", "nogameerrors");
-    }
 
     // if (isAuthenticated.cookie) {
+    setGameError(true);
 
     navigate(
       `/playgame/${isAuthenticated.cookie || loginToken}/${gameDetails.gameId}`
