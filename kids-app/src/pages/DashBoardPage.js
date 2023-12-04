@@ -13,6 +13,7 @@ const DashboardPage = () => {
     showModal,
     modal,
     setGameError,
+    gameError,
   } = useGlobalContext();
   const navigate = useNavigate();
 
@@ -40,7 +41,10 @@ const DashboardPage = () => {
     console.log({ isAuthenticated, loginToken });
 
     // if (isAuthenticated.cookie) {
-    setGameError(true);
+    if (!gameError) {
+      setGameError(true);
+      return;
+    }
 
     navigate(
       `/playgame/${isAuthenticated.cookie || loginToken}/${gameDetails.gameId}`

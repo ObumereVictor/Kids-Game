@@ -808,13 +808,14 @@ const AppProvider = ({ children }) => {
       console.log("Context");
       error = error.response.data;
       if (error.errorType === "nogamerror" && gameError) {
-        return showModal(true, error.msg, error.status, error.erroyType);
+        showModal(true, error.msg, error.status, error.erroyType);
       }
     }
   };
   return (
     <AppContext.Provider
       value={{
+        gameError,
         setGameError,
         toggle,
         setToggle,
