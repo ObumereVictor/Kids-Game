@@ -18,7 +18,6 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     getGame();
     if (status === "Failed") {
       console.log(status);
-      console.log(status);
       navigate(
         `/playgame/${loginToken || isAuthenticated.cookie}/${
           gameDetails.gameId

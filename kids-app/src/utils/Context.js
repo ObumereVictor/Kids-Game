@@ -746,7 +746,6 @@ const AppProvider = ({ children }) => {
   const getGame = async () => {
     setIsLoading(true);
     try {
-      // if (loginToken) {
       const response = await axios(
         url +
           `/playgame/${loginToken || isAuthenticated.cookie}/${
@@ -757,7 +756,6 @@ const AppProvider = ({ children }) => {
           headers: {
             "Allow-Control-Allow-Origin":
               "https://kids-spelling-game.onrender.com/",
-            // Authorization: `Bearer ${loginToken}`,
           },
         }
       );
@@ -769,44 +767,15 @@ const AppProvider = ({ children }) => {
           answer: response.data.answer,
           gameId: response.data.gameId,
         };
-        // console.log(details);
         return details;
       });
-      // }
-      // if (isAuthenticated.user) {
-      //   const response = await axios(
-      //     url + `/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`,
-      //     {
-      //       withCredentials: true,
-      //       headers: {
-      //         "Allow-Control-Allow-Origin":
-      //           "https://kids-spelling-game.onrender.com/",
-      //         // Authorization: `Bearer ${loginToken}`,
-      //       },
-      //     }
-      //   );
-      //   console.log(response);
-      //   setGameDetails((details) => {
-      //     details = {
-      //       ...details,
-      //       game: response.data.game,
-      //       answer: response.data.answer,
-      //       gameId: response.data.gameId,
-      //     };
-      //     // console.log(details);
-      //     return details;
-      //   });
-      // }
-
-      // console.log({ loginToken, gameDetails });
 
       setIsLoading(false);
-      // console.log(gameDetails);
     } catch (error) {
       setIsLoading(false);
       console.log(error);
       error = error.response.data;
-      if (error.errorType === "nogameerror") {
+      if (error.errorType === "nogameerror" && gameError) {
         showModal(true, error.msg, error.status, error.erroyType);
       }
     }
