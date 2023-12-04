@@ -32,6 +32,7 @@ const DashboardPage = () => {
     console.log({ isAuthenticated, loginToken });
     if (!gameDetails.gameId) {
       showModal(true);
+      return;
     }
 
     // if (isAuthenticated.cookie) {
