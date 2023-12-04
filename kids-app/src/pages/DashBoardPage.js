@@ -14,6 +14,7 @@ const DashboardPage = () => {
     modal,
     setGameError,
     gameError,
+    quitGame,
   } = useGlobalContext();
   const navigate = useNavigate();
 
@@ -79,7 +80,7 @@ const DashboardPage = () => {
           <button onClick={handlePlayGame}>Play Game</button>
         </main>
       )}
-      {modal.show && <Modal {...modal} />}
+      {modal.show && <Modal quitGame={quitGame} {...modal} />}
     </main>
   );
 };
