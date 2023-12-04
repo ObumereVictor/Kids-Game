@@ -31,7 +31,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     if (!gameDetails.gameId) {
       console.log({ gameError, status, errorType });
       navigate(
-        `../dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
+        `/dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
       );
     }
     if (gameDetails.gameId) {
