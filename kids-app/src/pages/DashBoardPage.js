@@ -17,12 +17,12 @@ const DashboardPage = () => {
   // CREATE GAME NAV
   const handleCreateGameNav = async (event) => {
     event.preventDefault();
-    if (isAuthenticated.user) {
-      navigate(`/dashboard/create-game/${isAuthenticated.cookie}`);
-    }
-    if (loginToken) {
-      navigate(`/dashboard/create-game/${loginToken}`);
-    }
+    // if (isAuthenticated.user) {
+    navigate(`/dashboard/create-game/${isAuthenticated.cookie || loginToken}`);
+    // }
+    // if (loginToken) {
+    //   navigate(`/dashboard/create-game/${loginToken}`);
+    // }
   };
 
   // PLAY GAME NAV
@@ -30,14 +30,20 @@ const DashboardPage = () => {
     event.preventDefault();
 
     console.log({ isAuthenticated, loginToken });
-    showModal(false, "", "");
+    if (!gameDetails.gameId) {
+      showModal(true);
+    }
 
-    if (isAuthenticated.cookie) {
-      navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
-    }
-    if (loginToken) {
-      navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
-    }
+    // if (isAuthenticated.cookie) {
+
+    navigate(
+      `/playgame/${isAuthenticated.cookie || loginToken}/${gameDetails.gameId}`
+    );
+    // }
+    // if (loginToken) {
+    //   navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
+    // }
+    showModal(false, "", "");
     getGame();
   };
   return (
