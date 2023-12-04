@@ -117,7 +117,6 @@ const PlayGamePage = () => {
       }
     } catch (error) {
       console.log({ error });
-      // console.log("Hello");
       error = error.response.data;
       showModal(true, error.msg, error.status);
       setIsLoading(false);
@@ -127,14 +126,11 @@ const PlayGamePage = () => {
   // QUIT GAME
   const quitGame = (event) => {
     event.preventDefault();
-    console.log("Quitting");
+
     if (loginToken) {
-      console.log("Hello token");
-      console.log(loginToken);
-      // navigate(`../dashboard/${loginToken}`);
+      navigate(`../dashboard/${loginToken}`);
     }
     if (isAuthenticated.user) {
-      console.log("Hello cookie");
       navigate(`../dashboard/${isAuthenticated.cookie}`);
     }
   };
