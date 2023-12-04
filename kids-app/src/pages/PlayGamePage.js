@@ -15,6 +15,7 @@ const PlayGamePage = () => {
     loginToken,
     modal,
     showModal,
+    setGameError,
   } = useGlobalContext();
 
   const navigate = useNavigate();
@@ -127,14 +128,9 @@ const PlayGamePage = () => {
   const quitGame = (event) => {
     event.preventDefault();
 
-    // if (loginToken) {
-    // navigate(`../dashboard/${loginToken}`);
-    // }
-    // if (isAuthenticated.user) {
-    console.log("Hello000");
     showModal(false, "", "", "");
     navigate(`../dashboard/${isAuthenticated.cookie || loginToken}`);
-    // }
+    setGameError(false);
   };
 
   return (

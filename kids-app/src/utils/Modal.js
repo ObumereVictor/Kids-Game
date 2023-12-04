@@ -59,9 +59,10 @@ const Modal = ({ message, status, errorType, quitGame }) => {
         <button onClick={quitGame || remove}>Quit game</button>
         {status === "Failed" ? (
           <button onClick={proceedEvent}>
-            {errorType === "nogameerror"
+            {/* {errorType === "nogameerror"
               ? "Proceed to Edit Profile"
-              : "Try again"}
+              : "Try again"} */}
+            {gameError ? "Proceed to change difficulty Profile" : "Try Again"}
           </button>
         ) : (
           <button onClick={proceedEvent}>
