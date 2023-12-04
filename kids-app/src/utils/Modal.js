@@ -31,6 +31,10 @@ const Modal = ({ message, status, errorType, quitGame }) => {
       showModal(false, "", "");
     }
   };
+  function remove(event) {
+    event.preventDefault();
+    showModal(false, "", "");
+  }
 
   return (
     <main className="modal-page">
@@ -40,6 +44,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
 
       <section className="modal-btns">
         <button onClick={quitGame}>Quit game</button>
+        <button onClick={remove}>Remove</button>
         {status === "Failed" ? (
           <button onClick={proceedEvent}>
             {errorType === "nogameerror"
