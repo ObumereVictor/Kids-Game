@@ -2,35 +2,44 @@ import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 
 const Modal = ({ message, status, errorType, quitGame }) => {
-  const { gameDetails, isAuthenticated, showModal, getGame, loginToken } =
-    useGlobalContext();
+  const {
+    gameDetails,
+    isAuthenticated,
+    showModal,
+    getGame,
+    loginToken,
+    gameError,
+  } = useGlobalContext();
   const navigate = useNavigate();
+
+  //  GAME PROCEED EVENTS
   const proceedEvent = (event) => {
     event.preventDefault();
     getGame();
-    if (loginToken) {
-      if (status === "Failed") {
-        console.log(status);
-        navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
-        showModal(false, "", "");
-      }
-      // getGame();
-      navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
-      console.log(gameDetails);
+    if (status === "Failed") {
+      console.log(status);
+      navigate(
+        `/playgame/${loginToken || isAuthenticated.cookie}/${
+          gameDetails.gameId
+        }`
+      );
       showModal(false, "", "");
     }
-    if (isAuthenticated.user) {
-      if (status === "Failed") {
-        console.log(status);
-        navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
-        showModal(false, "", "");
-      }
-      // getGame();
-      navigate(`/playgame/${isAuthenticated.cookie}/${gameDetails.gameId}`);
-      console.log(gameDetails);
-      showModal(false, "", "");
+    // getGame();
+
+    if (gameError) {
+      navigate(
+        `../dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
+      );
     }
+    navigate(
+      `/playgame/${loginToken || isAuthenticated.cookie}/${gameDetails.gameId}`
+    );
+    console.log(gameDetails);
+    showModal(false, "", "");
   };
+
+  // REMOVE MODAL
   function remove(event) {
     event.preventDefault();
     showModal(false, "", "");
@@ -44,7 +53,6 @@ const Modal = ({ message, status, errorType, quitGame }) => {
 
       <section className="modal-btns">
         <button onClick={quitGame || remove}>Quit game</button>
-        {/* <button onClick={remove}>Remove</button> */}
         {status === "Failed" ? (
           <button onClick={proceedEvent}>
             {errorType === "nogameerror"
@@ -52,7 +60,9 @@ const Modal = ({ message, status, errorType, quitGame }) => {
               : "Try again"}
           </button>
         ) : (
-          <button onClick={proceedEvent}>Proceed to the next game</button>
+          <button onClick={proceedEvent}>
+            {gameError ? "Proceed to Edit Profile" : "Proceed to the next game"}
+          </button>
         )}
       </section>
     </main>
