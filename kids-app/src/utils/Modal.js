@@ -34,9 +34,13 @@ const Modal = ({ message, status, errorType, quitGame }) => {
         `../dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
       );
     }
-    navigate(
-      `/playgame/${loginToken || isAuthenticated.cookie}/${gameDetails.gameId}`
-    );
+    if (gameDetails.gameId) {
+      navigate(
+        `/playgame/${loginToken || isAuthenticated.cookie}/${
+          gameDetails.gameId
+        }`
+      );
+    }
     showModal(false, "", "");
   };
 
