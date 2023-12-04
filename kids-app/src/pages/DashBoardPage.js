@@ -43,7 +43,7 @@ const DashboardPage = () => {
     // if (isAuthenticated.cookie) {
 
     if (!gameDetails.gameId) {
-      showModal(true, error.msg, error.status, error.erroyType);
+      setGameError(true);
     }
     if (gameDetails.gameId) {
       navigate(
