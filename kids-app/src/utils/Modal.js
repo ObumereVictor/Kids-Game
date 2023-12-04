@@ -18,6 +18,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     getGame();
     if (status === "Failed") {
       console.log(status);
+      console.log(status);
       navigate(
         `/playgame/${loginToken || isAuthenticated.cookie}/${
           gameDetails.gameId
@@ -28,6 +29,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     // getGame();
 
     if (gameError) {
+      console.log({ gameError });
       navigate(
         `../dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
       );
@@ -35,7 +37,6 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     navigate(
       `/playgame/${loginToken || isAuthenticated.cookie}/${gameDetails.gameId}`
     );
-    console.log(gameDetails);
     showModal(false, "", "");
   };
 

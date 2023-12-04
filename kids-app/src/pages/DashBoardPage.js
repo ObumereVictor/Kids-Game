@@ -39,8 +39,6 @@ const DashboardPage = () => {
   const handlePlayGame = async (event) => {
     event.preventDefault();
 
-    console.log({ isAuthenticated, loginToken });
-
     // if (isAuthenticated.cookie) {
 
     if (!gameDetails.gameId) {
