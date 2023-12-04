@@ -27,7 +27,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     }
     // getGame();
 
-    if (!gameDetails.gameId) {
+    if (!gameDetails.gameId || gameError) {
       console.log({ gameError, status, errorType });
       navigate(
         `/dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
