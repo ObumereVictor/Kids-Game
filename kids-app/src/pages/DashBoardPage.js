@@ -45,7 +45,7 @@ const DashboardPage = () => {
     if (!gameDetails.gameId) {
       setGameError(true);
       showModal(true, "No game", "error.status", "error.erroyType");
-      return;
+      // return;
     }
     if (gameDetails.gameId) {
       navigate(
@@ -53,12 +53,12 @@ const DashboardPage = () => {
           gameDetails.gameId
         }`
       );
+      showModal(false, "", "");
     }
     // }
     // if (loginToken) {
     //   navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
     // }
-    showModal(false, "", "");
     getGame();
   };
   return (
