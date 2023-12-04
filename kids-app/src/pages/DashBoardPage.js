@@ -38,7 +38,8 @@ const DashboardPage = () => {
 
     console.log({ isAuthenticated, loginToken });
     if (!gameDetails.gameId) {
-      showModal(true, "No game", "Failec", "nogameerror");
+      console.log("Dashboard");
+      showModal(true, "No game", "Failec", "nogameerrors");
     }
 
     // if (isAuthenticated.cookie) {
