@@ -44,7 +44,8 @@ const DashboardPage = () => {
 
     if (!gameDetails.gameId) {
       setGameError(true);
-      // showModal(true, "No game", "error.status", "error.erroyType");
+      showModal(true, "No game", "error.status", "error.erroyType");
+      return;
     }
     if (gameDetails.gameId) {
       navigate(
