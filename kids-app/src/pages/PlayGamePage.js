@@ -131,6 +131,7 @@ const PlayGamePage = () => {
     // navigate(`../dashboard/${loginToken}`);
     // }
     // if (isAuthenticated.user) {
+    console.log("Hello000");
     navigate(`../dashboard/${isAuthenticated.cookie || loginToken}`);
     // }
   };
