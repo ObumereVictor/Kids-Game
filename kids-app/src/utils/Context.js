@@ -806,9 +806,9 @@ const AppProvider = ({ children }) => {
       setIsLoading(false);
       console.log(error);
       error = error.response.data;
-      // if (gameError) {
-      //   showModal(true, error.msg, error.status, error.erroyType);
-      // }
+      if (error.errorType === "nogameerror") {
+        showModal(true, error.msg, error.status, error.erroyType);
+      }
     }
   };
   return (
