@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 
-const Modal = ({ message, status, errorType }) => {
+const Modal = ({ message, status, errorType, quitGame }) => {
   const { gameDetails, isAuthenticated, showModal, getGame } =
     useGlobalContext();
   const navigate = useNavigate();
@@ -18,10 +18,6 @@ const Modal = ({ message, status, errorType }) => {
     showModal(false, "", "");
   };
 
-  const quitGame = (event) => {
-    event.preventDefault();
-    navigate(`../dashboard/${isAuthenticated.cookie}`);
-  };
   return (
     <main className="modal-page">
       <h2>

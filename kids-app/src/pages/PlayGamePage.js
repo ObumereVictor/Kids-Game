@@ -190,7 +190,7 @@ const PlayGamePage = () => {
       <button onClick={handleGameSubmit} className="submit-game-btn">
         Submit
       </button>
-      {modal.show && <Modal {...modal} />}
+      {modal.show && <Modal quitGame={quitGame} {...modal} />}
     </main>
   );
 };
