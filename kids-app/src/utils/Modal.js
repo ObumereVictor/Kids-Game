@@ -62,7 +62,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
             {/* {errorType === "nogameerror"
               ? "Proceed to Edit Profile"
               : "Try again"} */}
-            {gameError ? "Proceed to change difficulty Profile" : "Try Again"}
+            {gameError ? "Proceed to edit Profile" : "Try Again"}
           </button>
         ) : (
           <button onClick={proceedEvent}>
