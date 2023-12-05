@@ -16,6 +16,7 @@ const PlayGamePage = () => {
     modal,
     showModal,
     setGameError,
+    setGameDetails,
   } = useGlobalContext();
 
   const navigate = useNavigate();
@@ -105,6 +106,11 @@ const PlayGamePage = () => {
       console.log(response);
       if (response.status === 200) {
         showModal(true, response.data.msg, response.data.status);
+        setGameDetails((details) => {
+          details.gameId = null;
+          return details;
+        });
+
         // fetchNextGame(isAuthenticated.cookie, gameDetails.gameId);
       }
 

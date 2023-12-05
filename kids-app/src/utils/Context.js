@@ -853,6 +853,7 @@ const AppProvider = ({ children }) => {
         checkboxRef,
         createGameRef,
         isTermsActive,
+        setGameDetails,
       }}
     >
       {children}
