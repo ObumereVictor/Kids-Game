@@ -15,7 +15,6 @@ const Modal = ({ message, status, errorType, quitGame }) => {
   //  GAME PROCEED EVENTS
   const proceedEvent = (event) => {
     event.preventDefault();
-    getGame();
     // if (status === "Failed") {
     //   console.log(status);
     //   navigate(
@@ -40,6 +39,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
         }`
       );
     }
+    getGame();
     showModal(false, "", "");
   };
 
