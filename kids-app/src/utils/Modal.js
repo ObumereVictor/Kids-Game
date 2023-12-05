@@ -13,9 +13,9 @@ const Modal = ({ message, status, errorType, quitGame }) => {
   } = useGlobalContext();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    getGame();
-  }, []);
+  // useEffect(() => {
+  //   getGame();
+  // }, []);
 
   //  GAME PROCEED EVENTS
   const proceedEvent = (event) => {
