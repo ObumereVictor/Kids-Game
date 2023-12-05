@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 
@@ -11,6 +12,10 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     gameError,
   } = useGlobalContext();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getGame();
+  }, []);
 
   //  GAME PROCEED EVENTS
   const proceedEvent = (event) => {
