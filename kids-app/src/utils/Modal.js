@@ -32,14 +32,15 @@ const Modal = ({ message, status, errorType, quitGame }) => {
         `/dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
       );
     }
+    getGame();
     if (gameDetails.gameId) {
+      console.log(gameDetails.gameId);
       navigate(
         `/playgame/${loginToken || isAuthenticated.cookie}/${
           gameDetails.gameId
         }`
       );
     }
-    getGame();
     showModal(false, "", "");
   };
 
