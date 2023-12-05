@@ -142,6 +142,7 @@ const PlayGamePage = () => {
         <div
           className="spelling-div"
           onDragOver={handleDragOver}
+          onTouchEnd={handleDragOver}
           style={{
             display: "flex",
             // backgroundColor: "red",
@@ -156,6 +157,8 @@ const PlayGamePage = () => {
                 data-gid={index}
                 onDrag={handleDrag}
                 onDrop={handleDrop}
+                onTouchStart={handleDrag}
+                onTouchEnd={handleDrop}
                 draggable="true"
                 key={index}
                 index={index}
