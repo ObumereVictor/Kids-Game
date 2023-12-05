@@ -25,6 +25,7 @@ const Modal = ({ message, status, errorType, quitGame }) => {
     //   showModal(false, "", "");
     // }
     // getGame();
+    getGame();
 
     if (!gameDetails.gameId || gameError) {
       console.log({ gameError, status, errorType });
@@ -32,7 +33,6 @@ const Modal = ({ message, status, errorType, quitGame }) => {
         `/dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
       );
     }
-    getGame();
     if (gameDetails.gameId) {
       console.log(gameDetails.gameId);
       navigate(
