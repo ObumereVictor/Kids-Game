@@ -16,15 +16,15 @@ const Modal = ({ message, status, errorType, quitGame }) => {
   const proceedEvent = (event) => {
     event.preventDefault();
     getGame();
-    if (status === "Failed") {
-      console.log(status);
-      navigate(
-        `/playgame/${loginToken || isAuthenticated.cookie}/${
-          gameDetails.gameId
-        }`
-      );
-      showModal(false, "", "");
-    }
+    // if (status === "Failed") {
+    //   console.log(status);
+    //   navigate(
+    //     `/playgame/${loginToken || isAuthenticated.cookie}/${
+    //       gameDetails.gameId
+    //     }`
+    //   );
+    //   showModal(false, "", "");
+    // }
     // getGame();
 
     if (!gameDetails.gameId || gameError) {
