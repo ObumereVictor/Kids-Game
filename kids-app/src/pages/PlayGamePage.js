@@ -17,6 +17,7 @@ const PlayGamePage = () => {
     showModal,
     setGameError,
     setGameDetails,
+    getGame,
   } = useGlobalContext();
 
   const navigate = useNavigate();
@@ -109,14 +110,14 @@ const PlayGamePage = () => {
 
         // fetchNextGame(isAuthenticated.cookie, gameDetails.gameId);
       }
-
+      getGame();
       setIsLoading(false);
-      setGameDetails((details) => {
-        console.log(details);
-        details.gameId = "";
-        console.log(details);
-        return details;
-      });
+      // setGameDetails((details) => {
+      //   console.log(details);
+      //   details.gameId = "";
+      //   console.log(details);
+      //   return details;
+      // });
     } catch (error) {
       console.log({ error });
       error = error.response.data;
