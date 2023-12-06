@@ -20,7 +20,12 @@ const register = async (request, response) => {
     readterms,
   } = request.body;
 
-  email = email.toLowerCase();
+  email = email.toLowerCase().trim();
+  firstname = firstname.trim();
+  lastname = lastname.trim();
+  password = password.trim();
+  username = username.trim();
+  repassword = repassword.trim();
 
   // NO INPUT FOUND
   if (

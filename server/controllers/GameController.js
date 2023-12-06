@@ -11,7 +11,7 @@ const jwt = require("jsonwebtoken");
 
 const createGame = async (request, response) => {
   let { game, difficulty } = request.body;
-  game = game.toUpperCase();
+  game = game.toUpperCase().trim();
   if (!game) {
     return response
       .status(StatusCodes.BAD_REQUEST)

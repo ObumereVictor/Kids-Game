@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken");
 
 const signIn = async (request, response, next) => {
   let { email, password } = request.body;
-  email = email.toLowerCase();
+  email = email.toLowerCase().trim();
+  password = password.trim();
 
   if (!email || !password) {
     return response.status(StatusCodes.NOT_FOUND).json({
