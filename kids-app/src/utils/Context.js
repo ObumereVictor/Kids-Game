@@ -774,6 +774,12 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       setIsLoading(false);
       console.log(error);
+      setGameDetails((details) => {
+        console.log(details);
+        details.gameId = "";
+        console.log(details);
+        return details;
+      });
       error = error.response.data;
       if (error.errorType === "nogameerror" && gameError) {
         showModal(true, error.msg, error.status, error.erroyType);
