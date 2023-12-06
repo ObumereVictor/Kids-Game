@@ -106,24 +106,17 @@ const PlayGamePage = () => {
       console.log(response);
       if (response.status === 200) {
         showModal(true, response.data.msg, response.data.status);
-        setGameDetails((details) => {
-          console.log(details);
-          details.gameId = "";
-          console.log(details);
-          return details;
-        });
 
         // fetchNextGame(isAuthenticated.cookie, gameDetails.gameId);
       }
 
       setIsLoading(false);
-      if (isAuthenticated.user) {
-        // fetchNextGame(isAuthenticated.cookie, gameDetails.gameId);
-      }
-
-      if (loginToken) {
-        // fetchNextGame(loginToken, gameDetails.gameId);
-      }
+      setGameDetails((details) => {
+        console.log(details);
+        details.gameId = "";
+        console.log(details);
+        return details;
+      });
     } catch (error) {
       console.log({ error });
       error = error.response.data;
