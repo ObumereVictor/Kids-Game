@@ -108,7 +108,8 @@ const PlayGamePage = () => {
         showModal(true, response.data.msg, response.data.status);
         setGameDetails((details) => {
           console.log(details);
-          // details.gameId = null;
+          details.gameId = "";
+          console.log(details);
           return details;
         });
 
