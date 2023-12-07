@@ -50,10 +50,10 @@ const PlayGamePage = () => {
       </main>
     );
   }
-  // btn.addEventListener("dragstart", (event) => {
-  //   event.preventDefault();
-  //   console.log(event);
-  // });
+  btn.current.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+    console.log(event);
+  });
   const handleDrag = (event) => {
     event.preventDefault();
     event.preventDefault();
@@ -156,6 +156,7 @@ const PlayGamePage = () => {
     event.preventDefault();
     event.target.draggable = true;
     alert(event.target);
+    btn.current.draggable = true;
   };
 
   return (
