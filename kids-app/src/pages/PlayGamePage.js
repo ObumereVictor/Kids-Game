@@ -135,6 +135,11 @@ const PlayGamePage = () => {
     setGameError(false);
   };
 
+  const touchStart = (event) => {
+    event.preventDefault();
+    console.log(event);
+  };
+
   return (
     <main className="playgame-page">
       <h2>Game</h2>
@@ -159,7 +164,7 @@ const PlayGamePage = () => {
                 data-gid={index}
                 onDrag={handleDrag}
                 onDrop={handleDrop}
-                onTouchStart={handleDrag}
+                onTouchStart={touchStart}
                 onTouchEnd={handleDrop}
                 draggable="true"
                 key={index}

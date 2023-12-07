@@ -152,6 +152,7 @@ const AppProvider = ({ children }) => {
 
         setGameDetails({ ...response.data });
       } catch (error) {
+        setIsLoading(false);
         console.log(error);
         throw new Error("Sign in");
         setAuthenticated({
