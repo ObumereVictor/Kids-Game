@@ -138,6 +138,12 @@ const PlayGamePage = () => {
   const touchStart = (event) => {
     event.preventDefault();
     console.log(event);
+    // alert(event.target.innerHTML);
+  };
+
+  const touchEnd = (event) => {
+    event.preventDefault();
+    // console.log(event)
     alert(event.target.innerHTML);
   };
 
@@ -166,7 +172,7 @@ const PlayGamePage = () => {
                 onDrag={handleDrag}
                 onDrop={handleDrop}
                 onTouchStart={touchStart}
-                onTouchEnd={handleDrop}
+                onTouchEnd={touchEnd}
                 draggable="true"
                 key={index}
                 index={index}
