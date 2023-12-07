@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useGlobalContext } from "../utils/Context";
 import Loading from "../utils/Loading";
 import axios from "axios";
@@ -31,6 +31,8 @@ const PlayGamePage = () => {
     setGame(gameDetails.game);
   });
   React.useEffect(() => {}, [game]);
+  const btn = useRef(null);
+
   //   useEffect(() => {
   //     // showModal(false, "", "");
   //   }, [modal]);
@@ -48,6 +50,10 @@ const PlayGamePage = () => {
       </main>
     );
   }
+  btn.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+    console.log(event);
+  });
   const handleDrag = (event) => {
     event.preventDefault();
     event.preventDefault();
@@ -188,6 +194,9 @@ const PlayGamePage = () => {
           })}
         </div>
       </section>
+      <button ref={btn} draggable="true">
+        Drag
+      </button>
       <section>
         {gameDetails.answer && (
           <div>
