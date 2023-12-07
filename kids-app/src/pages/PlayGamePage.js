@@ -144,7 +144,11 @@ const PlayGamePage = () => {
   const touchEnd = (event) => {
     event.preventDefault();
     // console.log(event)
-    alert(event.target.innerHTML);
+    // alert(event.target.innerHTML);
+  };
+  const touchMove = (event) => {
+    event.preventDefault();
+    alert(event.target.parentElement);
   };
 
   return (
@@ -156,7 +160,7 @@ const PlayGamePage = () => {
         <div
           className="spelling-div"
           onDragOver={handleDragOver}
-          onTouchEnd={handleDragOver}
+          onTouchMove={touchMove}
           style={{
             display: "flex",
             // backgroundColor: "red",
