@@ -154,7 +154,8 @@ const PlayGamePage = () => {
   };
   const touchMove = (event) => {
     event.preventDefault();
-    alert(event.target.parentElement.className);
+    event.target.draggable = true;
+    alert(event.target);
   };
 
   return (
