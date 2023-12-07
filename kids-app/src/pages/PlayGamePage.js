@@ -138,6 +138,7 @@ const PlayGamePage = () => {
   const touchStart = (event) => {
     event.preventDefault();
     console.log(event);
+    alert(event.target.innerHTML);
   };
 
   return (
