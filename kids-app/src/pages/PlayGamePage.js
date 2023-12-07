@@ -50,10 +50,7 @@ const PlayGamePage = () => {
       </main>
     );
   }
-  btn.current.addEventListener("dragstart", (event) => {
-    event.preventDefault();
-    console.log(event);
-  });
+
   const handleDrag = (event) => {
     event.preventDefault();
     event.preventDefault();
