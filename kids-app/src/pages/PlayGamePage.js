@@ -4,6 +4,7 @@ import Loading from "../utils/Loading";
 import axios from "axios";
 import Modal from "../utils/Modal";
 import { useNavigate } from "react-router-dom";
+import { useDraggable } from "@dnd-kit/core";
 const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 
 const PlayGamePage = () => {
@@ -31,7 +32,7 @@ const PlayGamePage = () => {
     setGame(gameDetails.game);
   });
   React.useEffect(() => {}, [game]);
-  const btn = useRef(null);
+  // const btn = useRef(null);
 
   //   useEffect(() => {
   //     // showModal(false, "", "");
@@ -153,8 +154,12 @@ const PlayGamePage = () => {
     event.preventDefault();
     event.target.draggable = true;
     alert(event.target);
-    btn.current.draggable = true;
+    // btn.current.draggable = true;
   };
+
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: "drag-btn",
+  });
 
   return (
     <main className="playgame-page">
@@ -193,9 +198,16 @@ const PlayGamePage = () => {
           })}
         </div>
       </section>
-      <button ref={btn} draggable="true">
-        Drag
-      </button>
+      <div ref={setNodeRef}>
+        <button
+          id="drag-btn"
+          {...listeners}
+          {...attributes}
+          style={{ touchAction: "none" }}
+        >
+          Drag
+        </button>
+      </div>
       <section>
         {gameDetails.answer && (
           <div>
