@@ -27,6 +27,9 @@ const PlayGamePage = () => {
   const [drag, setDrag] = React.useState();
   const [drop, setDrop] = React.useState();
   const [dragIndex, setDragIndex] = React.useState();
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: "drag-btn",
+  });
 
   useEffect(() => {
     setGame(gameDetails.game);
@@ -156,10 +159,6 @@ const PlayGamePage = () => {
     alert(event.target);
     // btn.current.draggable = true;
   };
-
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: "drag-btn",
-  });
 
   return (
     <main className="playgame-page">
