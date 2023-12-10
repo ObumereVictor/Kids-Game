@@ -167,7 +167,7 @@ const PlayGamePage = () => {
       <h4>Arrange the words to the correct spelling</h4>
       <section>
         <ReactSortable
-          Swap
+          swap
           className="spelling-div"
           onDragOver={handleDragOver}
           onTouchMove={touchMove}
@@ -198,16 +198,11 @@ const PlayGamePage = () => {
           })}
         </ReactSortable>
       </section>
-      <div ref={setNodeRef}>
-        <button
-          id="drag-btn"
-          {...listeners}
-          {...attributes}
-          style={{ touchAction: "none" }}
-        >
+      <ReactSortable swap>
+        <button id="drag-btn" style={{ touchAction: "none" }}>
           Drag
         </button>
-      </div>
+      </ReactSortable>
       <section>
         {gameDetails.answer && (
           <div>
