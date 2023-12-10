@@ -4,8 +4,8 @@ import Loading from "../utils/Loading";
 import axios from "axios";
 import Modal from "../utils/Modal";
 import { useNavigate } from "react-router-dom";
-// import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
-import { ReactSortable, Sortable, MultiDrag, Swap } from "sortablejs";
+import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
+// import { ReactSortable, Sortable, MultiDrag, Swap } from "sortablejs";
 
 const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 
