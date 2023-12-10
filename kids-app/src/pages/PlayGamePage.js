@@ -30,6 +30,13 @@ const PlayGamePage = () => {
   const [drag, setDrag] = React.useState();
   const [drop, setDrop] = React.useState();
   const [dragIndex, setDragIndex] = React.useState();
+  const [dragGame, setDragGame] = React.useState([
+    { id: 1, word: "W" },
+    { id: 2, word: "R" },
+    { id: 3, word: "A" },
+    { id: 4, word: "P" },
+    { id: 5, word: "S" },
+  ]);
 
   useEffect(() => {
     setGame(gameDetails.game);
@@ -199,18 +206,18 @@ const PlayGamePage = () => {
         </div>
       </section>
 
-      <ReactSortable list={game} setList={setGame} swap>
-        {game.map((spelling, index) => {
+      <ReactSortable list={dragGame} setList={setDragGame} swap={true}>
+        {dragGame.map((spelling, index) => {
           return (
             <button
-              data-gid={index}
-              onDrag={handleDrag}
-              onDrop={handleDrop}
-              onTouchStart={touchStart}
-              onTouchEnd={touchEnd}
+              // data-gid={index}
+              // onDrag={handleDrag}
+              // onDrop={handleDrop}
+              // onTouchStart={touchStart}
+              // onTouchEnd={touchEnd}
               draggable="true"
-              key={index}
-              index={index}
+              key={spelling.id}
+              // index={index}
               className="game"
             >
               {spelling}
