@@ -4,9 +4,11 @@ import Loading from "../utils/Loading";
 import axios from "axios";
 import Modal from "../utils/Modal";
 import { useNavigate } from "react-router-dom";
-import { useDraggable } from "@dnd-kit/core";
+import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
+
 const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 
+Sortable.mount(new MultiDrag(), new Swap());
 const PlayGamePage = () => {
   const {
     gameDetails,
@@ -27,9 +29,6 @@ const PlayGamePage = () => {
   const [drag, setDrag] = React.useState();
   const [drop, setDrop] = React.useState();
   const [dragIndex, setDragIndex] = React.useState();
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: "drag-btn",
-  });
 
   useEffect(() => {
     setGame(gameDetails.game);
@@ -166,7 +165,8 @@ const PlayGamePage = () => {
       <i>{gameDetails.username} is currently Playing</i>
       <h4>Arrange the words to the correct spelling</h4>
       <section>
-        <div
+        <ReactSortable
+          Swap
           className="spelling-div"
           onDragOver={handleDragOver}
           onTouchMove={touchMove}
@@ -195,7 +195,7 @@ const PlayGamePage = () => {
               </button>
             );
           })}
-        </div>
+        </ReactSortable>
       </section>
       <div ref={setNodeRef}>
         <button
