@@ -166,8 +166,8 @@ const PlayGamePage = () => {
       <i>{gameDetails.username} is currently Playing</i>
       <h4>Arrange the words to the correct spelling</h4>
       <section>
-        <ReactSortable
-          swap
+        <div
+          // swap
           className="spelling-div"
           onDragOver={handleDragOver}
           onTouchMove={touchMove}
@@ -196,13 +196,29 @@ const PlayGamePage = () => {
               </button>
             );
           })}
-        </ReactSortable>
+        </div>
       </section>
-      <ReactSortable swap>
-        <button id="drag-btn" style={{ touchAction: "none" }}>
-          Drag
-        </button>
+
+      <ReactSortable list={game} setList={setGame} swap>
+        {game.map((spelling, index) => {
+          return (
+            <button
+              data-gid={index}
+              onDrag={handleDrag}
+              onDrop={handleDrop}
+              onTouchStart={touchStart}
+              onTouchEnd={touchEnd}
+              draggable="true"
+              key={index}
+              index={index}
+              className="game"
+            >
+              {spelling}
+            </button>
+          );
+        })}
       </ReactSortable>
+
       <section>
         {gameDetails.answer && (
           <div>
