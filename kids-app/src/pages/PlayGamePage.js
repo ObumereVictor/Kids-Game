@@ -220,7 +220,7 @@ const PlayGamePage = () => {
               // index={index}
               className="game"
             >
-              {spelling}
+              {spelling.word}
             </button>
           );
         })}
