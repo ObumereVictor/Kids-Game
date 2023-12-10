@@ -206,7 +206,13 @@ const PlayGamePage = () => {
         </div>
       </section>
 
-      <ReactSortable list={dragGame} setList={setDragGame} swap={true}>
+      <ReactSortable
+        list={dragGame}
+        setList={setDragGame}
+        swap={true}
+        swapClass="highlight"
+        animation={150}
+      >
         {dragGame.map((spelling, index) => {
           return (
             <button
