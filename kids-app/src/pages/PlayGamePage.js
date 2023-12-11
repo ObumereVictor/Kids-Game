@@ -210,7 +210,7 @@ const PlayGamePage = () => {
         list={dragGame}
         setList={setDragGame}
         swap
-        swapClass="highlight"
+        swapClass={"highlight"}
         animation={150}
         forceFallback={false}
       >
