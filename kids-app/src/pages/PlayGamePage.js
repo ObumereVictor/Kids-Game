@@ -5,13 +5,13 @@ import axios from "axios";
 import Modal from "../utils/Modal";
 import { useNavigate } from "react-router-dom";
 // import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
-import {
-  ReactSortable,
-  Sortable,
-  MultiDrag,
-  Swap,
-} from "sortablejs/modular/sortable.core.esm";
-// import { Sortable, Swap } from "sortablejs/modular/sortable.core.esm";
+// import {
+//   ReactSortable,
+//   Sortable,
+//   MultiDrag,
+//   Swap,
+// } from "sortablejs/modular/sortable.core.esm";
+import { Sortable, Swap } from "sortablejs/modular/sortable.core.esm";
 
 Sortable.mount(new Swap());
 
@@ -214,32 +214,39 @@ const PlayGamePage = () => {
         </div>
       </section>
 
-      <ReactSortable
-        list={dragGame}
-        setList={setDragGame}
-        swap
-        swapClass={"sortable-swap-highlight"}
-        animation={150}
-        forceFallback={false}
-      >
-        {dragGame.map((spelling, index) => {
-          return (
-            <button
-              // data-gid={index}
-              // onDrag={handleDrag}
-              // onDrop={handleDrop}
-              // onTouchStart={touchStart}
-              // onTouchEnd={touchEnd}
-              draggable="true"
-              key={spelling.id}
-              // index={index}
-              className="game"
+      {
+        new Sortable(
+          (
+            <div
+              list={dragGame}
+              setList={setDragGame}
+              // swap
+              swapClass={"sortable-swap-highlight"}
+              // animation={150}
+              // forceFallback={false}
             >
-              {spelling.word}
-            </button>
-          );
-        })}
-      </ReactSortable>
+              {dragGame.map((spelling, index) => {
+                return (
+                  <button
+                    // data-gid={index}
+                    // onDrag={handleDrag}
+                    // onDrop={handleDrop}
+                    // onTouchStart={touchStart}
+                    // onTouchEnd={touchEnd}
+                    draggable="true"
+                    key={spelling.id}
+                    // index={index}
+                    className="game"
+                  >
+                    {spelling.word}
+                  </button>
+                );
+              })}
+            </div>
+          ),
+          { swap: true }
+        )
+      }
 
       <section>
         {gameDetails.answer && (
