@@ -212,7 +212,7 @@ const PlayGamePage = () => {
         swap
         swapClass="highlight"
         animation={150}
-        forceFallback
+        forceFallback={false}
       >
         {dragGame.map((spelling, index) => {
           return (
