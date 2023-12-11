@@ -10,7 +10,7 @@ import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
 const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 
 const PlayGamePage = () => {
-  // Sortable.mount(new MultiDrag(), new Swap());
+  Sortable.mount(new Swap());
   const {
     gameDetails,
     isLoading,
