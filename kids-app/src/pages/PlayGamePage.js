@@ -209,10 +209,10 @@ const PlayGamePage = () => {
       <ReactSortable
         list={dragGame}
         setList={setDragGame}
-        swap:true
+        swap
         swapClass="highlight"
-        animation={"150"}
-        forceFallback:false
+        animation={150}
+        forceFallback
       >
         {dragGame.map((spelling, index) => {
           return (
