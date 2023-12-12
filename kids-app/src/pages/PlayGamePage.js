@@ -62,6 +62,13 @@ const PlayGamePage = () => {
     );
   }
 
+  Sortable.create(
+    document.querySelector(".sort", {
+      swap: true,
+      // swapClass: "highlight",
+      animation: 150,
+    })
+  );
   const handleDrag = (event) => {
     event.preventDefault();
     event.preventDefault();
@@ -207,6 +214,7 @@ const PlayGamePage = () => {
       </section>
 
       <ReactSortable
+        className="sort"
         list={dragGame}
         setList={setDragGame}
         swap
