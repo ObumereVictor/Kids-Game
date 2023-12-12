@@ -4,21 +4,13 @@ import Loading from "../utils/Loading";
 import axios from "axios";
 import Modal from "../utils/Modal";
 import { useNavigate } from "react-router-dom";
-// import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
-// import {
-//   ReactSortable,
-//   Sortable,
-//   MultiDrag,
-//   Swap,
-// } from "sortablejs/modular/sortable.core.esm";
-import { Sortable, Swap } from "sortablejs/modular/sortable.core.esm";
-
-Sortable.mount(new Swap());
+import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
+// import { ReactSortable, Sortable, MultiDrag, Swap } from "sortablejs";
 
 const url = "https://api-kids-spelling-game.onrender.com/api/v1";
 
 const PlayGamePage = () => {
-  // Sortable.mount(new Swap());
+  // Sortable.mount(new MultiDrag(), new Swap());
   const {
     gameDetails,
     isLoading,
@@ -214,39 +206,32 @@ const PlayGamePage = () => {
         </div>
       </section>
 
-      {
-        new Sortable(
-          (
-            <div
-              list={dragGame}
-              setList={setDragGame}
-              // swap
-              swapClass={"sortable-swap-highlight"}
-              // animation={150}
-              // forceFallback={false}
+      <ReactSortable
+        list={dragGame}
+        setList={setDragGame}
+        swap
+        swapClass={"sortable-swap-highlight"}
+        animation={150}
+        forceFallback={false}
+      >
+        {dragGame.map((spelling, index) => {
+          return (
+            <button
+              // data-gid={index}
+              // onDrag={handleDrag}
+              // onDrop={handleDrop}
+              // onTouchStart={touchStart}
+              // onTouchEnd={touchEnd}
+              draggable="true"
+              key={spelling.id}
+              // index={index}
+              className="game"
             >
-              {dragGame.map((spelling, index) => {
-                return (
-                  <button
-                    // data-gid={index}
-                    // onDrag={handleDrag}
-                    // onDrop={handleDrop}
-                    // onTouchStart={touchStart}
-                    // onTouchEnd={touchEnd}
-                    draggable="true"
-                    key={spelling.id}
-                    // index={index}
-                    className="game"
-                  >
-                    {spelling.word}
-                  </button>
-                );
-              })}
-            </div>
-          ),
-          { swap: true }
-        )
-      }
+              {spelling.word}
+            </button>
+          );
+        })}
+      </ReactSortable>
 
       <section>
         {gameDetails.answer && (
