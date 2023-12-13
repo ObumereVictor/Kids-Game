@@ -86,7 +86,8 @@ const gettingGame = async (request, response) => {
     let { _id } = await GameSchema.findOne({ game: currentGame });
     const game = shuffleArray([...currentGame]);
     // console.log(currentGame);
-    const answer = [...currentGame];
+    let answer = [...currentGame];
+    console.log(answer);
 
     return response.status(200).json({
       status: "Success",
