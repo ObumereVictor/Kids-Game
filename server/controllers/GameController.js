@@ -114,7 +114,7 @@ const checkGame = async (request, response) => {
   const { token, gameId } = request.params;
   const currentUser = request.user;
   const userAnswer = request.body.join("");
-  console.log(userAnswer);
+  // console.log(userAnswer);
 
   if (!userAnswer) {
     return response

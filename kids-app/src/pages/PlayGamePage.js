@@ -111,7 +111,7 @@ const PlayGamePage = () => {
   const postGame = async (token, gameId, game) => {
     setIsLoading(true);
     console.log(game);
-    game = game.game;
+    game = game.map((answer) => answer.game);
     console.log(game);
     try {
       const response = await axios.post(
