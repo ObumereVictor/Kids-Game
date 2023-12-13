@@ -88,14 +88,21 @@ const gettingGame = async (request, response) => {
     // console.log(currentGame);
     let answer = [...currentGame];
     answer = answer.map((answer) => answer.game);
-    console.log(answer);
+    if (currentUser.difficulty === "Easy") {
+      return response.status(200).json({
+        status: "Success",
+        msg: "You have a game to play",
+        gameId: _id,
+        game,
+        answer,
+      });
+    }
 
     return response.status(200).json({
       status: "Success",
       msg: "You have a game to play",
       gameId: _id,
       game,
-      answer,
     });
   } catch (error) {
     console.log(error);
