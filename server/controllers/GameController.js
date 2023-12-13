@@ -87,6 +87,7 @@ const gettingGame = async (request, response) => {
     const game = shuffleArray([...currentGame]);
     // console.log(currentGame);
     let answer = [...currentGame];
+    answer = answer.map((answer) => answer.game);
     console.log(answer);
 
     return response.status(200).json({
