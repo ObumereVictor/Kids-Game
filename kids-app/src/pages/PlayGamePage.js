@@ -110,6 +110,7 @@ const PlayGamePage = () => {
   // POST GAME
   const postGame = async (token, gameId, game) => {
     setIsLoading(true);
+    console.log(game);
     game = game.game;
     console.log(game);
     try {

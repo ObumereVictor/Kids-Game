@@ -116,11 +116,17 @@ const checkGame = async (request, response) => {
   const userAnswer = request.body.join("");
   console.log(userAnswer);
 
+  if (!userAnswer) {
+    return response
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ status: "Failed", msg: "Cannot perform this action" });
+  }
+
   const { _id, exp } = jwt.verify(token, process.env.JWT_KEY);
   if (currentUser !== _id) {
     return response
       .status(StatusCodes.BAD_REQUEST)
-      .json({ status: "Failed", msg: "Unable to perform this account" });
+      .json({ status: "Failed", msg: "Unable to perform this action" });
   }
 
   if (Date.now() < exp) {
