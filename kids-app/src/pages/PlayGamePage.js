@@ -98,18 +98,19 @@ const PlayGamePage = () => {
   // HANDLE GAME SUBMIT
   const handleGameSubmit = async (event) => {
     event.preventDefault();
-    if (isAuthenticated.user) {
-      postGame(isAuthenticated.cookie, gameDetails.gameId, game);
-    }
+    // if (isAuthenticated.user) {
+    //   postGame(isAuthenticated.cookie, gameDetails.gameId, game);
+    // }
 
-    if (loginToken) {
-      postGame(loginToken, gameDetails.gameId, game);
-    }
+    // if (loginToken) {
+    postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
+    // }
   };
 
   // POST GAME
   const postGame = async (token, gameId, game) => {
     setIsLoading(true);
+    console.log(game);
     try {
       const response = await axios.post(
         url + `/playgame/${token}/${gameId}`,
