@@ -38,6 +38,10 @@ const createGame = async (request, response) => {
       .status(StatusCodes.NOT_ACCEPTABLE)
       .json({ status: "Failed", msg: "Game is already avaliable" });
   }
+  game = game.map((game, index) => {
+    return { index, game };
+  });
+  console.log(game);
   await GameSchema.create({ game, difficulty });
 
   return response
