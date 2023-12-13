@@ -191,14 +191,14 @@ const PlayGamePage = () => {
             // let { gid, game } = spelling;
             return (
               <button
-                data-gid={index}
+                data-gid={spelling.gid}
                 onDrag={handleDrag}
                 onDrop={handleDrop}
-                onTouchStart={touchStart}
-                onTouchEnd={touchEnd}
+                // onTouchStart={touchStart}
+                // onTouchEnd={touchEnd}
                 draggable="true"
                 key={spelling.gid}
-                index={index}
+                index={spelling.gid}
                 className="game"
               >
                 {spelling.game}
