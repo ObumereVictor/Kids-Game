@@ -187,8 +187,8 @@ const PlayGamePage = () => {
           }}
         >
           {game.map((spelling, index) => {
-            console.log(spelling);
-            let { gid, game } = spelling;
+            // console.log(spelling);
+            let { gid, game: letter } = spelling;
             return (
               <button
                 data-gid={index}
@@ -201,7 +201,7 @@ const PlayGamePage = () => {
                 index={index}
                 className="game"
               >
-                {game}
+                {letter}
               </button>
             );
           })}
