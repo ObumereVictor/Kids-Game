@@ -191,7 +191,7 @@ const PlayGamePage = () => {
           }}
         >
           {game.map((spelling, index) => {
-            console.log(spelling.gid, index);
+            // console.log(spelling.gid, index);
             // let { gid, game } = spelling;
             return (
               <button
