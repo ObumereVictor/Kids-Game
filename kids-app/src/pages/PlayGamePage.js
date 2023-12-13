@@ -67,6 +67,7 @@ const PlayGamePage = () => {
     event.preventDefault();
     const dragging = event.target.innerText;
     const dragIndex = Number(event.target.dataset.gid);
+    console.log({ dragging, dragIndex });
     setDragIndex(dragIndex);
     setDrag(dragging);
   };
@@ -190,7 +191,7 @@ const PlayGamePage = () => {
           }}
         >
           {game.map((spelling, index) => {
-            console.log(spelling);
+            console.log(spelling.gid, index);
             // let { gid, game } = spelling;
             return (
               <button
