@@ -39,11 +39,9 @@ const createGame = async (request, response) => {
       .json({ status: "Failed", msg: "Game is already avaliable" });
   }
   game = [...game];
-  // console.log(game);
   game = game.map((game, index) => {
     return { gid: index, game };
   });
-  // console.log(game);
   await GameSchema.create({ game, difficulty });
 
   return response
@@ -74,6 +72,7 @@ const gettingGame = async (request, response) => {
     console.log({ currentGames });
 
     let currentGame = await currentGames[0];
+    console.log(currentGame);
     // let currentGame = await currentGames.at(0);
 
     if (!currentGame) {
