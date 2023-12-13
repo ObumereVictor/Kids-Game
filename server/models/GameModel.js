@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const GameSchema = mongoose.Schema({
   game: {
-    type: String,
+    type: Object,
   },
   difficulty: {
     type: String,
