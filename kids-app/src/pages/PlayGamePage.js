@@ -188,7 +188,7 @@ const PlayGamePage = () => {
         >
           {game.map((spelling, index) => {
             console.log(spelling);
-            // let { gid, game: letter } = spelling;
+            // let { gid, game } = spelling;
             return (
               <button
                 data-gid={index}
@@ -197,11 +197,11 @@ const PlayGamePage = () => {
                 onTouchStart={touchStart}
                 onTouchEnd={touchEnd}
                 draggable="true"
-                // key={gid}
+                key={spelling.gid}
                 index={index}
                 className="game"
               >
-                {/* {letter} */}
+                {spelling.game}
               </button>
             );
           })}
