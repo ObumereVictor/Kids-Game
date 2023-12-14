@@ -96,6 +96,7 @@ const PlayGamePage = () => {
 
     setGame((oldState) => {
       const newGame = [...oldState];
+      console.log({ newGame });
       return newGame;
     });
     console.log({ game, dropping, drag, gidIndex, dragIndex });
