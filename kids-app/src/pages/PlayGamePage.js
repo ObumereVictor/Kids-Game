@@ -26,7 +26,7 @@ const PlayGamePage = () => {
 
   const navigate = useNavigate();
 
-  const [game, setGame] = React.useState();
+  let [game, setGame] = React.useState();
   const [drag, setDrag] = React.useState();
   const [drop, setDrop] = React.useState();
   const [dragIndex, setDragIndex] = React.useState();
