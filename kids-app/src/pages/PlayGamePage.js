@@ -84,9 +84,11 @@ const PlayGamePage = () => {
     const dropping = event.target.innerText;
     setDrop(dropping);
 
+    console.log(game);
+    game.map((g) => g.game);
     const findDragIndex = game.findIndex((g, index) => index === dragIndex);
     const findDropIndex = game.findIndex((g, index) => index === gidIndex);
-    console.log({ findDropIndex });
+    console.log({ g: game });
     game.splice(findDropIndex, 1, drag);
 
     game.splice(findDragIndex, 1, dropping);
