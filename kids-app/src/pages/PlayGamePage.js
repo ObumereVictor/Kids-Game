@@ -82,10 +82,10 @@ const PlayGamePage = () => {
     const gidIndex = Number(event.target.dataset.gid);
     const dropping = event.target.innerText;
     setDrop(dropping);
-    console.log(game);
+    // console.log(game);
 
-    // game = game.map((g) => g.game);
-    // // // console.log(game);
+    game = game.map((g) => g.game);
+    console.log(game);
     // const findDragIndex = game.findIndex((g, index) => index === dragIndex);
     // const findDropIndex = game.findIndex((g, index) => index === gidIndex);
     // game.splice(findDropIndex, 1, drag);
