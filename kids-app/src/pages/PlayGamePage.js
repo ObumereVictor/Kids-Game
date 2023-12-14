@@ -79,7 +79,6 @@ const PlayGamePage = () => {
 
   const handleDrop = (event) => {
     event.preventDefault();
-    event.preventDefault();
     const gidIndex = Number(event.target.dataset.gid);
     const dropping = event.target.innerText;
     setDrop(dropping);
@@ -88,11 +87,11 @@ const PlayGamePage = () => {
     // console.log(game);
     const findDragIndex = game.findIndex((g, index) => index === dragIndex);
     const findDropIndex = game.findIndex((g, index) => index === gidIndex);
-    // console.log({ g: game });
     game.splice(findDropIndex, 1, drag);
 
     game.splice(findDragIndex, 1, dropping);
-    console.log(game);
+    // console.log(game);
+    console.log({ g: game });
 
     setGame((oldState) => {
       let newGame = [...oldState];
