@@ -84,7 +84,9 @@ const PlayGamePage = () => {
     setDrop(dropping);
     // console.log(game);
 
-    game = game.map((g) => g.game);
+    game = game.map(function (g) {
+      return { gid: g.gid, game: g.game };
+    });
     console.log(game);
     // const findDragIndex = game.findIndex((g, index) => index === dragIndex);
     // const findDropIndex = game.findIndex((g, index) => index === gidIndex);
