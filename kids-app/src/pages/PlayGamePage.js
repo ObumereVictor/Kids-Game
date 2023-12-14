@@ -95,7 +95,7 @@ const PlayGamePage = () => {
       const newGame = [...oldState];
       return newGame;
     });
-    console.log({ game, dropping, dragging, gidIndex, dragIndex });
+    console.log({ game, dropping, drag, gidIndex, dragIndex });
   };
 
   // HANDLE GAME SUBMIT
