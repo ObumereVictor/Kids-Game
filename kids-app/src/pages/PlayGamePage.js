@@ -94,12 +94,12 @@ const PlayGamePage = () => {
     // console.log(game);
     // console.log({ g: game });
 
-    setGame((oldState) => {
-      let newGame = [...oldState];
-      // newGame = newGame.map((g) => [...g.game]);
-      // console.log({ newGame, game });
-      return newGame;
-    });
+    // setGame((oldState) => {
+    //   let newGame = [...oldState];
+    //   // newGame = newGame.map((g) => [...g.game]);
+    //   // console.log({ newGame, game });
+    //   return newGame;
+    // });
     console.log({ game, dropping, drag, gidIndex, dragIndex });
   };
 
