@@ -89,8 +89,8 @@ const PlayGamePage = () => {
     });
     const findDragIndex = game.findIndex((g, index) => index === dragIndex);
     const findDropIndex = game.findIndex((g, index) => index === gidIndex);
+    game.splice(findDropIndex, 1, drag);
     console.log({ game, findDragIndex, findDropIndex });
-    // game.splice(findDropIndex, 1, drag);
 
     // game.splice(findDragIndex, 1, dropping);
     // console.log(game);
