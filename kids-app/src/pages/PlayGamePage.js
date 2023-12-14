@@ -84,7 +84,6 @@ const PlayGamePage = () => {
     const dropping = event.target.innerText;
     setDrop(dropping);
 
-    console.log(game);
     game = game.map((g) => g.game);
     console.log(game);
     const findDragIndex = game.findIndex((g, index) => index === dragIndex);
@@ -93,6 +92,7 @@ const PlayGamePage = () => {
     game.splice(findDropIndex, 1, drag);
 
     game.splice(findDragIndex, 1, dropping);
+    console.log(game);
 
     setGame((oldState) => {
       const newGame = [...oldState];
