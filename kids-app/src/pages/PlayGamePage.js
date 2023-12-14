@@ -190,7 +190,7 @@ const PlayGamePage = () => {
           // swap
           className="spelling-div"
           onDragOver={handleDragOver}
-          onTouchMove={touchMove}
+          // onTouchMove={touchMove}
           style={{
             display: "flex",
             // backgroundColor: "red",
