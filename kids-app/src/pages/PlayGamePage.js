@@ -95,7 +95,8 @@ const PlayGamePage = () => {
     console.log(game);
 
     setGame((oldState) => {
-      const newGame = [...oldState, game];
+      let newGame = [...oldState];
+      newGame = newGame.map((g) => [...g.game]);
       console.log({ newGame });
       return newGame;
     });
