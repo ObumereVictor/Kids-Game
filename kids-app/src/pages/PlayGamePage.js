@@ -67,7 +67,7 @@ const PlayGamePage = () => {
     event.preventDefault();
     const dragging = event.target.innerText;
     const dragIndex = Number(event.target.dataset.gid);
-    console.log({ dragging, dragIndex });
+    // console.log({ dragging, dragIndex });
     setDragIndex(dragIndex);
     setDrag(dragging);
   };
@@ -95,6 +95,7 @@ const PlayGamePage = () => {
       const newGame = [...oldState];
       return newGame;
     });
+    console.log({ game, dropping, dragging, gidIndex, dragIndex });
   };
 
   // HANDLE GAME SUBMIT
