@@ -118,16 +118,16 @@ const PlayGamePage = () => {
     event.preventDefault();
     let gameArray = [];
 
-    game = game.map((g) => [...g.game]);
-    game = gameArray.concat(...game);
+    // game = game.map((g) => [...g.game]);
+    // game = gameArray.concat(...game);
     postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
   };
 
   // POST GAME
   const postGame = async (token, gameId, game) => {
     setIsLoading(true);
-    console.log(game);
-    game = game.map((answer) => answer.game);
+    // console.log(game);
+    // game = game.map((answer) => answer.game);
     console.log(game);
     try {
       const response = await axios.post(
