@@ -61,84 +61,64 @@ const PlayGamePage = () => {
       </main>
     );
   }
+  // const handleDrag = (event) => {
+  //   event.preventDefault();
 
-  // Sortable.create(
-  //   document.querySelector(".sort", {
-  //     swap: true,
-  //     // swapClass: "highlight",
-  //     animation: 150,
-  //   })
-  // );
-  const handleDrag = (event) => {
-    event.preventDefault();
-
-    let dragging = {
-      game: event.target.innerText,
-      gid: Number(event.target.dataset.gid),
-    };
-    console.log(dragging);
-    const dragIndex = Number(event.target.dataset.gid);
-    // console.log({ dragging, dragIndex });
-    setDragIndex(dragIndex);
-    setDrag(dragging);
-  };
+  //   let dragging = {
+  //     game: event.target.innerText,
+  //     gid: Number(event.target.dataset.gid),
+  //   };
+  //   console.log(dragging);
+  //   const dragIndex = Number(event.target.dataset.gid);
+  //   // console.log({ dragging, dragIndex });
+  //   setDragIndex(dragIndex);
+  //   setDrag(dragging);
+  // };
 
   // HANDLE DRAG OVER
-  const handleDragOver = (event) => {
-    event.preventDefault();
-  };
+  // const handleDragOver = (event) => {
+  //   event.preventDefault();
+  // };
 
-  const handleDrop = (event) => {
-    event.preventDefault();
-    const gidIndex = Number(event.target.dataset.gid);
-    setDrag((state) => {
-      state.gid = gidIndex;
-    });
-    let dropping = { game: event.target.innerText, gid: gidIndex };
+  // const handleDrop = (event) => {
+  //   event.preventDefault();
+  //   const gidIndex = Number(event.target.dataset.gid);
+  //   setDrag((state) => {
+  //     state.gid = gidIndex;
+  //   });
+  //   let dropping = { game: event.target.innerText, gid: gidIndex };
 
-    setDrop(dropping);
-    // console.log(game);
+  //   setDrop(dropping);
 
-    game = game.map(function (g) {
-      return { gid: g.gid, game: g.game };
-    });
-    console.log(game);
-    const findDragIndex = game.findIndex(function (g, index) {
-      // console.log(g);
-      return index === dragIndex;
-    });
-    const findDropIndex = game.findIndex(function (g, index) {
-      console.log(g);
-      return index === gidIndex;
-    });
-    game.splice(findDropIndex, 1, drag);
+  //   game = game.map(function (g) {
+  //     return { gid: g.gid, game: g.game };
+  //   });
+  //   console.log(game);
+  //   const findDragIndex = game.findIndex(function (g, index) {
+  //     return index === dragIndex;
+  //   });
+  //   const findDropIndex = game.findIndex(function (g, index) {
+  //     console.log(g);
+  //     return index === gidIndex;
+  //   });
+  //   game.splice(findDropIndex, 1, drag);
 
-    game.splice(findDragIndex, 1, dropping);
-    console.log({ game, findDragIndex, findDropIndex });
-    // console.log(game);
-    // console.log({ g: game });
+  //   game.splice(findDragIndex, 1, dropping);
+  //   console.log({ game, findDragIndex, findDropIndex });
 
-    setGame((oldState) => {
-      let newGame = [...oldState];
-      // newGame = newGame.map((g) => [...g.game]);
-      // console.log(oldState[0].game);
-      return newGame;
-    });
-    // console.log({ game, dropping, drag, gidIndex, dragIndex });
-  };
+  //   setGame((oldState) => {
+  //     let newGame = [...oldState];
+
+  //     return newGame;
+  //   });
+  // };
 
   // HANDLE GAME SUBMIT
   const handleGameSubmit = async (event) => {
     event.preventDefault();
-    // if (isAuthenticated.user) {
-    //   postGame(isAuthenticated.cookie, gameDetails.gameId, game);
-    // }
 
-    // if (loginToken) {
-    // postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
-    // }
-    game = game.map((g) => [...g.game]).join("]");
-    console.log(game);
+    game = game.map((g) => [...g.game]);
+    postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
   };
 
   // POST GAME
@@ -163,12 +143,6 @@ const PlayGamePage = () => {
       }
       getGame();
       setIsLoading(false);
-      // setGameDetails((details) => {
-      //   console.log(details);
-      //   details.gameId = "";
-      //   console.log(details);
-      //   return details;
-      // });
     } catch (error) {
       console.log({ error });
       error = error.response.data;
