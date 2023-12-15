@@ -128,6 +128,8 @@ const PlayGamePage = () => {
     setIsLoading(true);
     // console.log(game);
     // game = game.map((answer) => answer.game);
+    game = game.map((g) => [...g.game]);
+    game = gameArray.concat(...game);
     console.log(game);
     try {
       const response = await axios.post(
