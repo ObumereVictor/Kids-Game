@@ -138,8 +138,8 @@ const checkGame = async (request, response) => {
 
   let findGameArray = [];
   let findGame = await GameSchema.findOne({ _id: gameId });
-  findGame = findGame.game.map((game) => game.game);
-  findGame = findGameArray.concat(...findGame).join(", ");
+  findGame = findGame.game.map((game) => [...game.game]);
+  findGame = findGameArray.concat(...findGame);
   console.log({ findGame, userAnswer });
   return response.status(StatusCodes.OK);
   if (userAnswer !== findGame.game) {
