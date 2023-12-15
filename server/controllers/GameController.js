@@ -72,7 +72,7 @@ const gettingGame = async (request, response) => {
     // console.log({ currentGames });
 
     let currentGame = await currentGames[0];
-    // console.log(currentGame);
+    console.log(currentGame);
     // let currentGame = await currentGames.at(0);
 
     if (!currentGame) {
@@ -141,14 +141,14 @@ const checkGame = async (request, response) => {
   findGame = findGame.game.map((game) => [...game.game]);
   findGame = findGameArray.concat(...findGame).join("");
   console.log({ findGame, userAnswer });
-  return response.status(StatusCodes.OK);
-  if (userAnswer !== findGame.game) {
+  // return response.status(StatusCodes.OK);
+  if (userAnswer !== findGame) {
     return response
       .status(StatusCodes.BAD_REQUEST)
       .json({ status: "Failed", msg: "Did not get the correct spelling" });
   }
   const user = await SignUpSchema.findOne({ _id });
-  user.gamesPlayed.push(findGame.game);
+  user.gamesPlayed.push(findGame);
   await user.save();
   response
     .status(StatusCodes.OK)
