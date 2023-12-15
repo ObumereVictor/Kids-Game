@@ -30,6 +30,13 @@ const PlayGamePage = () => {
   const [drag, setDrag] = React.useState();
   const [drop, setDrop] = React.useState();
   const [dragIndex, setDragIndex] = React.useState();
+  const [dragGame, setDragGame] = React.useState([
+    { id: 0, game: "W" },
+    { id: 1, game: "R" },
+    { id: 2, game: "A" },
+    { id: 3, game: "P" },
+    { id: 4, game: "S" },
+  ]);
 
   useEffect(() => {
     setGame(gameDetails.game);
@@ -200,47 +207,45 @@ const PlayGamePage = () => {
       <h2>Game</h2>
       <i>{gameDetails.username} is currently Playing</i>
       <h4>Arrange the words to the correct spelling</h4>
-      <section>
-        <ReactSortable
-          list={game}
-          setList={setGame}
-          swap
-          swapClass={"sortable-swap-highlight"}
-          animation={150}
-          forceFallback={false}
-          className="spelling-div"
-          onDragOver={handleDragOver}
-          // onTouchMove={touchMove}
-          style={{
-            display: "flex",
-            // backgroundColor: "red",
-            height: "70px",
-            // width: "150px",
-            zIndex: "2",
-          }}
-        >
-          {game.map((spelling, index) => {
-            // console.log(spelling.gid, index);
-            // let { gid, game } = spelling;
-            return (
-              <button
-                // data-gid={index}
-                // onDrag={handleDrag}
-                // onDrop={handleDrop}
-                // onTouchStart={touchStart}
-                // onTouchEnd={touchEnd}
-                draggable="true"
-                key={spelling.gid}
-                index={index}
-                className="game"
-              >
-                {spelling.game}
-              </button>
-            );
-          })}
-        </ReactSortable>
-      </section>
-      {/* 
+      <ReactSortable
+        list={game}
+        setList={setGame}
+        swap
+        swapClass={"sortable-swap-highlight"}
+        // animation={150}
+        // forceFallback={false}
+        className="spelling-div"
+        // onDragOver={handleDragOver}
+        // onTouchMove={touchMove}
+        style={{
+          display: "flex",
+          // backgroundColor: "red",
+          height: "70px",
+          // width: "150px",
+          zIndex: "2",
+        }}
+      >
+        {game.map((spelling, index) => {
+          // console.log(spelling.gid, index);
+          // let { gid, game } = spelling;
+          return (
+            <button
+              // data-gid={index}
+              // onDrag={handleDrag}
+              // onDrop={handleDrop}
+              // onTouchStart={touchStart}
+              // onTouchEnd={touchEnd}
+              draggable="true"
+              key={spelling.gid}
+              // index={index}
+              className="game"
+            >
+              {spelling.game}
+            </button>
+          );
+        })}
+      </ReactSortable>
+
       <ReactSortable
         list={dragGame}
         setList={setDragGame}
@@ -266,7 +271,7 @@ const PlayGamePage = () => {
             </button>
           );
         })}
-      </ReactSortable> */}
+      </ReactSortable>
 
       <section>
         {gameDetails.answer && (
