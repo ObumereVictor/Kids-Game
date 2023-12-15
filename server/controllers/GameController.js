@@ -69,7 +69,7 @@ const gettingGame = async (request, response) => {
       }
       return game;
     });
-    console.log({ currentGames });
+    // console.log({ currentGames });
 
     let currentGame = await currentGames[0];
     // console.log(currentGame);
@@ -138,7 +138,7 @@ const checkGame = async (request, response) => {
 
   const findGame = await GameSchema.findOne({ _id: gameId });
   console.log({ findGame, userAnswer });
-  return;
+  return response.status(StatusCodes.OK);
   if (userAnswer !== findGame.game) {
     return response
       .status(StatusCodes.BAD_REQUEST)
