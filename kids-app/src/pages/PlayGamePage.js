@@ -201,8 +201,13 @@ const PlayGamePage = () => {
       <i>{gameDetails.username} is currently Playing</i>
       <h4>Arrange the words to the correct spelling</h4>
       <section>
-        <div
-          // swap
+        <ReactSortable
+          list={dragGame}
+          setList={setDragGame}
+          swap
+          swapClass={"sortable-swap-highlight"}
+          animation={150}
+          forceFallback={false}
           className="spelling-div"
           onDragOver={handleDragOver}
           // onTouchMove={touchMove}
@@ -233,7 +238,7 @@ const PlayGamePage = () => {
               </button>
             );
           })}
-        </div>
+        </ReactSortable>
       </section>
       {/* 
       <ReactSortable
