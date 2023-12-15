@@ -84,6 +84,9 @@ const PlayGamePage = () => {
   const handleDrop = (event) => {
     event.preventDefault();
     const gidIndex = Number(event.target.dataset.gid);
+    setDrag((state) => {
+      state.gid = gidIndex;
+    });
     let dropping = { game: event.target.innerText, gid: gidIndex };
 
     setDrop(dropping);
