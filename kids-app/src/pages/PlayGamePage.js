@@ -26,7 +26,7 @@ const PlayGamePage = () => {
 
   const navigate = useNavigate();
 
-  let [game, setGame] = React.useState();
+  let [game, setGame] = React.useState(gameDetails.game);
   const [drag, setDrag] = React.useState();
   const [drop, setDrop] = React.useState();
   const [dragIndex, setDragIndex] = React.useState();
@@ -38,10 +38,10 @@ const PlayGamePage = () => {
     { id: 4, game: "S" },
   ]);
 
-  useEffect(() => {
-    setGame(gameDetails.game);
-  });
-  React.useEffect(() => {}, [game]);
+  // useEffect(() => {
+  //   setGame(gameDetails.game);
+  // });
+  // React.useEffect(() => {}, [game]);
   // const btn = useRef(null);
 
   //   useEffect(() => {
