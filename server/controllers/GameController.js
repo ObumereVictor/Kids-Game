@@ -114,8 +114,8 @@ const checkGame = async (request, response) => {
   const { token, gameId } = request.params;
   const currentUser = request.user;
   const userAnswer = request.body.join("");
-  console.log({ userAnswer });
-  return;
+  // console.log({ userAnswer });
+  // return;
 
   if (!userAnswer) {
     return response
@@ -137,8 +137,8 @@ const checkGame = async (request, response) => {
   }
 
   const findGame = await GameSchema.findOne({ _id: gameId });
-  console.log(findGame);
-
+  console.log({ findGame, userAnswer });
+  return;
   if (userAnswer !== findGame.game) {
     return response
       .status(StatusCodes.BAD_REQUEST)

@@ -120,8 +120,7 @@ const PlayGamePage = () => {
 
     game = game.map((g) => [...g.game]);
     game = gameArray.concat(...game);
-    console.log(game);
-    // postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
+    postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
   };
 
   // POST GAME
