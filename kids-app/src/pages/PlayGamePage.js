@@ -64,8 +64,11 @@ const PlayGamePage = () => {
   // );
   const handleDrag = (event) => {
     event.preventDefault();
-    event.preventDefault();
-    const dragging = event.target.innerText;
+
+    let dragging = {
+      game: event.target.innerText,
+      gid: Number(event.target.dataset.gid),
+    };
     const dragIndex = Number(event.target.dataset.gid);
     // console.log({ dragging, dragIndex });
     setDragIndex(dragIndex);
@@ -80,7 +83,8 @@ const PlayGamePage = () => {
   const handleDrop = (event) => {
     event.preventDefault();
     const gidIndex = Number(event.target.dataset.gid);
-    const dropping = event.target.innerText;
+    let dropping = { game: event.target.innerText, gid: gidIndex };
+
     setDrop(dropping);
     // console.log(game);
 
@@ -88,7 +92,10 @@ const PlayGamePage = () => {
       return { gid: g.gid, game: g.game };
     });
     console.log(game);
-    const findDragIndex = game.findIndex((g, index) => index === dragIndex);
+    const findDragIndex = game.findIndex(
+      (g, index) => console.log(g),
+      index === dragIndex
+    );
     const findDropIndex = game.findIndex((g, index) => index === gidIndex);
     game.splice(findDropIndex, 1, drag);
 
