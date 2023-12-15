@@ -267,7 +267,7 @@ const PlayGamePage = () => {
               // index={index}
               className="game"
             >
-              {spelling.word}
+              {spelling.game}
             </button>
           );
         })}
