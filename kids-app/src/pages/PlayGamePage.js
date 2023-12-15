@@ -202,8 +202,8 @@ const PlayGamePage = () => {
       <h4>Arrange the words to the correct spelling</h4>
       <section>
         <ReactSortable
-          list={dragGame}
-          setList={setDragGame}
+          list={game}
+          setList={setGame}
           swap
           swapClass={"sortable-swap-highlight"}
           animation={150}
