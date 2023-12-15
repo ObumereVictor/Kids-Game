@@ -116,7 +116,6 @@ const PlayGamePage = () => {
   // HANDLE GAME SUBMIT
   const handleGameSubmit = async (event) => {
     event.preventDefault();
-    let gameArray = [];
 
     // game = game.map((g) => [...g.game]);
     // game = gameArray.concat(...game);
@@ -126,6 +125,7 @@ const PlayGamePage = () => {
   // POST GAME
   const postGame = async (token, gameId, game) => {
     setIsLoading(true);
+    let gameArray = [];
     // console.log(game);
     // game = game.map((answer) => answer.game);
     game = game.map((g) => [...g.game]);
