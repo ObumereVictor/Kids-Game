@@ -69,6 +69,7 @@ const PlayGamePage = () => {
       game: event.target.innerText,
       gid: Number(event.target.dataset.gid),
     };
+    console.log(dragging);
     const dragIndex = Number(event.target.dataset.gid);
     // console.log({ dragging, dragIndex });
     setDragIndex(dragIndex);
@@ -93,7 +94,7 @@ const PlayGamePage = () => {
     });
     console.log(game);
     const findDragIndex = game.findIndex(function (g, index) {
-      console.log(g);
+      // console.log(g);
       return index === dragIndex;
     });
     const findDropIndex = game.findIndex(function (g, index) {
