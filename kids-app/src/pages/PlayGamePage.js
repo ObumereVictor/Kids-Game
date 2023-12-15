@@ -118,7 +118,7 @@ const PlayGamePage = () => {
     event.preventDefault();
 
     game = game.map((g) => [...g.game]);
-    game = game.concat(game);
+    game = game.concat();
     console.log(game);
     // postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
   };
