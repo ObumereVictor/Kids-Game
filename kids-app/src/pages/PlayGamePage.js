@@ -137,7 +137,7 @@ const PlayGamePage = () => {
     // if (loginToken) {
     // postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
     // }
-    game = game.map((g) => [...g.game]);
+    game = game.map((g) => [...g.game]).join("]");
     console.log(game);
   };
 
