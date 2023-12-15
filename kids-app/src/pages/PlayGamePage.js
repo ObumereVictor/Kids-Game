@@ -224,9 +224,9 @@ const PlayGamePage = () => {
             // let { gid, game } = spelling;
             return (
               <button
-                data-gid={index}
-                onDrag={handleDrag}
-                onDrop={handleDrop}
+                // data-gid={index}
+                // onDrag={handleDrag}
+                // onDrop={handleDrop}
                 // onTouchStart={touchStart}
                 // onTouchEnd={touchEnd}
                 draggable="true"
