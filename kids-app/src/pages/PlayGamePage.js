@@ -135,8 +135,9 @@ const PlayGamePage = () => {
     // }
 
     // if (loginToken) {
-    postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
+    // postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
     // }
+    console.log(game);
   };
 
   // POST GAME
