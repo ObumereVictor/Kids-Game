@@ -211,7 +211,7 @@ const PlayGamePage = () => {
                 // onTouchEnd={touchEnd}
                 draggable="true"
                 key={spelling.gid}
-                index={spelling.gid}
+                index={index}
                 className="game"
               >
                 {spelling.game}
