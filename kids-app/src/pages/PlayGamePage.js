@@ -117,8 +117,11 @@ const PlayGamePage = () => {
   const handleGameSubmit = async (event) => {
     event.preventDefault();
 
-    game = game.map((g) => [...g.game]);
-    postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
+    game = game.map(function (g) {
+      return { ...g.game };
+    });
+    console.log(game);
+    // postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
   };
 
   // POST GAME
