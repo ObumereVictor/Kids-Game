@@ -37,10 +37,12 @@ const createGame = async (request, response) => {
     // game.game.map((g) => {
     //   console.log(g.game);
     // });
-    console.log(game.game);
+    console.log(game);
+    console.log("*****");
 
     // return game.game;
   });
+  console.log("####");
   // console.log(isGameAvaliable);
 
   return;
