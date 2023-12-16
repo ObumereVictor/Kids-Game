@@ -36,7 +36,7 @@ const createGame = async (request, response) => {
     return game.game;
   });
 
-  isGameAvaliable = isGameAvaliable.map((game) => console.log(game.game));
+  isGameAvaliable = isGameAvaliable.map((game) => console.log(game));
 
   // isGameAvaliable = gameArray.concat(...isGameAvaliable).join("");
   console.log(isGameAvaliable);
