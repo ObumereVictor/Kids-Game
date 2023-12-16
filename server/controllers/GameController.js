@@ -59,20 +59,21 @@ const gettingGame = async (request, response) => {
     const userGames = await GameSchema.find({
       difficulty: currentUser.difficulty,
     }).select("game");
-    console.log({ userGames });
+    // console.log({ userGames });
     // console.log(user.gamesPlayed);
     let avaliableGames = userGames.map((games) => {
       return games.game;
     });
-    console.log({ avaliableGames });
+    console.log({ g: avaliableGames.game });
     let currentGames = avaliableGames.filter((game, index) => {
+      console.log({ game });
       if (currentUser.gamesPlayed.includes(game)) {
         return game !== game;
       }
       return game;
     });
 
-    console.log({ currentGames });
+    // console.log({ currentGames });
 
     let currentGame = await currentGames[0];
     // console.log(currentGame);
