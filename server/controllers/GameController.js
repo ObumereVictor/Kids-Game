@@ -31,7 +31,7 @@ const createGame = async (request, response) => {
   }
   checkPermission(currentUser.role, user);
 
-  const isGameAvaliable = await GameSchema.findOne({ game });
+  let isGameAvaliable = await GameSchema.findOne({});
   console.log({ game, isGameAvaliable });
 
   return;
