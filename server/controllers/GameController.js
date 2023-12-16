@@ -44,8 +44,12 @@ const createGame = async (request, response) => {
   // });
   // g = gameArray.concat(g).join("");
 
-  isGameAvaliable.forEach((game) => {
-    console.log(game.game);
+  let g = isGameAvaliable.forEach((game) => {
+    // console.log(game.game);
+    return game.game;
+  });
+  g.map((words) => {
+    console.log(words);
   });
   // if (t === game) {
   //   console.log("Game is available");
