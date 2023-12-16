@@ -31,19 +31,9 @@ const createGame = async (request, response) => {
   }
   checkPermission(currentUser.role, user);
   let gameArray = [];
-  let isGameAvaliable = await GameSchema.find({});
-  isGameAvaliable = isGameAvaliable.map((game) => {
-    return [...game.game];
-  });
+  let games = await GameSchema.find({});
 
-  isGameAvaliable = isGameAvaliable.map((game) => {
-    // console.log(game);
-    // console.log(game.length);
-    return [...game];
-  });
-  // isGameAvaliable = isGameAvaliable.map((game) => console.log(game));
-  // isGameAvaliable = gameArray.concat(...isGameAvaliable).join("");
-  console.log([...isGameAvaliable]);
+  console.log(games);
 
   return;
   if (isGameAvaliable) {
