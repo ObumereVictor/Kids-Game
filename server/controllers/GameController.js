@@ -37,7 +37,7 @@ const createGame = async (request, response) => {
     // game.game.map((g) => {
     //   console.log(g.game);
     // });
-    console.log(game.game.game);
+    console.log(game.game);
 
     // return game.game;
   });
