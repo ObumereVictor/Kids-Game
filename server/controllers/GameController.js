@@ -36,14 +36,14 @@ const createGame = async (request, response) => {
     return [...game.game];
   });
 
-  // isGameAvaliable = isGameAvaliable.map((game) => {
-  //   console.log(game);
-  //   console.log(game.length);
-  //   return game;
-  // });
+  isGameAvaliable = isGameAvaliable.map((game) => {
+    // console.log(game);
+    // console.log(game.length);
+    return [...game];
+  });
   // isGameAvaliable = isGameAvaliable.map((game) => console.log(game));
   // isGameAvaliable = gameArray.concat(...isGameAvaliable).join("");
-  console.log(isGameAvaliable);
+  console.log([...isGameAvaliable]);
 
   return;
   if (isGameAvaliable) {
