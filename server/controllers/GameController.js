@@ -46,7 +46,7 @@ const createGame = async (request, response) => {
     });
     g = gameArray.concat(g).join("");
     console.log("####");
-    console.log(g);
+    console.log([...g]);
     console.log("****");
   }
 
