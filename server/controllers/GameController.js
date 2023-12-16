@@ -38,7 +38,7 @@ const createGame = async (request, response) => {
     return game.game;
   });
 
-  for (let index = 0; index <= games.length; index++) {
+  for (let index = 0; index <= isGameAvaliable.length; index++) {
     console.log("F");
     let g = isGameAvaliable[index].game.map((words) => {
       // console.log(words.game);
