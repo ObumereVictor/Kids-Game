@@ -32,7 +32,9 @@ const createGame = async (request, response) => {
   checkPermission(currentUser.role, user);
 
   const isGameAvaliable = await GameSchema.findOne({ game });
+  console.log({ game, isGameAvaliable });
 
+  return;
   if (isGameAvaliable) {
     return response
       .status(StatusCodes.NOT_ACCEPTABLE)
@@ -53,18 +55,14 @@ const createGame = async (request, response) => {
 const gettingGame = async (request, response) => {
   try {
     const user = request.user;
-    // console.log(user);
     let currentUser = await SignUpSchema.findOne({ _id: user });
 
     currentUser.gamesPlayed.map((game) => [...game]).join("");
 
-    // console.log(currentUser.gamesPlayed);
-
     const userGames = await GameSchema.find({
       difficulty: currentUser.difficulty,
     }).select("game");
-    // console.log({ userGames });
-    // console.log(user.gamesPlayed);
+
     let avaliableGames = userGames.map((games) => {
       return games.game;
     });
@@ -73,19 +71,13 @@ const gettingGame = async (request, response) => {
       let wordsArray = [];
       let words = game.map((game) => [...game.game]);
       words = wordsArray.concat(...words).join("");
-      // console.log(words);
       if (currentUser.gamesPlayed.includes(words)) {
-        console.log({ game });
         return game !== game;
       }
       return game;
     });
 
-    // console.log({ currentGames });
-
     let currentGame = await currentGames[0];
-    console.log({ currentGame });
-    // let currentGame = await currentGames.at(0);
 
     if (!currentGame) {
       return response.status(StatusCodes.NOT_FOUND).json({
@@ -97,7 +89,6 @@ const gettingGame = async (request, response) => {
 
     let { _id } = await GameSchema.findOne({ game: currentGame });
     const game = shuffleArray([...currentGame]);
-    // console.log(currentGame);
     let answer = [...currentGame];
     answer = answer.map((answer) => answer.game);
     if (currentUser.difficulty === "Easy") {
