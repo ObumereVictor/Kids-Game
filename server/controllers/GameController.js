@@ -64,10 +64,14 @@ const gettingGame = async (request, response) => {
     let avaliableGames = userGames.map((games) => {
       return games.game;
     });
-    console.log({ g: avaliableGames.game });
+    console.log({ g: avaliableGames });
     let currentGames = avaliableGames.filter((game, index) => {
-      console.log({ game });
+      let wordsArray = [];
+      let words = game.map((game) => [...game.game]);
+      words = wordsArray.concat(...words).join("");
+
       if (currentUser.gamesPlayed.includes(game)) {
+        console.log({ game, words });
         return game !== game;
       }
       return game;
