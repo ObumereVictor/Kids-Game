@@ -38,10 +38,10 @@ const createGame = async (request, response) => {
   });
 
   const g = isGameAvaliable[0].game.map((words) => {
-    console.log(words.game);
-    return words.gid;
+    // console.log(words.game);
+    return words.game;
   });
-  console.log({ g });
+  console.log(g);
 
   return;
   if (isGameAvaliable) {
