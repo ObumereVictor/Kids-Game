@@ -34,7 +34,7 @@ const createGame = async (request, response) => {
   let games = await GameSchema.find({});
 
   let isGameAvaliable = games.filter((game) => {
-    return game;
+    return game.game;
   });
   console.log(isGameAvaliable);
 
