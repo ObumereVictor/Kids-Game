@@ -31,7 +31,8 @@ const createGame = async (request, response) => {
   }
   checkPermission(currentUser.role, user);
 
-  let isGameAvaliable = await GameSchema.findOne({});
+  let isGameAvaliable = await GameSchema.find({});
+  isGameAvaliable = isGameAvaliable.map((game) => [...game.game]);
   console.log({ game, isGameAvaliable });
 
   return;
@@ -66,11 +67,12 @@ const gettingGame = async (request, response) => {
     let avaliableGames = userGames.map((games) => {
       return games.game;
     });
-    console.log({ g: avaliableGames });
+
     let currentGames = avaliableGames.filter((game, index) => {
       let wordsArray = [];
       let words = game.map((game) => [...game.game]);
       words = wordsArray.concat(...words).join("");
+
       if (currentUser.gamesPlayed.includes(words)) {
         return game !== game;
       }
@@ -91,6 +93,7 @@ const gettingGame = async (request, response) => {
     const game = shuffleArray([...currentGame]);
     let answer = [...currentGame];
     answer = answer.map((answer) => answer.game);
+
     if (currentUser.difficulty === "Easy") {
       return response.status(200).json({
         status: "Success",
