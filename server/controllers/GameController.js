@@ -58,7 +58,7 @@ const gettingGame = async (request, response) => {
 
     currentUser.gamesPlayed.map((game) => [...game]).join("");
 
-    console.log(currentUser.gamesPlayed);
+    // console.log(currentUser.gamesPlayed);
 
     const userGames = await GameSchema.find({
       difficulty: currentUser.difficulty,
@@ -74,7 +74,7 @@ const gettingGame = async (request, response) => {
       let words = game.map((game) => [...game.game]);
       words = wordsArray.concat(...words).join("");
       // console.log(words);
-      if (currentUser.gamesPlayed.includes(game)) {
+      if (currentUser.gamesPlayed.includes(words)) {
         console.log({ game });
         return game !== game;
       }
