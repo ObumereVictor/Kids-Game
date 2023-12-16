@@ -39,7 +39,7 @@ const createGame = async (request, response) => {
   // isGameAvaliable = isGameAvaliable.map((game) => game);
 
   // isGameAvaliable = gameArray.concat(...isGameAvaliable).join("");
-  console.log({ game, g: isGameAvaliable.game[0] });
+  console.log({ game, g: isGameAvaliable.game });
 
   return;
   if (isGameAvaliable) {
