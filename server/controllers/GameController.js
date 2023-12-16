@@ -49,7 +49,7 @@ const createGame = async (request, response) => {
     return game.game;
   });
 
-  let t = g.filter((words) => {
+  let t = g.map((words) => {
     // console.log(words);
     return words.game;
   });
