@@ -48,7 +48,12 @@ const createGame = async (request, response) => {
     // console.log(game.game);
     return game.game;
   });
-  console.log(g);
+
+  let t = g.filter((words) => {
+    console.log(words);
+  });
+  // console.log(g);
+
   // if (t === game) {
   //   console.log("Game is available");
   //   console.log(g);
