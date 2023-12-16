@@ -59,6 +59,7 @@ const gettingGame = async (request, response) => {
     const userGames = await GameSchema.find({
       difficulty: currentUser.difficulty,
     }).select("game");
+    console.log(userGames);
     // console.log(user.gamesPlayed);
     let avaliableGames = userGames.map((games) => {
       return games.game;
@@ -72,7 +73,7 @@ const gettingGame = async (request, response) => {
     // console.log({ currentGames });
 
     let currentGame = await currentGames[0];
-    console.log(currentGame);
+    // console.log(currentGame);
     // let currentGame = await currentGames.at(0);
 
     if (!currentGame) {
