@@ -44,7 +44,7 @@ const createGame = async (request, response) => {
   // });
   // g = gameArray.concat(g).join("");
 
-  let g = isGameAvaliable.forEach((game) => {
+  let g = isGameAvaliable.filter((game) => {
     // console.log(game.game);
     return game.game;
   });
