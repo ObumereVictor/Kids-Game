@@ -69,9 +69,9 @@ const gettingGame = async (request, response) => {
       let wordsArray = [];
       let words = game.map((game) => [...game.game]);
       words = wordsArray.concat(...words).join("");
-
+      console.log(words);
       if (currentUser.gamesPlayed.includes(game)) {
-        console.log({ game, words });
+        console.log({ game });
         return game !== game;
       }
       return game;
