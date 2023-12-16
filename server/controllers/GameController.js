@@ -53,7 +53,10 @@ const createGame = async (request, response) => {
     // console.log(words);
     return words.game;
   });
-  console.log(t);
+  let u = t.map((u) => {
+    console.log(u.game);
+  });
+  // console.log(t);
 
   // if (g === game) {
   //   console.log("Game is available");
