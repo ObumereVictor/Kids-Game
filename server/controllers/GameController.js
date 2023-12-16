@@ -34,18 +34,10 @@ const createGame = async (request, response) => {
   let games = await GameSchema.find({});
 
   let isGameAvaliable = games.filter((game) => {
-    // console.log(game.game);
-    // console.log("*****");
-    game.game.filter((word) => {
-      console.log("!!!!");
-      console.log(word.game);
-      console.log("&&&&&");
-    });
-
-    // return game.game;
+    return game.game;
   });
-  console.log("####");
-  // console.log(isGameAvaliable);
+
+  console.log(isGameAvaliable);
 
   return;
   if (isGameAvaliable) {
