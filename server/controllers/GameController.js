@@ -44,7 +44,9 @@ const createGame = async (request, response) => {
       return words.game;
     });
     g = gameArray.concat(g).join("");
+    console.log("####");
     console.log(g);
+    console.log("****");
   }
 
   // let g = isGameAvaliable.filter((game) => {
