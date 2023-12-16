@@ -37,7 +37,7 @@ const createGame = async (request, response) => {
     return game.game;
   });
 
-  console.log(isGameAvaliable[0]);
+  console.log(isGameAvaliable[0].game);
 
   return;
   if (isGameAvaliable) {
