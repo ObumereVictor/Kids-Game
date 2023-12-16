@@ -46,10 +46,12 @@ const createGame = async (request, response) => {
     });
     g = gameArray.concat(g).join("");
     console.log("####");
-    console.log([...g]);
+    console.log(g);
+    gameArray.push(g);
     console.log("****");
   }
 
+  console.log(gameArray);
   // let g = isGameAvaliable.filter((game) => {
   //   // console.log(game.game);
   //   return game.game;
