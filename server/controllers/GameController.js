@@ -36,6 +36,11 @@ const createGame = async (request, response) => {
   let isGameAvaliable = games.filter((game) => {
     console.log(game.game);
     console.log("*****");
+    game.game.filter((word) => {
+      console.log("!!!!");
+      console.log([...word]);
+      console.log("&&&&&");
+    });
 
     // return game.game;
   });
