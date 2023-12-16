@@ -54,7 +54,7 @@ const createGame = async (request, response) => {
     return words.game;
   });
   let u = t.map((u) => {
-    console.log(u);
+    console.log(u.length);
   });
   // console.log(t);
 
