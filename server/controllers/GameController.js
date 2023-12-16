@@ -53,8 +53,12 @@ const createGame = async (request, response) => {
 const gettingGame = async (request, response) => {
   try {
     const user = request.user;
-    console.log(user);
-    const currentUser = await SignUpSchema.findOne({ _id: user });
+    // console.log(user);
+    let currentUser = await SignUpSchema.findOne({ _id: user });
+
+    currentUser.gamesPlayed.map((game) => [...game]).join("");
+
+    console.log(currentUser.gamesPlayed);
 
     const userGames = await GameSchema.find({
       difficulty: currentUser.difficulty,
@@ -69,7 +73,7 @@ const gettingGame = async (request, response) => {
       let wordsArray = [];
       let words = game.map((game) => [...game.game]);
       words = wordsArray.concat(...words).join("");
-      console.log(words);
+      // console.log(words);
       if (currentUser.gamesPlayed.includes(game)) {
         console.log({ game });
         return game !== game;
@@ -80,7 +84,7 @@ const gettingGame = async (request, response) => {
     // console.log({ currentGames });
 
     let currentGame = await currentGames[0];
-    // console.log(currentGame);
+    console.log({ currentGame });
     // let currentGame = await currentGames.at(0);
 
     if (!currentGame) {
