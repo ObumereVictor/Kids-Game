@@ -50,7 +50,7 @@ const createGame = async (request, response) => {
   });
 
   let t = g.filter((words) => {
-    console.log(words);
+    // console.log(words);
     return words.game;
   });
   console.log(t);
