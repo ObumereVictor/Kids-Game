@@ -45,7 +45,7 @@ const createGame = async (request, response) => {
   // g = gameArray.concat(g).join("");
 
   isGameAvaliable.forEach((game) => {
-    console.log(game);
+    console.log(game.game);
   });
   // if (t === game) {
   //   console.log("Game is available");
