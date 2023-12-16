@@ -38,24 +38,29 @@ const createGame = async (request, response) => {
     return game.game;
   });
 
-  // let g = isGameAvaliable[0].game.map((words) => {
-  //   // console.log(words.game);
+  for (let index = 0; index <= isGameAvaliable.lenght; index++) {
+    let g = isGameAvaliable[index].game.map((words) => {
+      // console.log(words.game);
+      return words.game;
+    });
+    g = gameArray.concat(g).join("");
+    console.log(g);
+  }
+
+  // let g = isGameAvaliable.filter((game) => {
+  //   // console.log(game.game);
+  //   return game.game;
+  // });
+
+  // let t = g.map((words) => {
+  //   // console.log(words);
   //   return words.game;
   // });
-  // g = gameArray.concat(g).join("");
 
-  let g = isGameAvaliable.filter((game) => {
-    // console.log(game.game);
-    return game.game;
-  });
-
-  let t = g.map((words) => {
-    // console.log(words);
-    return words.game;
-  });
-  let u = t.map((u) => {
-    console.log(u.length);
-  });
+  // console.log(t.lenght);
+  // let u = t.map((u) => {
+  //   console.log(u.length);
+  // });
   // console.log(t);
 
   // if (g === game) {
