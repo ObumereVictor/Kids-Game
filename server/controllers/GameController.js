@@ -33,8 +33,10 @@ const createGame = async (request, response) => {
   let gameArray = [];
   let isGameAvaliable = await GameSchema.find({});
   isGameAvaliable = isGameAvaliable.map((game) => {
-    return game;
+    return game.game;
   });
+
+  isGameAvaliable = isGameAvaliable.game.map((game) => game);
 
   // isGameAvaliable = gameArray.concat(...isGameAvaliable).join("");
   console.log({ game, isGameAvaliable });
