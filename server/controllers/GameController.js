@@ -38,7 +38,7 @@ const createGame = async (request, response) => {
     console.log("*****");
     game.game.filter((word) => {
       console.log("!!!!");
-      console.log([...word]);
+      console.log(word);
       console.log("&&&&&");
     });
 
