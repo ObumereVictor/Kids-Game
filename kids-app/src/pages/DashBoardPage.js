@@ -18,21 +18,10 @@ const DashboardPage = () => {
   } = useGlobalContext();
   const navigate = useNavigate();
 
-  // console.log(gameDetails);
-  // useEffect(() => {
-  //   getGame();
-  //   // gettingUser();
-  // }, [gameDetails]);
-
   // CREATE GAME NAV
   const handleCreateGameNav = async (event) => {
     event.preventDefault();
-    // if (isAuthenticated.user) {
     navigate(`/dashboard/create-game/${isAuthenticated.cookie || loginToken}`);
-    // }
-    // if (loginToken) {
-    //   navigate(`/dashboard/create-game/${loginToken}`);
-    // }
   };
 
   // PLAY GAME NAV
@@ -49,7 +38,6 @@ const DashboardPage = () => {
         "Failed",
         "nogameerror"
       );
-      // return;
     }
     if (gameDetails.gameId) {
       navigate(
@@ -59,10 +47,7 @@ const DashboardPage = () => {
       );
       showModal(false, "", "");
     }
-    // }
-    // if (loginToken) {
-    //   navigate(`/playgame/${loginToken}/${gameDetails.gameId}`);
-    // }
+
     getGame();
   };
   return (
@@ -74,12 +59,12 @@ const DashboardPage = () => {
       </p>
 
       {gameDetails.role === "admin" ? (
-        <main>
+        <main className="admin">
           <button onClick={handlePlayGame}>Play Game</button>
           <button onClick={handleCreateGameNav}>Create Game</button>
         </main>
       ) : (
-        <main>
+        <main className="user">
           <button onClick={handlePlayGame}>Play Game</button>
         </main>
       )}

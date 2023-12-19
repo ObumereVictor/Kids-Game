@@ -15,8 +15,8 @@ const {
   gameRouter,
 } = require("./routes");
 
-const originLink = "https://kids-spelling-game.onrender.com";
-// const originLink = "http://localhost:3000";
+const origin = "https://alt-spelling-game.onrender.com";
+// const origin = "http://localhost:3000";
 
 // MIDDLEWARE
 app.use(cookieParser());
@@ -34,11 +34,7 @@ app.use(
 app.use(function (request, response, next) {
   // response.header("Content-Type", "application/json;charset=UTF-8");
   response.header("Access-Control-Allow-Credentials", true);
-  response.header(
-    "Access-Control-Allow-Origin",
-    "https://kids-spelling-game.onrender.com"
-    // "https://kids-game.onrender.com"
-  );
+  response.header("Access-Control-Allow-Origin", origin);
   response.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"

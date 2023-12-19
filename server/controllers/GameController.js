@@ -30,60 +30,26 @@ const createGame = async (request, response) => {
       .json({ status: "Failed", msg: "Cannot perform this action" });
   }
   checkPermission(currentUser.role, user);
-  let gameArray = [];
-  let games = await GameSchema.find({});
+  let games = await GameSchema.find({}).select("game");
 
-  console.log(games.length);
-  let isGameAvaliable = games.filter((game) => {
-    return game.game;
-  });
+  let iterator = games.values();
 
-  for (let index = 0; index <= isGameAvaliable.length; index++) {
-    console.log("F");
-    let g = isGameAvaliable[index].game.map((words) => {
-      // console.log(words.game);
-      return words.game;
-    });
-    g = gameArray.concat(g).join("");
-    console.log("####");
-    console.log(g);
-    gameArray.push(g);
-    console.log("****");
+  for (let values of iterator) {
+    let t = values.game.map((game) => game.game).join("");
+    if (t === game) {
+      console.log("game ");
+      return response
+        .status(StatusCodes.NOT_ACCEPTABLE)
+        .json({ status: "Failed", msg: "Game is already avaliable" });
+    }
   }
 
-  console.log(gameArray);
-  // let g = isGameAvaliable.filter((game) => {
-  //   // console.log(game.game);
-  //   return game.game;
-  // });
-
-  // let t = g.map((words) => {
-  //   // console.log(words);
-  //   return words.game;
-  // });
-
-  // console.log(t.lenght);
-  // let u = t.map((u) => {
-  //   console.log(u.length);
-  // });
-  // console.log(t);
-
-  // if (g === game) {
-  //   console.log("Game is available");
-  //   console.log(g);
-  // }
-
-  return;
-  if (isGameAvaliable) {
-    return response
-      .status(StatusCodes.NOT_ACCEPTABLE)
-      .json({ status: "Failed", msg: "Game is already avaliable" });
-  }
   game = [...game];
   game = game.map((game, index) => {
     return { gid: index, game };
   });
-  await GameSchema.create({ game, difficulty });
+  const newGame = await GameSchema.create({ game, difficulty });
+  // console.log(newGame);
 
   return response
     .status(StatusCodes.CREATED)
@@ -118,6 +84,8 @@ const gettingGame = async (request, response) => {
     });
 
     let currentGame = await currentGames[0];
+    // console.log(currentGame);
+    let gameId;
 
     if (!currentGame) {
       return response.status(StatusCodes.NOT_FOUND).json({
@@ -126,8 +94,17 @@ const gettingGame = async (request, response) => {
         errorType: "nogameerror",
       });
     }
+    let currentGameWord = currentGame.map((g) => g.game).join("");
+    let games = await GameSchema.find({}).select("game");
+    let iterator = games.values();
 
-    let { _id } = await GameSchema.findOne({ game: currentGame });
+    for (let values of iterator) {
+      let game = values.game.map((g) => g.game).join("");
+      if (currentGameWord === game) {
+        gameId = values._id;
+      }
+    }
+
     const game = shuffleArray([...currentGame]);
     let answer = [...currentGame];
     answer = answer.map((answer) => answer.game);
@@ -136,7 +113,7 @@ const gettingGame = async (request, response) => {
       return response.status(200).json({
         status: "Success",
         msg: "You have a game to play",
-        gameId: _id,
+        gameId,
         game,
         answer,
       });
@@ -145,7 +122,7 @@ const gettingGame = async (request, response) => {
     return response.status(200).json({
       status: "Success",
       msg: "You have a game to play",
-      gameId: _id,
+      gameId,
       game,
     });
   } catch (error) {
@@ -182,6 +159,7 @@ const checkGame = async (request, response) => {
 
   let findGameArray = [];
   let findGame = await GameSchema.findOne({ _id: gameId });
+  // console.log(findGame);
   findGame = findGame.game.map((game) => [...game.game]);
   findGame = findGameArray.concat(...findGame).join("");
   console.log({ findGame, userAnswer });
@@ -192,7 +170,7 @@ const checkGame = async (request, response) => {
       .json({ status: "Failed", msg: "Did not get the correct spelling" });
   }
   const user = await SignUpSchema.findOne({ _id });
-  user.gamesPlayed.push(findGame);
+  await user.gamesPlayed.push(findGame);
   await user.save();
   response
     .status(StatusCodes.OK)

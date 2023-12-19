@@ -57,9 +57,9 @@ const Modal = ({ message, status, errorType, quitGame }) => {
 
   return (
     <main className="modal-page">
-      <h2>
+      <h4>
         {gameDetails.username}, {message}
-      </h2>
+      </h4>
 
       <section className="modal-btns">
         <button onClick={quitGame || remove}>Quit game</button>

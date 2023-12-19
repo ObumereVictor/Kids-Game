@@ -5,7 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Alert2 } from "../../utils/Alert";
 
-const url = "https://api-kids-spelling-game.onrender.com/api/v1";
+const url = "https://api-spelling-game.onrender.com/api/v1";
+// const url = "http://localhost:3001/api/v1";
 
 const CompleteProfilePage = () => {
   const {
@@ -28,12 +29,10 @@ const CompleteProfilePage = () => {
 
   // USE EFFECT TO GET USER
   useEffect(() => {
-    if (isAuthenticated.user) {
-      getUser(isAuthenticated.userId, isAuthenticated.cookie);
-    }
-    if (userDetails.verified) {
-      getUser(userDetails.userId, loginToken);
-    }
+    getUser(
+      isAuthenticated.userId || userDetails.userId,
+      isAuthenticated.cookie || loginToken
+    );
   }, []);
 
   // GET USER METHOD
@@ -56,21 +55,16 @@ const CompleteProfilePage = () => {
   // COMPLETE PROFILE SUBMIT
   const handleCompleteProfileSubmit = async (event) => {
     event.preventDefault();
-    // let formData = new FormData();
 
-    // formData.append("difficulty", event.target.elements.difficulty.value);
-
-    if (isAuthenticated.user) {
-      completeProfile(isAuthenticated.userId, isAuthenticated.cookie, event);
-    }
-    if (userDetails.verified) {
-      completeProfile(userDetails.userId, loginToken, event);
-    }
+    completeProfile(
+      userDetails.userId || isAuthenticated.userId,
+      loginToken || isAuthenticated.cookie,
+      event
+    );
   };
 
   // COMPLETE PROFILE METHOD
   const completeProfile = async (userId, token, event) => {
-    console.log(imageUrl);
     try {
       setIsLoading(true);
       const response = await axios.patch(
@@ -85,7 +79,6 @@ const CompleteProfilePage = () => {
       });
       navigate(`/dashboard/${token}`);
       console.log(response);
-      // setIsLoading(false);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -96,12 +89,10 @@ const CompleteProfilePage = () => {
   const handleSkip = async (event) => {
     event.preventDefault();
 
-    if (isAuthenticated.user) {
-      skipProfileComplete(isAuthenticated.userId, isAuthenticated.cookie);
-    }
-    if (userDetails.verified) {
-      skipProfileComplete(userDetails.userId, loginToken);
-    }
+    skipProfileComplete(
+      userDetails.userId || isAuthenticated.userId,
+      loginToken || isAuthenticated.cookie
+    );
   };
 
   // SKIP PROFILE PROFILE
@@ -123,7 +114,7 @@ const CompleteProfilePage = () => {
         {
           headers: {
             "Content-Type":
-              "multipart/form-data boundary=------some-ramdom---characters",
+              "multipart/form-data boundary=------qttp0cNbWTsYJreJevWnSg43qdkpp1ZI",
           },
         }
       );
@@ -152,13 +143,11 @@ const CompleteProfilePage = () => {
       formData.append("profilepic", image);
 
       setIsLoading(true);
-
-      if (isAuthenticated.user) {
-        uploadImage(isAuthenticated.userId, isAuthenticated.cookie, formData);
-      }
-      if (userDetails.verified) {
-        uploadImage(userDetails.userId, loginToken, formData);
-      }
+      uploadImage(
+        userDetails.userId || isAuthenticated.userId,
+        loginToken || isAuthenticated.cookie,
+        formData
+      );
     });
   };
 

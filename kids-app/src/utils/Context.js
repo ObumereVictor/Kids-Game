@@ -6,8 +6,10 @@ import Cookies from "js-cookie";
 import { useCookies } from "react-cookie";
 
 const AppContext = React.createContext();
-const url = "https://api-kids-spelling-game.onrender.com/api/v1";
+const url = "https://api-spelling-game.onrender.com/api/v1";
 // const url = "http://localhost:3001/api/v1";
+const origin = "https://alt-spelling-game.onrender.com/";
+// const origin = "http://localhost:3000/";
 
 const cookie = Cookies.get("login_token");
 
@@ -133,8 +135,7 @@ const AppProvider = ({ children }) => {
         const response = await axios(url + `/dashboard/${cookie}`, {
           withCredentials: true,
           headers: {
-            "Access-Control-Allow-Origin":
-              "https://kids-spelling-game.onrender.com/",
+            "Access-Control-Allow-Origin": origin,
             // "Set-Cookie": `login_token=${cookie};`,
             Authorization: `Bearer ${cookie}`,
           },
@@ -205,8 +206,7 @@ const AppProvider = ({ children }) => {
           location,
         },
         {
-          "Access-Control-Allow-Origin":
-            "https://kids-spelling-game.onrender.com/",
+          "Access-Control-Allow-Origin": origin,
         }
       );
       console.log(response);
@@ -419,15 +419,13 @@ const AppProvider = ({ children }) => {
         {
           withCredentials: true,
           headers: {
-            "Access-Control-Allow-Origin":
-              "https://kids-spelling-game.onrender.com/",
+            "Access-Control-Allow-Origin": origin,
             // Authorization: `Bearer ${cookie}`
           },
         }
       );
       // console.log(response);
       showAlert2(false, "", "");
-
       let loginToken = response.data.token;
       if (loginToken) {
         setCookies("login_token", loginToken, {
@@ -436,6 +434,7 @@ const AppProvider = ({ children }) => {
         });
 
         setLoginToken(loginToken);
+        getGame();
       }
       setIsLoading(false);
       if (response.data.responseType === "verifyAccount") {
@@ -743,9 +742,10 @@ const AppProvider = ({ children }) => {
   };
 
   const [gameError, setGameError] = useState(false);
+  const [gameLoading, setGameLoading] = useState(false);
   // GET GAME
   const getGame = async () => {
-    setIsLoading(true);
+    setGameLoading(true);
     try {
       const response = await axios(
         url +
@@ -755,8 +755,7 @@ const AppProvider = ({ children }) => {
         {
           withCredentials: true,
           headers: {
-            "Allow-Control-Allow-Origin":
-              "https://kids-spelling-game.onrender.com/",
+            "Allow-Control-Allow-Origin": origin,
           },
         }
       );
@@ -771,14 +770,14 @@ const AppProvider = ({ children }) => {
         return details;
       });
 
-      setIsLoading(false);
+      setGameLoading(false);
     } catch (error) {
-      setIsLoading(false);
+      setGameLoading(false);
       console.log(error);
       setGameDetails((details) => {
-        console.log(details);
+        // console.log(details);
         details.gameId = "";
-        console.log(details);
+        // console.log(details);
         return details;
       });
       error = error.response.data;
@@ -792,6 +791,7 @@ const AppProvider = ({ children }) => {
       value={{
         gameError,
         setGameError,
+        gameLoading,
         toggle,
         setToggle,
         showSideBar,

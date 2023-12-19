@@ -97,18 +97,31 @@
 }
 
 /* HOME PAGE CSS */
-.homepage {
+.homepage-bg {
   background-image: url("../../public/img/bg1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 90vh;
-  align-items: center;
+  /* align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden; */
+  width: 100vw;
+  background-color: rgba(166, 157, 157, 0.5);
+}
+.homepage {
+  background-color: rgb(20, 20, 20, 0.4);
+  height: 90vh;
+  width: 100vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
   width: 100vw;
   overflow: hidden;
+  padding-top: 3rem;
 }
 .homepage p,
 .homepage ul li {
@@ -116,7 +129,7 @@
   font-family: var(--font-family-rub);
   text-justify: inter-word;
   text-align: justify;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 24px;
   margin: 0px 40px;
   text-shadow: 0px 0px 5px #3b4250;
@@ -136,13 +149,30 @@
   margin-top: 30px;
 }
 
+.homepage footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-btn {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 700px) {
   .homepage button {
     width: 50%;
   }
   .homepage p,
   .homepage ul li {
-    font-size: 15px;
+    font-size: 20px;
+    line-height: 30px;
   }
 }
 
@@ -170,21 +200,22 @@
   }
 }
 
-.homepage footer {
-  position: fixed;
-  bottom: 0;
-  background-color: #fff;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media screen and (max-height: 500px) {
+  .homepage p,
+  .homepage ul li {
+    font-size: 15px;
+    line-height: 15px;
+  }
+  .homepage footer {
+    font-size: 10px;
+  }
+  .toggle-btn {
+    display: none;
+    font-size: 1rem;
+    cursor: pointer;
+  }
 }
 
-.toggle-btn {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
 /* SIDE BAR CSS */
 .sideBar {
   height: 100vh;
@@ -349,6 +380,14 @@ img {
   border-radius: 20px 20px 0px 0px;
   border-top: 1px solid black;
 }
+.termscon div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 50px;
+}
 /* .termscon.active */
 .termscon h2 {
   font-size: 20px;
@@ -368,6 +407,12 @@ img {
   padding: 3px 5px;
   text-align: center;
   margin-top: 20px;
+  /* position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  /* display: flex; */
+  /* align-items: center; */
 }
 
 .submit-btn {
@@ -382,7 +427,6 @@ img {
 
 .password-ele {
   border-right: 1.5px solid #232d3f;
-
   width: 61.5%;
   display: flex;
   font-size: 15px;
@@ -490,6 +534,22 @@ img {
   }
 }
 
+@media screen and (max-height: 500px) {
+  .sign-up form input {
+    width: 60%;
+    padding: 2px 2px;
+  }
+  .password-ele {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-height: 1024px) {
+  .sign-up form input {
+    padding: 3px 0px;
+  }
+}
+
 /* ALERT STYLING */
 .alert-container {
   height: 90%;
@@ -565,6 +625,84 @@ img {
 .edit-details {
   padding: 4px 10px;
   margin-top: 50px;
+}
+
+@media screen and (min-height: 480px) {
+  .verifyPage h2 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .verifyPage p {
+    font-size: 13px;
+  }
+  .verifyPage span {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .verifyPage h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .verifyPage p {
+    font-size: 23px;
+    text-align: center;
+  }
+  .verifyPage span {
+    font-size: 1.3rem;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 350px) {
+  .verifyPage h2 {
+    font-size: 1.5rem;
+  }
+  .verifyPage p {
+    font-size: 19px;
+  }
+  .verifyPage span {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .verifyPage h2 {
+    font-size: 2.3rem;
+  }
+  .verifyPage p {
+    font-size: 26px;
+  }
+  .verifyPage span {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 270px) {
+  .verifyPage h2 {
+    font-size: 1rem;
+  }
+  .verifyPage p {
+    font-size: 15px;
+  }
+  .verifyPage span {
+    font-size: 0.9rem;
+  }
+  .toggle-btn {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 410px) {
+  .verifyPage h2 {
+    font-size: 1.6rem;
+  }
+  .verifyPage p {
+    font-size: 20px;
+  }
+  .verifyPage span {
+    font-size: 1.3rem;
+  }
 }
 
 /* SIGN IN PAGE STYLING */
@@ -653,7 +791,7 @@ img {
   }
 
   .sign-in-page .password-ele {
-    margin: 0px 10px;
+    /* margin: 0px 10px; */
     width: 83%;
   }
   /* .email-div {
@@ -813,7 +951,7 @@ img {
 .show-img img {
   border-radius: 50%;
   height: 98.5%;
-  border: 2px solid red;
+  border: 2px solid rgb(75, 72, 72);
 }
 
 .upload-img-form,
@@ -862,6 +1000,49 @@ img {
   border-radius: 5px;
 }
 
+@media screen and (min-height: 450px) {
+  .complete-profile p {
+    margin: 0px;
+  }
+  .complete-profile-header {
+    height: 12%;
+  }
+  .show-img {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 350px) {
+  .complete-profile-header h2 {
+    font-size: 2rem;
+  }
+  .complete-profile p {
+    font-size: 18px;
+  }
+  .upload-img-form label {
+    font-size: 18px;
+  }
+  .button-div * {
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .complete-profile-header h2 {
+    font-size: 2.5rem;
+  }
+  .complete-profile p {
+    font-size: 23px;
+  }
+  .upload-img-form label {
+    font-size: 23px;
+  }
+  .button-div * {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+}
+
 /* DASHBOARD PAGE STYLING */
 .dashboard-root {
   height: 100vh;
@@ -876,6 +1057,7 @@ img {
 }
 .dashboard-header h2 {
   font-size: 2rem;
+  font-family: var(--font-family-gab);
 }
 .dashboard-page {
   height: 90vh;
@@ -901,13 +1083,17 @@ img {
   width: 150px;
   align-items: center;
   justify-content: center;
+  height: 10vh;
 }
 
 .display-picture {
   height: 50px;
   width: 50px;
   border-radius: 100%;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dashboard-sidebar {
   display: flex;
@@ -943,6 +1129,12 @@ img {
   color: #fff;
   transition: 2s;
 }
+.admin {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
 @media screen and (max-width: 560px) {
   .profile {
@@ -962,6 +1154,34 @@ img {
 @media screen and (min-width: 750px) {
   .dashboard-page p {
     font-size: 30px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .dashboard-header h2 {
+    font-size: 26px;
+  }
+  .dashboard-page p {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .dashboard-header h2 {
+    font-size: 30px;
+  }
+  .dashboard-page p {
+    font-size: 35px;
+  }
+
+  .admin button,
+  .user button {
+    font-size: 30px;
+    padding: 10px 25px;
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .dashboard-header h2 {
+    font-size: 20px;
   }
 }
 
@@ -1036,26 +1256,55 @@ img {
   /* overflow: visible; */
 }
 
-.game,
-.answer {
-  width: 25px;
-  height: 50px;
-  font-weight: bolder;
-  margin: 20px;
-  font-size: 20px;
+.playgame-page h2 {
+  height: 10vh;
+  align-items: center;
+  display: flex;
+  font-family: var(--font-family-gab);
 }
 
-.submit-game-btn {
+.playgame-page i {
+  font-family: var(--font-family-rub);
+  margin: 20px 0px;
+}
+
+.playgame-page h4 {
+  margin-bottom: 40px;
+}
+.game-div,
+.answer-div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /* background-color: grey; */
+  justify-content: space-evenly;
+}
+.game,
+.answer {
+  display: flex;
+  align-items: center;
+}
+
+.game-btn {
   position: absolute;
   bottom: 150px;
-  padding: 10px 30px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+.game-btn button {
   cursor: pointer;
   font-weight: bold;
+  padding: 10px 30px;
 }
+
 .game {
   position: relative;
   /* height: 60px;
   width: 200px; */
+  font-weight: bold;
+  font-size: 20px;
+  padding: 3px 5px;
   border: none;
   outline: none;
   color: black;
@@ -1064,6 +1313,9 @@ img {
   border-radius: 5px;
   /* font-size: 18px; */
   /* font-family: "Raleway", sans-serif; */
+}
+.answer {
+  padding: 3px 5px;
 }
 .game:before {
   position: absolute;
@@ -1113,6 +1365,27 @@ img {
   }
 }
 
+@media screen and (min-width: 400px) {
+  .playgame-page h2 {
+    font-size: 30px;
+  }
+  .playgame-page i {
+    font-size: 20px;
+  }
+  .playgame-page h4 {
+    font-size: 23px;
+  }
+  .game,
+  .answer {
+    padding: 5px 10px;
+    font-size: 30px;
+  }
+
+  .game-btn button {
+    font-size: 20px;
+  }
+}
+
 /* MODAL STYLING */
 .modal-page {
   height: 100vh;
@@ -1125,8 +1398,12 @@ img {
   display: flex;
   flex-direction: column;
 }
-.modal-page h2 {
+.modal-page h4 {
+  font-family: var(--font-family-rub);
   color: #fff;
+  font-size: 20px;
+  margin: 20px;
+  text-align: center;
 }
 
 .modal-btns {
@@ -1140,6 +1417,15 @@ img {
 .modal-btns button {
   padding: 10px 20px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 750px) {
+  .modal-page h4 {
+    font-size: 25px;
+  }
+  .modal-btns button {
+    font-size: 30px;
+  }
 }
 
 /* CREATE GAME STYLING */

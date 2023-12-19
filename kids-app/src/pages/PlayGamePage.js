@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { ReactSortable, Sortable, MultiDrag, Swap } from "react-sortablejs";
 // import { ReactSortable, Sortable, MultiDrag, Swap } from "sortablejs";
 
-const url = "https://api-kids-spelling-game.onrender.com/api/v1";
+const url = "https://api-spelling-game.onrender.com/api/v1";
+// const url = "http://localhost:3001/api/v1";
 
 const PlayGamePage = () => {
   // Sortable.mount(new MultiDrag(), new Swap());
@@ -22,6 +23,7 @@ const PlayGamePage = () => {
     setGameError,
     setGameDetails,
     getGame,
+    gameLoading,
   } = useGlobalContext();
 
   const navigate = useNavigate();
@@ -30,13 +32,6 @@ const PlayGamePage = () => {
   const [drag, setDrag] = React.useState();
   const [drop, setDrop] = React.useState();
   const [dragIndex, setDragIndex] = React.useState();
-  const [dragGame, setDragGame] = React.useState([
-    { id: 0, game: "W" },
-    { id: 1, game: "R" },
-    { id: 2, game: "A" },
-    { id: 3, game: "P" },
-    { id: 4, game: "S" },
-  ]);
 
   // useEffect(() => {
   //   setGame(gameDetails.game);
@@ -117,8 +112,6 @@ const PlayGamePage = () => {
   const handleGameSubmit = async (event) => {
     event.preventDefault();
 
-    // game = game.map((g) => [...g.game]);
-    // game = gameArray.concat(...game);
     postGame(loginToken || isAuthenticated.cookie, gameDetails.gameId, game);
   };
 
@@ -130,7 +123,6 @@ const PlayGamePage = () => {
     // game = game.map((answer) => answer.game);
     game = game.map((g) => [...g.game]);
     game = gameArray.concat(...game);
-    console.log(game);
     try {
       const response = await axios.post(
         url + `/playgame/${token}/${gameId}`,
@@ -140,12 +132,12 @@ const PlayGamePage = () => {
         }
       );
       console.log(response);
+      getGame();
       if (response.status === 200) {
         showModal(true, response.data.msg, response.data.status);
 
         // fetchNextGame(isAuthenticated.cookie, gameDetails.gameId);
       }
-      getGame();
       setIsLoading(false);
     } catch (error) {
       console.log({ error });
@@ -164,27 +156,11 @@ const PlayGamePage = () => {
     setGameError(false);
   };
 
-  const touchStart = (event) => {
-    event.preventDefault();
-    console.log(event);
-    // alert(event.target.innerHTML);
-  };
-
-  const touchEnd = (event) => {
-    event.preventDefault();
-    // console.log(event)
-    // alert(event.target.innerHTML);
-  };
-  const touchMove = (event) => {
-    event.preventDefault();
-    event.target.draggable = true;
-    alert(event.target);
-    // btn.current.draggable = true;
-  };
-
-  return (
+  return gameLoading ? (
+    <h2>Loadinnggg</h2>
+  ) : (
     <main className="playgame-page">
-      <h2>Game</h2>
+      <h2>Spellng Game</h2>
       <i>{gameDetails.username} is currently Playing</i>
       <h4>Arrange the words to the correct spelling</h4>
       <ReactSortable
@@ -194,27 +170,11 @@ const PlayGamePage = () => {
         swapClass={"sortable-swap-highlight"}
         // animation={150}
         // forceFallback={false}
-        className="spelling-div"
-        // onDragOver={handleDragOver}
-        // onTouchMove={touchMove}
-        style={{
-          display: "flex",
-          // backgroundColor: "red",
-          height: "70px",
-          // width: "150px",
-          zIndex: "2",
-        }}
+        className="game-div"
       >
         {game.map((spelling, index) => {
-          // console.log(spelling.gid, index);
-          // let { gid, game } = spelling;
           return (
             <button
-              // data-gid={index}
-              // onDrag={handleDrag}
-              // onDrop={handleDrop}
-              // onTouchStart={touchStart}
-              // onTouchEnd={touchEnd}
               draggable="true"
               key={spelling.gid}
               // index={index}
@@ -226,36 +186,9 @@ const PlayGamePage = () => {
         })}
       </ReactSortable>
 
-      <ReactSortable
-        list={dragGame}
-        setList={setDragGame}
-        swap
-        swapClass={"sortable-swap-highlight"}
-        animation={150}
-        forceFallback={false}
-      >
-        {dragGame.map((spelling, index) => {
-          return (
-            <button
-              // data-gid={index}
-              // onDrag={handleDrag}
-              // onDrop={handleDrop}
-              // onTouchStart={touchStart}
-              // onTouchEnd={touchEnd}
-              draggable="true"
-              key={spelling.id}
-              // index={index}
-              className="game"
-            >
-              {spelling.game}
-            </button>
-          );
-        })}
-      </ReactSortable>
-
       <section>
         {gameDetails.answer && (
-          <div>
+          <div className="answer-div">
             {gameDetails.answer.map((answer, index) => {
               return (
                 <button className="answer" key={index}>
@@ -266,10 +199,12 @@ const PlayGamePage = () => {
           </div>
         )}
       </section>
-      <button onClick={quitGame}>Quit game</button>
-      <button onClick={handleGameSubmit} className="submit-game-btn">
-        Submit
-      </button>
+      <section className="game-btn">
+        <button onClick={quitGame}>Quit game</button>
+        <button onClick={handleGameSubmit} className="submit-game-btn">
+          Submit
+        </button>
+      </section>
       {modal.show && <Modal quitGame={quitGame} {...modal} />}
     </main>
   );

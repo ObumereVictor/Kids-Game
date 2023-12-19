@@ -218,9 +218,11 @@ const SignUpPage = () => {
           </li>
           <li>Don’t make payment to anyone to make use of this game </li>
         </ul>
-        <button className="agree-btn" onClick={handleTermsAndConditionHide}>
-          I agree
-        </button>
+        <div>
+          <button className="agree-btn" onClick={handleTermsAndConditionHide}>
+            I agree
+          </button>
+        </div>
       </div>
     </main>
   );

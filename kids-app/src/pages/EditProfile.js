@@ -4,7 +4,8 @@ import { useGlobalContext } from "../utils/Context";
 import { Alert2, Alert1 } from "../utils/Alert";
 import Loading from "../utils/Loading";
 import { useNavigate } from "react-router-dom";
-const url = "https://api-kids-spelling-game.onrender.com/api/v1";
+const url = "https://api-spelling-game.onrender.com/api/v1";
+// const url = "http://localhost:3001/api/v1";
 
 const EditProfile = () => {
   const {
