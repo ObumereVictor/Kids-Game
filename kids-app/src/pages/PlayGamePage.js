@@ -157,7 +157,9 @@ const PlayGamePage = () => {
   };
 
   return gameLoading ? (
-    <h2>Loadinnggg</h2>
+    <main className="fetch-loading">
+      <Loading height={"100px"} width={"100px"} type={"spin"} color={"green"} />
+    </main>
   ) : (
     <main className="playgame-page">
       <h2>Spellng Game</h2>
