@@ -179,7 +179,7 @@ const sendVerificationMail = async function (
   uniqueString,
   response
 ) {
-  const currentURL = "https://api-kids-spelling-game.onrender.com";
+  const currentURL = "https://api-spelling-game.onrender.com";
   //  HOTMAIL TRANSPORT
 
   // ETHEREAL TRANSPORT

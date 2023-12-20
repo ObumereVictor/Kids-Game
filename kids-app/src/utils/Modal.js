@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "./Context";
 
-const Modal = ({ message, status, errorType, quitGame }) => {
+const Modal = ({ message, status, errorType, quitGame, proceedEvent }) => {
   const {
     gameDetails,
     isAuthenticated,
@@ -18,36 +18,36 @@ const Modal = ({ message, status, errorType, quitGame }) => {
   // }, []);
 
   //  GAME PROCEED EVENTS
-  const proceedEvent = (event) => {
-    event.preventDefault();
-    // if (status === "Failed") {
-    //   console.log(status);
-    //   navigate(
-    //     `/playgame/${loginToken || isAuthenticated.cookie}/${
-    //       gameDetails.gameId
-    //     }`
-    //   );
-    //   showModal(false, "", "");
-    // }
-    // getGame();
-    getGame();
+  // const proceedEvent = (event) => {
+  //   event.preventDefault();
+  //   // if (status === "Failed") {
+  //   //   console.log(status);
+  //   //   navigate(
+  //   //     `/playgame/${loginToken || isAuthenticated.cookie}/${
+  //   //       gameDetails.gameId
+  //   //     }`
+  //   //   );
+  //   //   showModal(false, "", "");
+  //   // }
+  //   // getGame();
+  //   getGame();
 
-    if (!gameDetails.gameId || gameError) {
-      console.log({ gameError, status, errorType });
-      navigate(
-        `../dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
-      );
-    }
-    if (gameDetails.gameId) {
-      console.log(gameDetails.gameId);
-      navigate(
-        `/playgame/${loginToken || isAuthenticated.cookie}/${
-          gameDetails.gameId
-        }`
-      );
-    }
-    showModal(false, "", "");
-  };
+  //   if (!gameDetails.gameId || gameError) {
+  //     console.log({ gameError, status, errorType });
+  //     navigate(
+  //       `../dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
+  //     );
+  //   }
+  //   if (gameDetails.gameId) {
+  //     console.log(gameDetails.gameId);
+  //     navigate(
+  //       `/playgame/${loginToken || isAuthenticated.cookie}/${
+  //         gameDetails.gameId
+  //       }`
+  //     );
+  //   }
+  //   showModal(false, "", "");
+  // };
 
   // REMOVE MODAL
   function remove(event) {

@@ -50,6 +50,27 @@ const DashboardPage = () => {
 
     getGame();
   };
+
+  const proceedEvent = (event) => {
+    event.preventDefault();
+
+    getGame();
+
+    if (!gameDetails.gameId || gameError) {
+      navigate(
+        `/dashboard/edit-profile/${loginToken || isAuthenticated.cookie}`
+      );
+    }
+    if (gameDetails.gameId) {
+      console.log(gameDetails.gameId);
+      navigate(
+        `/playgame/${loginToken || isAuthenticated.cookie}/${
+          gameDetails.gameId
+        }`
+      );
+    }
+    showModal(false, "", "");
+  };
   return (
     <main className="dashboard-page">
       <p>
@@ -68,7 +89,9 @@ const DashboardPage = () => {
           <button onClick={handlePlayGame}>Play Game</button>
         </main>
       )}
-      {modal.show && <Modal quitGame={quitGame} {...modal} />}
+      {modal.show && (
+        <Modal quitGame={quitGame} proceedEvent={proceedEvent} {...modal} />
+      )}
     </main>
   );
 };

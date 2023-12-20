@@ -1316,6 +1316,7 @@ img {
 }
 .answer {
   padding: 3px 5px;
+  margin-top: 30px;
 }
 .game:before {
   position: absolute;
